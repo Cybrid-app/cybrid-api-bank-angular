@@ -19,11 +19,11 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { CustomerBankModel } from '../model/customer';
+import { PostTradingConfigurationBankModel } from '../model/postTradingConfiguration';
 // @ts-ignore
-import { CustomerListBankModel } from '../model/customerList';
+import { TradingConfigurationBankModel } from '../model/tradingConfiguration';
 // @ts-ignore
-import { PostCustomerBankModel } from '../model/postCustomer';
+import { TradingConfigurationListBankModel } from '../model/tradingConfigurationList';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -34,7 +34,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class CustomersService {
+export class TradingConfigurationsService {
 
     protected basePath = 'https://bank.demo.cybrid.app';
     public defaultHeaders = new HttpHeaders();
@@ -92,18 +92,18 @@ export class CustomersService {
     }
 
     /**
-     * Create Customer
-     * Creates a customer.  ## Customer Type  Customer resources are an abstraction for real world individuals and businesses on the Cybrid Platform and are used throughout the platform to perform high level operations, e.g., create a quote, execute a trade, etc..  Customers can have additional resources attached to them, e.g., identity records, accounts, etc.  At present, Customer\&#39;s can be created with type &#x60;individual&#x60;.    Required scope: **customers:execute**
-     * @param postCustomerBankModel 
+     * Create TradingConfiguration
+     * Creates a trading configuration.  Required scope: **banks:write**
+     * @param postTradingConfigurationBankModel 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createCustomer(postCustomerBankModel: PostCustomerBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<CustomerBankModel>;
-    public createCustomer(postCustomerBankModel: PostCustomerBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<CustomerBankModel>>;
-    public createCustomer(postCustomerBankModel: PostCustomerBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<CustomerBankModel>>;
-    public createCustomer(postCustomerBankModel: PostCustomerBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (postCustomerBankModel === null || postCustomerBankModel === undefined) {
-            throw new Error('Required parameter postCustomerBankModel was null or undefined when calling createCustomer.');
+    public createTradingConfiguration(postTradingConfigurationBankModel: PostTradingConfigurationBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<TradingConfigurationBankModel>;
+    public createTradingConfiguration(postTradingConfigurationBankModel: PostTradingConfigurationBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<TradingConfigurationBankModel>>;
+    public createTradingConfiguration(postTradingConfigurationBankModel: PostTradingConfigurationBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<TradingConfigurationBankModel>>;
+    public createTradingConfiguration(postTradingConfigurationBankModel: PostTradingConfigurationBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (postTradingConfigurationBankModel === null || postTradingConfigurationBankModel === undefined) {
+            throw new Error('Required parameter postTradingConfigurationBankModel was null or undefined when calling createTradingConfiguration.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -159,8 +159,8 @@ export class CustomersService {
             }
         }
 
-        return this.httpClient.post<CustomerBankModel>(`${this.configuration.basePath}/api/customers`,
-            postCustomerBankModel,
+        return this.httpClient.post<TradingConfigurationBankModel>(`${this.configuration.basePath}/api/trading_configurations`,
+            postTradingConfigurationBankModel,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -173,18 +173,18 @@ export class CustomersService {
     }
 
     /**
-     * Get Customer
-     * Retrieves a customer.  Required scope: **customers:read**
-     * @param customerGuid Identifier for the customer.
+     * Get TradingConfiguration
+     * Retrieves a trading configuration.  Required scope: **banks:read**
+     * @param tradingConfigurationGuid Identifier for the trading configuration.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getCustomer(customerGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<CustomerBankModel>;
-    public getCustomer(customerGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<CustomerBankModel>>;
-    public getCustomer(customerGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<CustomerBankModel>>;
-    public getCustomer(customerGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (customerGuid === null || customerGuid === undefined) {
-            throw new Error('Required parameter customerGuid was null or undefined when calling getCustomer.');
+    public getTradingConfiguration(tradingConfigurationGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<TradingConfigurationBankModel>;
+    public getTradingConfiguration(tradingConfigurationGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<TradingConfigurationBankModel>>;
+    public getTradingConfiguration(tradingConfigurationGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<TradingConfigurationBankModel>>;
+    public getTradingConfiguration(tradingConfigurationGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (tradingConfigurationGuid === null || tradingConfigurationGuid === undefined) {
+            throw new Error('Required parameter tradingConfigurationGuid was null or undefined when calling getTradingConfiguration.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -231,7 +231,7 @@ export class CustomersService {
             }
         }
 
-        return this.httpClient.get<CustomerBankModel>(`${this.configuration.basePath}/api/customers/${encodeURIComponent(String(customerGuid))}`,
+        return this.httpClient.get<TradingConfigurationBankModel>(`${this.configuration.basePath}/api/trading_configurations/${encodeURIComponent(String(tradingConfigurationGuid))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -244,17 +244,17 @@ export class CustomersService {
     }
 
     /**
-     * Get customers list
-     * Retrieves a listing of customers.  Required scope: **customers:read**
+     * List trading configurations
+     * Retrieves a listing of trading configurations for a bank.  Required scope: **banks:read**
      * @param page 
      * @param perPage 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listCustomers(page?: number, perPage?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<CustomerListBankModel>;
-    public listCustomers(page?: number, perPage?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<CustomerListBankModel>>;
-    public listCustomers(page?: number, perPage?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<CustomerListBankModel>>;
-    public listCustomers(page?: number, perPage?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public listTradingConfigurations(page?: number, perPage?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<TradingConfigurationListBankModel>;
+    public listTradingConfigurations(page?: number, perPage?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<TradingConfigurationListBankModel>>;
+    public listTradingConfigurations(page?: number, perPage?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<TradingConfigurationListBankModel>>;
+    public listTradingConfigurations(page?: number, perPage?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -310,7 +310,7 @@ export class CustomersService {
             }
         }
 
-        return this.httpClient.get<CustomerListBankModel>(`${this.configuration.basePath}/api/customers`,
+        return this.httpClient.get<TradingConfigurationListBankModel>(`${this.configuration.basePath}/api/trading_configurations`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,

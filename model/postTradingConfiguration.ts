@@ -9,32 +9,17 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { PostFeeBankModel } from './postFee';
 
 
-export interface PostBankBankModel { 
+export interface PostTradingConfigurationBankModel { 
     /**
-     * The bank\'s name.
+     * The asset code.
      */
-    name: string;
+    asset: string;
     /**
-     * The bank\'s type. At present, only **sandbox** is supported.
+     * The fees associated with the configuration
      */
-    type: PostBankBankModel.TypeEnum;
-    /**
-     * The bank\'s enabled features. At present, both **attestation_identity_records** and **backstopped_funding_source** must be set.
-     */
-    features: Array<PostBankBankModel.FeaturesEnum>;
+    fees: Array<PostFeeBankModel>;
 }
-export namespace PostBankBankModel {
-    export type TypeEnum = 'sandbox';
-    export const TypeEnum = {
-        Sandbox: 'sandbox' as TypeEnum
-    };
-    export type FeaturesEnum = 'attestation_identity_records' | 'backstopped_funding_source';
-    export const FeaturesEnum = {
-        AttestationIdentityRecords: 'attestation_identity_records' as FeaturesEnum,
-        BackstoppedFundingSource: 'backstopped_funding_source' as FeaturesEnum
-    };
-}
-
 

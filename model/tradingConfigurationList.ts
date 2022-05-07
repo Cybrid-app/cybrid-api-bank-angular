@@ -9,32 +9,22 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { TradingConfigurationBankModel } from './tradingConfiguration';
 
 
-export interface PostBankBankModel { 
+export interface TradingConfigurationListBankModel { 
     /**
-     * The bank\'s name.
+     * The total number of records available.
      */
-    name: string;
+    total?: number;
     /**
-     * The bank\'s type. At present, only **sandbox** is supported.
+     * The page index to retrieve.
      */
-    type: PostBankBankModel.TypeEnum;
+    page?: number;
     /**
-     * The bank\'s enabled features. At present, both **attestation_identity_records** and **backstopped_funding_source** must be set.
+     * The number of entities per page to return.
      */
-    features: Array<PostBankBankModel.FeaturesEnum>;
+    per_page?: number;
+    objects?: Array<TradingConfigurationBankModel>;
 }
-export namespace PostBankBankModel {
-    export type TypeEnum = 'sandbox';
-    export const TypeEnum = {
-        Sandbox: 'sandbox' as TypeEnum
-    };
-    export type FeaturesEnum = 'attestation_identity_records' | 'backstopped_funding_source';
-    export const FeaturesEnum = {
-        AttestationIdentityRecords: 'attestation_identity_records' as FeaturesEnum,
-        BackstoppedFundingSource: 'backstopped_funding_source' as FeaturesEnum
-    };
-}
-
 

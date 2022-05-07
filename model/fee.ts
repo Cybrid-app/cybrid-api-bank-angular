@@ -11,29 +11,25 @@
  */
 
 
-export interface PostBankBankModel { 
+export interface FeeBankModel { 
     /**
-     * The bank\'s name.
+     * The fee\'s type
      */
-    name: string;
+    type?: FeeBankModel.TypeEnum;
     /**
-     * The bank\'s type. At present, only **sandbox** is supported.
+     * The percentage amount, in basis points, to apply when charging a fee.
      */
-    type: PostBankBankModel.TypeEnum;
+    spread_fee?: number;
     /**
-     * The bank\'s enabled features. At present, both **attestation_identity_records** and **backstopped_funding_source** must be set.
+     * The fixed amount, in the currency of the parent trading configuration, to apply when charging a fee.
      */
-    features: Array<PostBankBankModel.FeaturesEnum>;
+    fixed_fee?: number;
 }
-export namespace PostBankBankModel {
-    export type TypeEnum = 'sandbox';
+export namespace FeeBankModel {
+    export type TypeEnum = 'spread' | 'fixed';
     export const TypeEnum = {
-        Sandbox: 'sandbox' as TypeEnum
-    };
-    export type FeaturesEnum = 'attestation_identity_records' | 'backstopped_funding_source';
-    export const FeaturesEnum = {
-        AttestationIdentityRecords: 'attestation_identity_records' as FeaturesEnum,
-        BackstoppedFundingSource: 'backstopped_funding_source' as FeaturesEnum
+        Spread: 'spread' as TypeEnum,
+        Fixed: 'fixed' as TypeEnum
     };
 }
 
