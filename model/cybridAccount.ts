@@ -11,45 +11,41 @@
  */
 
 
-export interface BankBankModel { 
+export interface CybridAccountBankModel { 
     /**
-     * Auto-generated unique identifier for the bank.
+     * The account type.
      */
-    guid: string;
+    type?: CybridAccountBankModel.TypeEnum;
     /**
-     * The organization\'s identifier.
+     * Auto-generated unique identifier for the account.
      */
-    organization_guid: string;
+    guid?: string;
     /**
-     * The bank\'s name.
+     * ISO8601 datetime the account was created at.
      */
-    name: string;
+    created_at?: string;
     /**
-     * The bank\'s type.
+     * The asset code.
      */
-    type: BankBankModel.TypeEnum;
+    asset_code?: string;
     /**
-     * The bank\'s list of supported fiat assets.
+     * The name of the account.
      */
-    supported_fiat_assets?: Array<string>;
+    name?: string;
     /**
-     * The bank\'s enabled features.
+     * The environment the account is configured for.
      */
-    features: Array<BankBankModel.FeaturesEnum>;
-    /**
-     * ISO8601 datetime the bank was created at.
-     */
-    created_at: string;
+    environment?: CybridAccountBankModel.EnvironmentEnum;
 }
-export namespace BankBankModel {
-    export type TypeEnum = 'sandbox';
+export namespace CybridAccountBankModel {
+    export type TypeEnum = 'fee';
     export const TypeEnum = {
-        Sandbox: 'sandbox' as TypeEnum
+        Fee: 'fee' as TypeEnum
     };
-    export type FeaturesEnum = 'attestation_identity_records' | 'backstopped_funding_source';
-    export const FeaturesEnum = {
-        AttestationIdentityRecords: 'attestation_identity_records' as FeaturesEnum,
-        BackstoppedFundingSource: 'backstopped_funding_source' as FeaturesEnum
+    export type EnvironmentEnum = 'sandbox' | 'production';
+    export const EnvironmentEnum = {
+        Sandbox: 'sandbox' as EnvironmentEnum,
+        Production: 'production' as EnvironmentEnum
     };
 }
 
