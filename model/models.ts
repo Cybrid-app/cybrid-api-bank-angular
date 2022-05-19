@@ -12,6 +12,7 @@ export * from './exchangeAccount';
 export * from './exchange';
 export * from './fee';
 export * from './identityRecord';
+export * from './identityRecordList';
 export * from './postAccount';
 export * from './postBank';
 export * from './postCustomer';

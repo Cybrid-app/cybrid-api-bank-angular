@@ -9,12 +9,22 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { IdentityRecordBankModel } from './identityRecord';
 
 
-export interface PostTradeBankModel { 
+export interface IdentityRecordListBankModel { 
     /**
-     * The associated quote\'s identifier.
+     * The total number of records available.
      */
-    quote_guid: string;
+    total: number;
+    /**
+     * The page index to retrieve.
+     */
+    page: number;
+    /**
+     * The number of entities per page to return.
+     */
+    per_page: number;
+    objects: Array<IdentityRecordBankModel>;
 }
 
