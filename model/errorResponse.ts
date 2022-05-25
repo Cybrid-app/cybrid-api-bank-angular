@@ -11,34 +11,18 @@
  */
 
 
-export interface SystemAccountBankModel { 
+export interface ErrorResponseBankModel { 
     /**
-     * The account type.
+     * Status code for Http Request
      */
-    type?: SystemAccountBankModel.TypeEnum;
+    status: number;
     /**
-     * Auto-generated unique identifier for the account.
+     * Error message
      */
-    guid?: string;
+    error_message: string;
     /**
-     * ISO8601 datetime the account was created at.
+     * Message code for Error
      */
-    created_at?: string;
-    /**
-     * The asset code.
-     */
-    asset_code?: string;
-    /**
-     * The name of the account.
-     */
-    name?: string;
+    message_code: string;
 }
-export namespace SystemAccountBankModel {
-    export type TypeEnum = 'fiat' | 'crypto';
-    export const TypeEnum = {
-        Fiat: 'fiat' as TypeEnum,
-        Crypto: 'crypto' as TypeEnum
-    };
-}
-
 

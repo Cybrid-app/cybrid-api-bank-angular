@@ -8,6 +8,7 @@ export * from './bankList';
 export * from './customer';
 export * from './customerList';
 export * from './cybridAccount';
+export * from './errorResponse';
 export * from './exchangeAccount';
 export * from './exchange';
 export * from './fee';
