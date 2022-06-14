@@ -11,6 +11,7 @@ export * from './cybridAccount';
 export * from './errorResponse';
 export * from './exchangeAccount';
 export * from './exchange';
+export * from './exchangeList';
 export * from './fee';
 export * from './identityRecord';
 export * from './identityRecordList';

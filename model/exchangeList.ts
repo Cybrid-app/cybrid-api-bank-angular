@@ -9,39 +9,25 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { ExchangeBankModel } from './exchange';
 
 
-export interface PostVerificationKeyBankModel { 
+export interface ExchangeListBankModel { 
     /**
-     * The verification key\'s type.
+     * The total number of records available.
      */
-    type: PostVerificationKeyBankModel.TypeEnum;
+    total: number;
     /**
-     * The verification key\'s algorithm.
+     * The page index to retrieve.
      */
-    algorithm: PostVerificationKeyBankModel.AlgorithmEnum;
+    page: number;
     /**
-     * DER encoded public key in Base64 format.
+     * The number of entities per page to return.
      */
-    public_key: string;
+    per_page: number;
     /**
-     * Value signed in the **signature** field.
+     * Array of exchange entities
      */
-    nonce: string;
-    /**
-     * Signature on **nonce** using PKCS1v15 padding and the SHA512 hashing algorithm in Base64 format.
-     */
-    signature: string;
+    objects: Array<ExchangeBankModel>;
 }
-export namespace PostVerificationKeyBankModel {
-    export type TypeEnum = 'attestation';
-    export const TypeEnum = {
-        Attestation: 'attestation' as TypeEnum
-    };
-    export type AlgorithmEnum = 'RS512';
-    export const AlgorithmEnum = {
-        Rs512: 'RS512' as AlgorithmEnum
-    };
-}
-
 
