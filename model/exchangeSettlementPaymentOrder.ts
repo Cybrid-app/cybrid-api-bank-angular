@@ -11,25 +11,73 @@
  */
 
 
-export interface FeeBankModel { 
+export interface ExchangeSettlementPaymentOrderBankModel { 
     /**
-     * The fee\'s type
+     * Auto-generated unique identifier for the exchange settlement payment order.
      */
-    type?: FeeBankModel.TypeEnum;
+    guid?: string;
     /**
-     * The percentage amount, in basis points, to apply when charging a fee.
+     * The identifier of the exchange settlement obligation that this payment is associated with.
      */
-    spread_fee?: number;
+    exchange_settlement_obligation_guid?: string;
     /**
-     * The fixed amount, in the currency of the parent trading configuration, to apply when charging a fee.
+     * The sequence number of the payment order
      */
-    fixed_fee?: number;
+    sequence_number?: number;
+    /**
+     * The amount expected to be received as part of this payment.
+     */
+    payment_amount?: number;
+    /**
+     * The identifier of the internal account that is expected to originate the payment.
+     */
+    internal_account_guid?: string;
+    /**
+     * The type of the internal account that is expected to originate the payment.
+     */
+    internal_account_type?: ExchangeSettlementPaymentOrderBankModel.InternalAccountTypeEnum;
+    /**
+     * The identifier of the external account that is expected to receive the payment.
+     */
+    external_account_guid?: string;
+    /**
+     * The type of the external account that is expected to receive the payment.
+     */
+    external_account_type?: ExchangeSettlementPaymentOrderBankModel.ExternalAccountTypeEnum;
+    /**
+     * The exchange settlement payment order\'s state
+     */
+    state?: ExchangeSettlementPaymentOrderBankModel.StateEnum;
+    /**
+     * ISO8601 datetime the exchange settlement payment order was created at.
+     */
+    created_at?: string;
 }
-export namespace FeeBankModel {
-    export type TypeEnum = 'spread' | 'fixed';
-    export const TypeEnum = {
-        Spread: 'spread' as TypeEnum,
-        Fixed: 'fixed' as TypeEnum
+export namespace ExchangeSettlementPaymentOrderBankModel {
+    export type InternalAccountTypeEnum = 'internal_wallet' | 'internal_bank_account';
+    export const InternalAccountTypeEnum = {
+        Wallet: 'internal_wallet' as InternalAccountTypeEnum,
+        BankAccount: 'internal_bank_account' as InternalAccountTypeEnum
+    };
+    export type ExternalAccountTypeEnum = 'external_wallet' | 'external_bank_account';
+    export const ExternalAccountTypeEnum = {
+        Wallet: 'external_wallet' as ExternalAccountTypeEnum,
+        BankAccount: 'external_bank_account' as ExternalAccountTypeEnum
+    };
+    export type StateEnum = 'storing' | 'pending__created' | 'pending__principal_reserved' | 'pending__transactions_claimed' | 'not_approved' | 'in_progress' | 'not_owing' | 'amount_incorrect' | 'invalid_principal' | 'nsf' | 'sent' | 'rejected';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        PendingCreated: 'pending__created' as StateEnum,
+        PendingPrincipalReserved: 'pending__principal_reserved' as StateEnum,
+        PendingTransactionsClaimed: 'pending__transactions_claimed' as StateEnum,
+        NotApproved: 'not_approved' as StateEnum,
+        InProgress: 'in_progress' as StateEnum,
+        NotOwing: 'not_owing' as StateEnum,
+        AmountIncorrect: 'amount_incorrect' as StateEnum,
+        InvalidPrincipal: 'invalid_principal' as StateEnum,
+        Nsf: 'nsf' as StateEnum,
+        Sent: 'sent' as StateEnum,
+        Rejected: 'rejected' as StateEnum
     };
 }
 

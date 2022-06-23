@@ -11,25 +11,40 @@
  */
 
 
-export interface FeeBankModel { 
+export interface ExchangeSettlementObligationBankModel { 
     /**
-     * The fee\'s type
+     * Auto-generated unique identifier for the exchange settlement obligation.
      */
-    type?: FeeBankModel.TypeEnum;
+    guid?: string;
     /**
-     * The percentage amount, in basis points, to apply when charging a fee.
+     * The identifier of the exchange settlement that corresponds to this obligation.
      */
-    spread_fee?: number;
+    exchange_settlement_guid?: string;
     /**
-     * The fixed amount, in the currency of the parent trading configuration, to apply when charging a fee.
+     * The asset code.
      */
-    fixed_fee?: number;
+    asset?: string;
+    /**
+     * The exchange settlement\'s state
+     */
+    state?: ExchangeSettlementObligationBankModel.StateEnum;
+    /**
+     * The account\'s payable estimate for this obligation.
+     */
+    payable_amount_estimate?: number;
+    /**
+     * The account\'s receivable estimate for this obligation.
+     */
+    receivable_amount_estimate?: number;
 }
-export namespace FeeBankModel {
-    export type TypeEnum = 'spread' | 'fixed';
-    export const TypeEnum = {
-        Spread: 'spread' as TypeEnum,
-        Fixed: 'fixed' as TypeEnum
+export namespace ExchangeSettlementObligationBankModel {
+    export type StateEnum = 'storing' | 'pending__created' | 'pending__approved' | 'failed_creation' | 'trades_completed';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        PendingCreated: 'pending__created' as StateEnum,
+        PendingApproved: 'pending__approved' as StateEnum,
+        FailedCreation: 'failed_creation' as StateEnum,
+        TradesCompleted: 'trades_completed' as StateEnum
     };
 }
 

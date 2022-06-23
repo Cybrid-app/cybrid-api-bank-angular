@@ -11,25 +11,44 @@
  */
 
 
-export interface FeeBankModel { 
+export interface ExchangeSettlementBankModel { 
     /**
-     * The fee\'s type
+     * Auto-generated unique identifier for the exchange settlement.
      */
-    type?: FeeBankModel.TypeEnum;
+    guid?: string;
     /**
-     * The percentage amount, in basis points, to apply when charging a fee.
+     * The identifier of the exchange that corresponds to this settlement.
      */
-    spread_fee?: number;
+    exchange_guid?: string;
     /**
-     * The fixed amount, in the currency of the parent trading configuration, to apply when charging a fee.
+     * The name of the exchange settlement.
      */
-    fixed_fee?: number;
+    name?: string;
+    /**
+     * The exchange settlement\'s set of included trade guids.
+     */
+    trade_guids?: Array<string> | null;
+    /**
+     * The exchange settlement\'s set of obligation guids.
+     */
+    exchange_settlement_obligation_guids?: Array<string> | null;
+    /**
+     * The exchange settlement\'s state
+     */
+    state?: ExchangeSettlementBankModel.StateEnum;
+    /**
+     * ISO8601 datetime the exchange settlement was created at.
+     */
+    created_at?: string;
 }
-export namespace FeeBankModel {
-    export type TypeEnum = 'spread' | 'fixed';
-    export const TypeEnum = {
-        Spread: 'spread' as TypeEnum,
-        Fixed: 'fixed' as TypeEnum
+export namespace ExchangeSettlementBankModel {
+    export type StateEnum = 'storing' | 'pending__created' | 'pending__approved' | 'failed_creation' | 'trades_completed';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        PendingCreated: 'pending__created' as StateEnum,
+        PendingApproved: 'pending__approved' as StateEnum,
+        FailedCreation: 'failed_creation' as StateEnum,
+        TradesCompleted: 'trades_completed' as StateEnum
     };
 }
 

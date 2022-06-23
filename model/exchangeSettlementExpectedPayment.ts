@@ -11,25 +11,57 @@
  */
 
 
-export interface FeeBankModel { 
+export interface ExchangeSettlementExpectedPaymentBankModel { 
     /**
-     * The fee\'s type
+     * Auto-generated unique identifier for the exchange settlement expected payment.
      */
-    type?: FeeBankModel.TypeEnum;
+    guid?: string;
     /**
-     * The percentage amount, in basis points, to apply when charging a fee.
+     * The identifier of the exchange settlement obligation that this payment is associated with.
      */
-    spread_fee?: number;
+    exchange_settlement_obligation_guid?: string;
     /**
-     * The fixed amount, in the currency of the parent trading configuration, to apply when charging a fee.
+     * The sequence number of the expected payment
      */
-    fixed_fee?: number;
+    sequence_number?: number;
+    /**
+     * The amount expected to be received as part of this payment.
+     */
+    payment_amount?: number;
+    /**
+     * The identifier of the internal account that is expected to originate the payment.
+     */
+    internal_account_guid?: string;
+    /**
+     * The type of the internal account that is expected to originate the payment.
+     */
+    internal_account_type?: ExchangeSettlementExpectedPaymentBankModel.InternalAccountTypeEnum;
+    /**
+     * The exchange settlement expected payment\'s state
+     */
+    state?: ExchangeSettlementExpectedPaymentBankModel.StateEnum;
+    /**
+     * ISO8601 datetime the exchange settlement expected payment was created at.
+     */
+    created_at?: string;
 }
-export namespace FeeBankModel {
-    export type TypeEnum = 'spread' | 'fixed';
-    export const TypeEnum = {
-        Spread: 'spread' as TypeEnum,
-        Fixed: 'fixed' as TypeEnum
+export namespace ExchangeSettlementExpectedPaymentBankModel {
+    export type InternalAccountTypeEnum = 'internal_wallet' | 'internal_bank_account';
+    export const InternalAccountTypeEnum = {
+        Wallet: 'internal_wallet' as InternalAccountTypeEnum,
+        BankAccount: 'internal_bank_account' as InternalAccountTypeEnum
+    };
+    export type StateEnum = 'storing' | 'pending__created' | 'pending__transactions_claimed' | 'not_approved' | 'in_progress' | 'not_owed' | 'amount_incorrect' | 'cancelled' | 'received';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        PendingCreated: 'pending__created' as StateEnum,
+        PendingTransactionsClaimed: 'pending__transactions_claimed' as StateEnum,
+        NotApproved: 'not_approved' as StateEnum,
+        InProgress: 'in_progress' as StateEnum,
+        NotOwed: 'not_owed' as StateEnum,
+        AmountIncorrect: 'amount_incorrect' as StateEnum,
+        Cancelled: 'cancelled' as StateEnum,
+        Received: 'received' as StateEnum
     };
 }
 
