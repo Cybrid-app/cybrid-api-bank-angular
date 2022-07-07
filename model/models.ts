@@ -19,6 +19,7 @@ export * from './exchangeSettlementPaymentOrder';
 export * from './fee';
 export * from './identityRecord';
 export * from './identityRecordList';
+export * from './patchBank';
 export * from './postAccount';
 export * from './postBank';
 export * from './postCustomer';

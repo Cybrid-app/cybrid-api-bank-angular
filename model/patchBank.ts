@@ -9,22 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { QuoteBankModel } from './quote';
 
 
-export interface QuoteListBankModel { 
+export interface PatchBankBankModel { 
     /**
-     * The total number of records available.
+     * The bank\'s name.
      */
-    total: number;
+    name?: string;
     /**
-     * The page index to retrieve.
+     * The bank\'s list of supported trading symbols.
      */
-    page: number;
-    /**
-     * The number of entities per page to return.
-     */
-    per_page: number;
-    objects: Array<QuoteBankModel>;
+    supported_trading_symbols?: Array<string>;
 }
 
