@@ -9,22 +9,60 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CustomerBankModel } from './customer';
 
 
-export interface CustomerListBankModel { 
+export interface RewardBankModel { 
     /**
-     * The total number of records available.
+     * Auto-generated unique identifier for the reward.
      */
-    total: string;
+    guid?: string;
     /**
-     * The page index to retrieve.
+     * The associated customer\'s identifier.
      */
-    page: string;
+    customer_guid?: string;
     /**
-     * The number of entities per page to return.
+     * The associated quote\'s identifier.
      */
-    per_page: string;
-    objects: Array<CustomerBankModel>;
+    quote_guid?: string;
+    /**
+     * The associated trade\'s identifier.
+     */
+    trade_guid?: string;
+    /**
+     * The trade symbol the pricing is related to. Format is asset-counter_asset, e.g., BTC-USD.
+     */
+    symbol?: string;
+    /**
+     * The trade\'s state
+     */
+    state?: RewardBankModel.StateEnum;
+    /**
+     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell.
+     */
+    receive_amount?: string;
+    /**
+     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell.
+     */
+    deliver_amount?: string;
+    /**
+     * The fee associated with the trade. Denominated in \"counter_asset\" base units
+     */
+    fee?: string;
+    /**
+     * ISO8601 datetime the bank was created at.
+     */
+    created_at?: string;
 }
+export namespace RewardBankModel {
+    export type StateEnum = 'storing' | 'initiating' | 'pending' | 'settling' | 'completed' | 'failed';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        Initiating: 'initiating' as StateEnum,
+        Pending: 'pending' as StateEnum,
+        Settling: 'settling' as StateEnum,
+        Completed: 'completed' as StateEnum,
+        Failed: 'failed' as StateEnum
+    };
+}
+
 

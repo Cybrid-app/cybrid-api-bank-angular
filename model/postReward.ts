@@ -9,22 +9,24 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CustomerBankModel } from './customer';
 
 
-export interface CustomerListBankModel { 
+export interface PostRewardBankModel { 
     /**
-     * The total number of records available.
+     * The unique identifier for the customer.
      */
-    total: string;
+    customer_guid: string;
     /**
-     * The page index to retrieve.
+     * Symbol the quote is being requested for. Format is \"asset-counter_asset\" in uppercase. See the Symbols API for a complete list of cryptocurrencies supported.
      */
-    page: string;
+    symbol: string;
     /**
-     * The number of entities per page to return.
+     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell.
      */
-    per_page: string;
-    objects: Array<CustomerBankModel>;
+    receive_amount?: string;
+    /**
+     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell.
+     */
+    deliver_amount?: string;
 }
 
