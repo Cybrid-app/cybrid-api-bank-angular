@@ -6,13 +6,13 @@ import { AccountsService } from './api/accounts.service';
 import { AssetsService } from './api/assets.service';
 import { BanksService } from './api/banks.service';
 import { CustomersService } from './api/customers.service';
+import { FeeConfigurationsService } from './api/feeConfigurations.service';
 import { IdentityRecordsService } from './api/identityRecords.service';
 import { PricesService } from './api/prices.service';
 import { QuotesService } from './api/quotes.service';
 import { RewardsService } from './api/rewards.service';
 import { SymbolsService } from './api/symbols.service';
 import { TradesService } from './api/trades.service';
-import { TradingConfigurationsService } from './api/tradingConfigurations.service';
 import { VerificationKeysService } from './api/verificationKeys.service';
 
 @NgModule({
