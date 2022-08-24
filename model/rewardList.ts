@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { AccountBankModel } from './account';
+import { RewardBankModel } from './reward';
 
 
-export interface AccountListBankModel { 
+export interface RewardListBankModel { 
     /**
      * The total number of records available.
      */
@@ -26,8 +26,8 @@ export interface AccountListBankModel {
      */
     per_page: string;
     /**
-     * Array of account entities
+     * Array of reward entities
      */
-    objects: Array<AccountBankModel>;
+    objects: Array<RewardBankModel>;
 }
 

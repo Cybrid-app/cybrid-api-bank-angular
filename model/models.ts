@@ -28,6 +28,7 @@ export * from './postVerificationKey';
 export * from './quote';
 export * from './quoteList';
 export * from './reward';
+export * from './rewardList';
 export * from './symbolPrice';
 export * from './trade';
 export * from './tradeList';
