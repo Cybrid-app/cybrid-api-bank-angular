@@ -9,33 +9,25 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { AttestationDetailsBankModel } from './attestationDetails';
+import { ExternalBankAccountBankModel } from './externalBankAccount';
 
 
-export interface IdentityRecordBankModel { 
+export interface ExternalBankAccountListBankModel { 
     /**
-     * Auto-generated unique identifier for the identity record.
+     * The total number of records available.
      */
-    guid?: string;
+    total: string;
     /**
-     * The customer\'s identifier.
+     * The page index to retrieve.
      */
-    customer_guid?: string;
+    page: string;
     /**
-     * The identity record\'s type.
+     * The number of entities per page to return.
      */
-    type?: IdentityRecordBankModel.TypeEnum;
-    attestation_details?: AttestationDetailsBankModel;
+    per_page: string;
     /**
-     * ISO8601 datetime the customer was created at.
+     * Array of external bank account entities
      */
-    created_at?: string;
+    objects: Array<ExternalBankAccountBankModel>;
 }
-export namespace IdentityRecordBankModel {
-    export type TypeEnum = 'attestation';
-    export const TypeEnum = {
-        Attestation: 'attestation' as TypeEnum
-    };
-}
-
 

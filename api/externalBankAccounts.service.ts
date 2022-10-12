@@ -19,13 +19,13 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { AccountBankModel } from '../model/account';
-// @ts-ignore
-import { AccountListBankModel } from '../model/accountList';
-// @ts-ignore
 import { ErrorResponseBankModel } from '../model/errorResponse';
 // @ts-ignore
-import { PostAccountBankModel } from '../model/postAccount';
+import { ExternalBankAccountBankModel } from '../model/externalBankAccount';
+// @ts-ignore
+import { ExternalBankAccountListBankModel } from '../model/externalBankAccountList';
+// @ts-ignore
+import { PostExternalBankAccountBankModel } from '../model/postExternalBankAccount';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -36,7 +36,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class AccountsService {
+export class ExternalBankAccountsService {
 
     protected basePath = 'https://bank.demo.cybrid.app';
     public defaultHeaders = new HttpHeaders();
@@ -93,18 +93,18 @@ export class AccountsService {
     }
 
     /**
-     * Create Account
-     * Creates an account.  ## Account Type  An Account is tied to a specific cryptocurrency and is comprised of transactions and a current balance.  An account is required to allow a Customer to hold cryptocurrency on the Cybrid Platform.  At present, account\&#39;s can be created as &#x60;trading&#x60; accounts and are required before a Customer can generate a quote and execute a trade.  ## Asset  The asset is the specific cryptocurrency that the account holds, e.g., \&#39;BTC\&#39; for Bitcoin. See the Symbols API for a complete list of cryptocurrencies supported.     Required scope: **accounts:execute**
-     * @param postAccountBankModel 
+     * Create ExternalBankAccount
+     * Create an ExternalBankAccount.  Required scope: **external_bank_accounts:execute**
+     * @param postExternalBankAccountBankModel 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountBankModel>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountBankModel>>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountBankModel>>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (postAccountBankModel === null || postAccountBankModel === undefined) {
-            throw new Error('Required parameter postAccountBankModel was null or undefined when calling createAccount.');
+    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountBankModel>;
+    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountBankModel>>;
+    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountBankModel>>;
+    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (postExternalBankAccountBankModel === null || postExternalBankAccountBankModel === undefined) {
+            throw new Error('Required parameter postExternalBankAccountBankModel was null or undefined when calling createExternalBankAccount.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -160,8 +160,8 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.post<AccountBankModel>(`${this.configuration.basePath}/api/accounts`,
-            postAccountBankModel,
+        return this.httpClient.post<ExternalBankAccountBankModel>(`${this.configuration.basePath}/api/external_bank_accounts`,
+            postExternalBankAccountBankModel,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -174,18 +174,18 @@ export class AccountsService {
     }
 
     /**
-     * Get Account
-     * Retrieves an account.  Required scope: **accounts:read**
-     * @param accountGuid Identifier for the account.
+     * Get External Bank Account
+     * Retrieves an external bank account.  Required scope: **external_bank_accounts:read**
+     * @param externalBankAccountGuid Identifier for the external bank account.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAccount(accountGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountBankModel>;
-    public getAccount(accountGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountBankModel>>;
-    public getAccount(accountGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountBankModel>>;
-    public getAccount(accountGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (accountGuid === null || accountGuid === undefined) {
-            throw new Error('Required parameter accountGuid was null or undefined when calling getAccount.');
+    public getExternalBankAccount(externalBankAccountGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountBankModel>;
+    public getExternalBankAccount(externalBankAccountGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountBankModel>>;
+    public getExternalBankAccount(externalBankAccountGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountBankModel>>;
+    public getExternalBankAccount(externalBankAccountGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (externalBankAccountGuid === null || externalBankAccountGuid === undefined) {
+            throw new Error('Required parameter externalBankAccountGuid was null or undefined when calling getExternalBankAccount.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -232,7 +232,7 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.get<AccountBankModel>(`${this.configuration.basePath}/api/accounts/${encodeURIComponent(String(accountGuid))}`,
+        return this.httpClient.get<ExternalBankAccountBankModel>(`${this.configuration.basePath}/api/external_bank_accounts/${encodeURIComponent(String(externalBankAccountGuid))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -245,20 +245,20 @@ export class AccountsService {
     }
 
     /**
-     * List Accounts
-     * Retrieves a list of accounts.  Required scope: **accounts:read**
+     * Get external bank accounts list
+     * Retrieves a listing of external bank accounts.  Required scope: **external_bank_accounts:read**
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
-     * @param guid Comma separated account_guids to list accounts for.
-     * @param bankGuid Comma separated bank_guids to list accounts for.
-     * @param customerGuid Comma separated customer_guids to list accounts for.
+     * @param guid Comma separated external_bank_account_guids to list external_bank_accounts for.
+     * @param bankGuid Comma separated bank_guids to list external_bank_accounts for.
+     * @param customerGuid Comma separated customer_guids to list external_bank_accounts for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountListBankModel>;
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountListBankModel>>;
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountListBankModel>>;
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountListBankModel>;
+    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountListBankModel>>;
+    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountListBankModel>>;
+    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -326,7 +326,7 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.get<AccountListBankModel>(`${this.configuration.basePath}/api/accounts`,
+        return this.httpClient.get<ExternalBankAccountListBankModel>(`${this.configuration.basePath}/api/external_bank_accounts`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,

@@ -9,32 +9,55 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { AttestationDetailsBankModel } from './attestationDetails';
 
 
-export interface IdentityRecordBankModel { 
+export interface ExternalBankAccountBankModel { 
     /**
-     * Auto-generated unique identifier for the identity record.
+     * Auto-generated unique identifier for the account.
      */
     guid?: string;
     /**
-     * The customer\'s identifier.
+     * The name of the account.
      */
-    customer_guid?: string;
+    name?: string;
     /**
-     * The identity record\'s type.
+     * The asset code.
      */
-    type?: IdentityRecordBankModel.TypeEnum;
-    attestation_details?: AttestationDetailsBankModel;
+    asset_code?: string;
     /**
-     * ISO8601 datetime the customer was created at.
+     * The type of account.
+     */
+    account_kind?: ExternalBankAccountBankModel.AccountKindEnum;
+    /**
+     * The environment that the external bank account is operating in.
+     */
+    environment?: ExternalBankAccountBankModel.EnvironmentEnum;
+    /**
+     * The bank identifier.
+     */
+    bank_guid?: string | null;
+    /**
+     * The customer identifier.
+     */
+    customer_guid?: string | null;
+    /**
+     * ISO8601 datetime the exchange was created at.
      */
     created_at?: string;
+    /**
+     * The Plaid access token for the account.
+     */
+    plaid_access_token?: string | null;
 }
-export namespace IdentityRecordBankModel {
-    export type TypeEnum = 'attestation';
-    export const TypeEnum = {
-        Attestation: 'attestation' as TypeEnum
+export namespace ExternalBankAccountBankModel {
+    export type AccountKindEnum = 'plaid';
+    export const AccountKindEnum = {
+        Plaid: 'plaid' as AccountKindEnum
+    };
+    export type EnvironmentEnum = 'sandbox' | 'production';
+    export const EnvironmentEnum = {
+        Sandbox: 'sandbox' as EnvironmentEnum,
+        Production: 'production' as EnvironmentEnum
     };
 }
 

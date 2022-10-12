@@ -9,32 +9,38 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { AttestationDetailsBankModel } from './attestationDetails';
 
 
-export interface IdentityRecordBankModel { 
+export interface PostExternalBankAccountBankModel { 
     /**
-     * Auto-generated unique identifier for the identity record.
+     * The name of the account.
      */
-    guid?: string;
+    name: string;
     /**
-     * The customer\'s identifier.
+     * The account type
      */
-    customer_guid?: string;
+    account_kind: PostExternalBankAccountBankModel.AccountKindEnum;
     /**
-     * The identity record\'s type.
+     * The customer identifier.
      */
-    type?: IdentityRecordBankModel.TypeEnum;
-    attestation_details?: AttestationDetailsBankModel;
+    customer_guid?: string | null;
     /**
-     * ISO8601 datetime the customer was created at.
+     * The asset code.
      */
-    created_at?: string;
+    asset: string;
+    /**
+     * The public token for the account.
+     */
+    plaid_public_token?: string | null;
+    /**
+     * The account identifier in plaid.
+     */
+    plaid_account_id?: string | null;
 }
-export namespace IdentityRecordBankModel {
-    export type TypeEnum = 'attestation';
-    export const TypeEnum = {
-        Attestation: 'attestation' as TypeEnum
+export namespace PostExternalBankAccountBankModel {
+    export type AccountKindEnum = 'plaid';
+    export const AccountKindEnum = {
+        Plaid: 'plaid' as AccountKindEnum
     };
 }
 
