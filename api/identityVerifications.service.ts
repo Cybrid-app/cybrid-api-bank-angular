@@ -19,13 +19,13 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { AccountBankModel } from '../model/account';
-// @ts-ignore
-import { AccountListBankModel } from '../model/accountList';
-// @ts-ignore
 import { ErrorResponseBankModel } from '../model/errorResponse';
 // @ts-ignore
-import { PostAccountBankModel } from '../model/postAccount';
+import { IdentityVerificationBankModel } from '../model/identityVerification';
+// @ts-ignore
+import { IdentityVerificationListBankModel } from '../model/identityVerificationList';
+// @ts-ignore
+import { PostIdentityVerificationBankModel } from '../model/postIdentityVerification';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -36,7 +36,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class AccountsService {
+export class IdentityVerificationsService {
 
     protected basePath = 'https://bank.demo.cybrid.app';
     public defaultHeaders = new HttpHeaders();
@@ -93,18 +93,18 @@ export class AccountsService {
     }
 
     /**
-     * Create Account
-     * Creates an account.  ## Account Type  An Account is tied to a specific cryptocurrency and is comprised of transactions and a current balance.  An account is required to allow a Customer to hold cryptocurrency on the Cybrid Platform.  At present, account\&#39;s can be created as &#x60;trading&#x60; accounts and are required before a Customer can generate a quote and execute a trade.  ## Asset  The asset is the specific cryptocurrency that the account holds, e.g., \&#39;BTC\&#39; for Bitcoin. See the Symbols API for a complete list of cryptocurrencies supported.     Required scope: **accounts:execute**
-     * @param postAccountBankModel 
+     * Create Identity Verification
+     * Create an Identity Verification.  Required scope: **customers:write**
+     * @param postIdentityVerificationBankModel 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountBankModel>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountBankModel>>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountBankModel>>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (postAccountBankModel === null || postAccountBankModel === undefined) {
-            throw new Error('Required parameter postAccountBankModel was null or undefined when calling createAccount.');
+    public createIdentityVerification(postIdentityVerificationBankModel: PostIdentityVerificationBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<IdentityVerificationBankModel>;
+    public createIdentityVerification(postIdentityVerificationBankModel: PostIdentityVerificationBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<IdentityVerificationBankModel>>;
+    public createIdentityVerification(postIdentityVerificationBankModel: PostIdentityVerificationBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<IdentityVerificationBankModel>>;
+    public createIdentityVerification(postIdentityVerificationBankModel: PostIdentityVerificationBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (postIdentityVerificationBankModel === null || postIdentityVerificationBankModel === undefined) {
+            throw new Error('Required parameter postIdentityVerificationBankModel was null or undefined when calling createIdentityVerification.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -160,8 +160,8 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.post<AccountBankModel>(`${this.configuration.basePath}/api/accounts`,
-            postAccountBankModel,
+        return this.httpClient.post<IdentityVerificationBankModel>(`${this.configuration.basePath}/api/identity_verifications`,
+            postIdentityVerificationBankModel,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -174,18 +174,18 @@ export class AccountsService {
     }
 
     /**
-     * Get Account
-     * Retrieves an account.  Required scope: **accounts:read**
-     * @param accountGuid Identifier for the account.
+     * Get Identity Verification
+     * Retrieves an identity verification.  Required scope: **customers:read**
+     * @param identityVerificationGuid Identifier for the identity verification.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAccount(accountGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountBankModel>;
-    public getAccount(accountGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountBankModel>>;
-    public getAccount(accountGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountBankModel>>;
-    public getAccount(accountGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (accountGuid === null || accountGuid === undefined) {
-            throw new Error('Required parameter accountGuid was null or undefined when calling getAccount.');
+    public getIdentityVerification(identityVerificationGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<IdentityVerificationBankModel>;
+    public getIdentityVerification(identityVerificationGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<IdentityVerificationBankModel>>;
+    public getIdentityVerification(identityVerificationGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<IdentityVerificationBankModel>>;
+    public getIdentityVerification(identityVerificationGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (identityVerificationGuid === null || identityVerificationGuid === undefined) {
+            throw new Error('Required parameter identityVerificationGuid was null or undefined when calling getIdentityVerification.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -232,7 +232,7 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.get<AccountBankModel>(`${this.configuration.basePath}/api/accounts/${encodeURIComponent(String(accountGuid))}`,
+        return this.httpClient.get<IdentityVerificationBankModel>(`${this.configuration.basePath}/api/identity_verifications/${encodeURIComponent(String(identityVerificationGuid))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -245,20 +245,20 @@ export class AccountsService {
     }
 
     /**
-     * List Accounts
-     * Retrieves a list of accounts.  Required scope: **accounts:read**
+     * List Identity Verifications
+     * Retrieves a list of identity verifications.  Required scope: **customers:read**
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
-     * @param guid Comma separated account_guids to list accounts for.
-     * @param bankGuid Comma separated bank_guids to list accounts for.
-     * @param customerGuid Comma separated customer_guids to list accounts for.
+     * @param guid Comma separated guids to list identity verifications for.
+     * @param bankGuid Comma separated bank_guids to list identity verifications for.
+     * @param customerGuid Comma separated customer_guids to list identity verifications for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountListBankModel>;
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountListBankModel>>;
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountListBankModel>>;
-    public listAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public listIdentityVerifications(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<IdentityVerificationListBankModel>;
+    public listIdentityVerifications(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<IdentityVerificationListBankModel>>;
+    public listIdentityVerifications(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<IdentityVerificationListBankModel>>;
+    public listIdentityVerifications(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -326,7 +326,7 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.get<AccountListBankModel>(`${this.configuration.basePath}/api/accounts`,
+        return this.httpClient.get<IdentityVerificationListBankModel>(`${this.configuration.basePath}/api/identity_verifications`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,

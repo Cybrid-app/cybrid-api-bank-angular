@@ -9,6 +9,7 @@ import { CustomersService } from './api/customers.service';
 import { ExternalBankAccountsService } from './api/externalBankAccounts.service';
 import { FeeConfigurationsService } from './api/feeConfigurations.service';
 import { IdentityRecordsService } from './api/identityRecords.service';
+import { IdentityVerificationsService } from './api/identityVerifications.service';
 import { PricesService } from './api/prices.service';
 import { QuotesService } from './api/quotes.service';
 import { RewardsService } from './api/rewards.service';
