@@ -9,25 +9,31 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ExternalBankAccountBankModel } from './externalBankAccount';
 
 
-export interface ExternalBankAccountListBankModel { 
+export interface WorkflowBankModel { 
     /**
-     * The total number of records available.
+     * Auto-generated unique identifier for the workflow.
      */
-    total: string;
+    guid?: string;
     /**
-     * The page index to retrieve.
+     * The associated customer\'s identifier.
      */
-    page: string;
+    customer_guid?: string;
     /**
-     * The number of entities per page to return.
+     * The type of workflow.
      */
-    per_page: string;
+    type?: WorkflowBankModel.TypeEnum;
     /**
-     * Array of external bank account entities
+     * ISO8601 datetime the bank was created at.
      */
-    objects: Array<ExternalBankAccountBankModel>;
+    created_at?: string;
 }
+export namespace WorkflowBankModel {
+    export type TypeEnum = 'plaid';
+    export const TypeEnum = {
+        Plaid: 'plaid' as TypeEnum
+    };
+}
+
 

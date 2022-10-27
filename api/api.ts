@@ -26,4 +26,6 @@ export * from './trades.service';
 import { TradesService } from './trades.service';
 export * from './verificationKeys.service';
 import { VerificationKeysService } from './verificationKeys.service';
-export const APIS = [AccountsService, AssetsService, BanksService, CustomersService, ExternalBankAccountsService, FeeConfigurationsService, IdentityRecordsService, IdentityVerificationsService, PricesService, QuotesService, RewardsService, SymbolsService, TradesService, VerificationKeysService];
+export * from './workflows.service';
+import { WorkflowsService } from './workflows.service';
+export const APIS = [AccountsService, AssetsService, BanksService, CustomersService, ExternalBankAccountsService, FeeConfigurationsService, IdentityRecordsService, IdentityVerificationsService, PricesService, QuotesService, RewardsService, SymbolsService, TradesService, VerificationKeysService, WorkflowsService];

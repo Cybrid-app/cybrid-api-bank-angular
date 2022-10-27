@@ -21,11 +21,13 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { ErrorResponseBankModel } from '../model/errorResponse';
 // @ts-ignore
-import { PostVerificationKeyBankModel } from '../model/postVerificationKey';
+import { PostWorkflowBankModel } from '../model/postWorkflow';
 // @ts-ignore
-import { VerificationKeyBankModel } from '../model/verificationKey';
+import { WorkflowBankModel } from '../model/workflow';
 // @ts-ignore
-import { VerificationKeyListBankModel } from '../model/verificationKeyList';
+import { WorkflowWithDetailsBankModel } from '../model/workflowWithDetails';
+// @ts-ignore
+import { WorkflowsListBankModel } from '../model/workflowsList';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -36,7 +38,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class VerificationKeysService {
+export class WorkflowsService {
 
     protected basePath = 'https://bank.demo.cybrid.app';
     public defaultHeaders = new HttpHeaders();
@@ -93,18 +95,18 @@ export class VerificationKeysService {
     }
 
     /**
-     * Create VerificationKey
-     * Creates a verification key.   Example code (python) for generating a Verification Key  &#x60;&#x60;&#x60;python import base64  from cryptography.hazmat.primitives import hashes from cryptography.hazmat.primitives import serialization from cryptography.hazmat.primitives.asymmetric import padding from cryptography.hazmat.primitives.asymmetric import rsa  nonce &#x3D; \&quot;wen moon\&quot; private_key &#x3D; rsa.generate_private_key(public_exponent&#x3D;65537, key_size&#x3D;2048) signature &#x3D; base64.b64encode(private_key.sign(     data&#x3D;nonce.encode(\&#39;ascii\&#39;), padding&#x3D;padding.PKCS1v15(), algorithm&#x3D;hashes.SHA512())).decode(\&#39;ascii\&#39;) public_key &#x3D; base64.b64encode(private_key.public_key().public_bytes(     encoding&#x3D;serialization.Encoding.DER, format&#x3D;serialization.PublicFormat.SubjectPublicKeyInfo)).decode(\&#39;ascii\&#39;)  ### DISCLAIMER:- Since NO ENCRYPTION is used in the key storage/formatting. Please DO NOT use this code in production environment. private_pem &#x3D; private_key.private_bytes(encoding&#x3D;serialization.Encoding.PEM, format&#x3D;serialization.PrivateFormat.TraditionalOpenSSL,        encryption_algorithm&#x3D;serialization.NoEncryption())  ## Store the private_key in a file verification_key.pem with open (\&quot;verification_key.pem\&quot;, \&#39;wb\&#39;) as pem_out:    pem_out.write(private_pem)    pem_out.close()  print(\&quot;Public Key: \&quot;, public_key) print(\&quot;Signature: \&quot;, signature)  &#x60;&#x60;&#x60;&#x60;  ## State  | State | Description | |-------|-------------| | storing | The Platform is storing the verification in our private key store | | pending | The Platform is verifying the verification key\&#39;s signature | | verified | The Platform has verified the verification key\&#39;s signature and the key can be used | | failed | The Platform was not able to verify the verification key\&#39;s signature and the key cannot be used |    Required scope: **banks:write**
-     * @param postVerificationKeyBankModel 
+     * Create Workflow
+     * Creates a workflow.  Required scope: **workflows:execute**
+     * @param postWorkflowBankModel 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createVerificationKey(postVerificationKeyBankModel: PostVerificationKeyBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<VerificationKeyBankModel>;
-    public createVerificationKey(postVerificationKeyBankModel: PostVerificationKeyBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<VerificationKeyBankModel>>;
-    public createVerificationKey(postVerificationKeyBankModel: PostVerificationKeyBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<VerificationKeyBankModel>>;
-    public createVerificationKey(postVerificationKeyBankModel: PostVerificationKeyBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (postVerificationKeyBankModel === null || postVerificationKeyBankModel === undefined) {
-            throw new Error('Required parameter postVerificationKeyBankModel was null or undefined when calling createVerificationKey.');
+    public createWorkflow(postWorkflowBankModel: PostWorkflowBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<WorkflowBankModel>;
+    public createWorkflow(postWorkflowBankModel: PostWorkflowBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<WorkflowBankModel>>;
+    public createWorkflow(postWorkflowBankModel: PostWorkflowBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<WorkflowBankModel>>;
+    public createWorkflow(postWorkflowBankModel: PostWorkflowBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (postWorkflowBankModel === null || postWorkflowBankModel === undefined) {
+            throw new Error('Required parameter postWorkflowBankModel was null or undefined when calling createWorkflow.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -160,8 +162,8 @@ export class VerificationKeysService {
             }
         }
 
-        return this.httpClient.post<VerificationKeyBankModel>(`${this.configuration.basePath}/api/bank_verification_keys`,
-            postVerificationKeyBankModel,
+        return this.httpClient.post<WorkflowBankModel>(`${this.configuration.basePath}/api/workflows`,
+            postWorkflowBankModel,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -174,18 +176,18 @@ export class VerificationKeysService {
     }
 
     /**
-     * Get VerificationKey
-     * Retrieves a verification key.  Required scope: **banks:read**
-     * @param verificationKeyGuid Identifier for the verification key.
+     * Get Workflow
+     * Retrieves a workflow.  Required scope: **workflows:read**
+     * @param workflowGuid Identifier for the workflow.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getVerificationKey(verificationKeyGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<VerificationKeyBankModel>;
-    public getVerificationKey(verificationKeyGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<VerificationKeyBankModel>>;
-    public getVerificationKey(verificationKeyGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<VerificationKeyBankModel>>;
-    public getVerificationKey(verificationKeyGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (verificationKeyGuid === null || verificationKeyGuid === undefined) {
-            throw new Error('Required parameter verificationKeyGuid was null or undefined when calling getVerificationKey.');
+    public getWorkflow(workflowGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<WorkflowWithDetailsBankModel>;
+    public getWorkflow(workflowGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<WorkflowWithDetailsBankModel>>;
+    public getWorkflow(workflowGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<WorkflowWithDetailsBankModel>>;
+    public getWorkflow(workflowGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (workflowGuid === null || workflowGuid === undefined) {
+            throw new Error('Required parameter workflowGuid was null or undefined when calling getWorkflow.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -232,7 +234,7 @@ export class VerificationKeysService {
             }
         }
 
-        return this.httpClient.get<VerificationKeyBankModel>(`${this.configuration.basePath}/api/bank_verification_keys/${encodeURIComponent(String(verificationKeyGuid))}`,
+        return this.httpClient.get<WorkflowWithDetailsBankModel>(`${this.configuration.basePath}/api/workflows/${encodeURIComponent(String(workflowGuid))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -245,17 +247,20 @@ export class VerificationKeysService {
     }
 
     /**
-     * Get Verification Keys list
-     * Retrieves a listing of verification keys of a bank.  Required scope: **banks:read**
-     * @param page 
-     * @param perPage 
+     * Get workflows list
+     * Retrieves a listing of workflows.  Required scope: **workflows:read**
+     * @param page The page index to retrieve.
+     * @param perPage The number of entities per page to return.
+     * @param guid Comma separated workflow_guids to list workflows for.
+     * @param bankGuid Comma separated bank_guids to list workflows for.
+     * @param customerGuid Comma separated customer_guids to list workflows for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listVerificationKeys(page?: string, perPage?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<VerificationKeyListBankModel>;
-    public listVerificationKeys(page?: string, perPage?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<VerificationKeyListBankModel>>;
-    public listVerificationKeys(page?: string, perPage?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<VerificationKeyListBankModel>>;
-    public listVerificationKeys(page?: string, perPage?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public listWorkflows(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<WorkflowsListBankModel>;
+    public listWorkflows(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<WorkflowsListBankModel>>;
+    public listWorkflows(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<WorkflowsListBankModel>>;
+    public listWorkflows(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -266,6 +271,18 @@ export class VerificationKeysService {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>perPage, 'per_page');
         }
+        if (guid !== undefined && guid !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>guid, 'guid');
+        }
+        if (bankGuid !== undefined && bankGuid !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>bankGuid, 'bank_guid');
+        }
+        if (customerGuid !== undefined && customerGuid !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>customerGuid, 'customer_guid');
+        }
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -311,7 +328,7 @@ export class VerificationKeysService {
             }
         }
 
-        return this.httpClient.get<VerificationKeyListBankModel>(`${this.configuration.basePath}/api/bank_verification_keys`,
+        return this.httpClient.get<WorkflowsListBankModel>(`${this.configuration.basePath}/api/workflows`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,

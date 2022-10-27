@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ExternalBankAccountBankModel } from './externalBankAccount';
+import { WorkflowBankModel } from './workflow';
 
 
-export interface ExternalBankAccountListBankModel { 
+export interface WorkflowsListBankModel { 
     /**
      * The total number of records available.
      */
@@ -26,8 +26,8 @@ export interface ExternalBankAccountListBankModel {
      */
     per_page: string;
     /**
-     * Array of external bank account entities
+     * Array of workflow entities
      */
-    objects: Array<ExternalBankAccountBankModel>;
+    objects: Array<WorkflowBankModel>;
 }
 

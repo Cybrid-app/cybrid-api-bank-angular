@@ -9,25 +9,60 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ExternalBankAccountBankModel } from './externalBankAccount';
 
 
-export interface ExternalBankAccountListBankModel { 
+export interface PostWorkflowBankModel { 
     /**
-     * The total number of records available.
+     * The workflow type.
      */
-    total: string;
+    type: PostWorkflowBankModel.TypeEnum;
     /**
-     * The page index to retrieve.
+     * The Plaid workflow kind.
      */
-    page: string;
+    kind?: PostWorkflowBankModel.KindEnum;
     /**
-     * The number of entities per page to return.
+     * The customer identifier associated with the workflow.
      */
-    per_page: string;
+    customer_guid?: string;
     /**
-     * Array of external bank account entities
+     * The external bank account identifier associated with the workflow.
      */
-    objects: Array<ExternalBankAccountBankModel>;
+    external_bank_account_guid?: string;
+    /**
+     * The language to initialize Plaid link.
+     */
+    language?: PostWorkflowBankModel.LanguageEnum;
+    /**
+     * The customization name for Plaid link.
+     */
+    link_customization_name?: string;
+    /**
+     * The redirect URI for Plaid link.
+     */
+    redirect_uri?: string | null;
+    /**
+     * The Android package name for Plaid link.
+     */
+    android_package_name?: string | null;
 }
+export namespace PostWorkflowBankModel {
+    export type TypeEnum = 'plaid';
+    export const TypeEnum = {
+        Plaid: 'plaid' as TypeEnum
+    };
+    export type KindEnum = 'link_token_create' | 'link_token_update';
+    export const KindEnum = {
+        Create: 'link_token_create' as KindEnum,
+        Update: 'link_token_update' as KindEnum
+    };
+    export type LanguageEnum = 'en' | 'fr' | 'es' | 'nl' | 'de';
+    export const LanguageEnum = {
+        En: 'en' as LanguageEnum,
+        Fr: 'fr' as LanguageEnum,
+        Es: 'es' as LanguageEnum,
+        Nl: 'nl' as LanguageEnum,
+        De: 'de' as LanguageEnum
+    };
+}
+
 
