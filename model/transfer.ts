@@ -11,44 +11,66 @@
  */
 
 
-export interface PostQuoteBankModel { 
+export interface TransferBankModel { 
     /**
-     * The type of product the quote is for.
+     * Auto-generated unique identifier for the trade.
      */
-    product_type?: PostQuoteBankModel.ProductTypeEnum;
+    guid?: string;
     /**
-     * The unique identifier for the customer.
+     * The type of transfer.
+     */
+    transfer_type?: TransferBankModel.TransferTypeEnum;
+    /**
+     * The associated customer\'s identifier.
      */
     customer_guid?: string;
     /**
-     * Symbol the quote is being requested for. Format is \"asset-counter_asset\" in uppercase. See the Symbols API for a complete list of cryptocurrencies supported.
+     * The associated quote\'s identifier.
      */
-    symbol?: string;
+    quote_guid?: string;
     /**
-     * The direction of the quote: either \'buy\' or \'sell\' for trade quotes.
+     * The asset the transfer is related to, e.g., USD.
      */
-    side: PostQuoteBankModel.SideEnum;
+    asset?: string;
     /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell for trade quotes.
+     * The direction of the quote: either \'buy\' or \'sell\'.
      */
-    receive_amount?: string;
+    side?: TransferBankModel.SideEnum;
     /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell for trade quotes.
+     * The trade\'s state
      */
-    deliver_amount?: string;
+    state?: TransferBankModel.StateEnum;
+    /**
+     * The amount being transferred.
+     */
+    amount?: string;
+    /**
+     * The fee associated with the trade.
+     */
+    fee?: string;
+    /**
+     * ISO8601 datetime the bank was created at.
+     */
+    created_at?: string;
 }
-export namespace PostQuoteBankModel {
-    export type ProductTypeEnum = 'trading' | 'funding';
-    export const ProductTypeEnum = {
-        Trading: 'trading' as ProductTypeEnum,
-        Funding: 'funding' as ProductTypeEnum
+export namespace TransferBankModel {
+    export type TransferTypeEnum = 'savings' | 'funding';
+    export const TransferTypeEnum = {
+        Savings: 'savings' as TransferTypeEnum,
+        Funding: 'funding' as TransferTypeEnum
     };
-    export type SideEnum = 'buy' | 'sell' | 'deposit' | 'withdrawal';
+    export type SideEnum = 'deposit' | 'withdrawal';
     export const SideEnum = {
-        Buy: 'buy' as SideEnum,
-        Sell: 'sell' as SideEnum,
         Deposit: 'deposit' as SideEnum,
         Withdrawal: 'withdrawal' as SideEnum
+    };
+    export type StateEnum = 'storing' | 'initiating' | 'pending' | 'completed' | 'failed';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        Initiating: 'initiating' as StateEnum,
+        Pending: 'pending' as StateEnum,
+        Completed: 'completed' as StateEnum,
+        Failed: 'failed' as StateEnum
     };
 }
 

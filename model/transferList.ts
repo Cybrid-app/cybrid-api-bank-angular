@@ -9,47 +9,25 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { TransferBankModel } from './transfer';
 
 
-export interface PostQuoteBankModel { 
+export interface TransferListBankModel { 
     /**
-     * The type of product the quote is for.
+     * The total number of records available.
      */
-    product_type?: PostQuoteBankModel.ProductTypeEnum;
+    total: string;
     /**
-     * The unique identifier for the customer.
+     * The page index to retrieve.
      */
-    customer_guid?: string;
+    page: string;
     /**
-     * Symbol the quote is being requested for. Format is \"asset-counter_asset\" in uppercase. See the Symbols API for a complete list of cryptocurrencies supported.
+     * The number of entities per page to return.
      */
-    symbol?: string;
+    per_page: string;
     /**
-     * The direction of the quote: either \'buy\' or \'sell\' for trade quotes.
+     * Array of trade entities
      */
-    side: PostQuoteBankModel.SideEnum;
-    /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell for trade quotes.
-     */
-    receive_amount?: string;
-    /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell for trade quotes.
-     */
-    deliver_amount?: string;
+    objects: Array<TransferBankModel>;
 }
-export namespace PostQuoteBankModel {
-    export type ProductTypeEnum = 'trading' | 'funding';
-    export const ProductTypeEnum = {
-        Trading: 'trading' as ProductTypeEnum,
-        Funding: 'funding' as ProductTypeEnum
-    };
-    export type SideEnum = 'buy' | 'sell' | 'deposit' | 'withdrawal';
-    export const SideEnum = {
-        Buy: 'buy' as SideEnum,
-        Sell: 'sell' as SideEnum,
-        Deposit: 'deposit' as SideEnum,
-        Withdrawal: 'withdrawal' as SideEnum
-    };
-}
-
 

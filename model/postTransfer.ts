@@ -11,44 +11,38 @@
  */
 
 
-export interface PostQuoteBankModel { 
+export interface PostTransferBankModel { 
     /**
-     * The type of product the quote is for.
+     * The associated quote\'s identifier.
      */
-    product_type?: PostQuoteBankModel.ProductTypeEnum;
+    quote_guid: string;
     /**
-     * The unique identifier for the customer.
+     * The type of transfer.
      */
-    customer_guid?: string;
+    transfer_type: PostTransferBankModel.TransferTypeEnum;
     /**
-     * Symbol the quote is being requested for. Format is \"asset-counter_asset\" in uppercase. See the Symbols API for a complete list of cryptocurrencies supported.
+     * The customer\'s fiat asset external bank account\'s identifier.
      */
-    symbol?: string;
+    external_bank_account_guid?: string;
     /**
-     * The direction of the quote: either \'buy\' or \'sell\' for trade quotes.
+     * The optional expected error to simulate transfer failure.
      */
-    side: PostQuoteBankModel.SideEnum;
-    /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell for trade quotes.
-     */
-    receive_amount?: string;
-    /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell for trade quotes.
-     */
-    deliver_amount?: string;
+    expected_error?: PostTransferBankModel.ExpectedErrorEnum;
 }
-export namespace PostQuoteBankModel {
-    export type ProductTypeEnum = 'trading' | 'funding';
-    export const ProductTypeEnum = {
-        Trading: 'trading' as ProductTypeEnum,
-        Funding: 'funding' as ProductTypeEnum
+export namespace PostTransferBankModel {
+    export type TransferTypeEnum = 'funding';
+    export const TransferTypeEnum = {
+        Funding: 'funding' as TransferTypeEnum
     };
-    export type SideEnum = 'buy' | 'sell' | 'deposit' | 'withdrawal';
-    export const SideEnum = {
-        Buy: 'buy' as SideEnum,
-        Sell: 'sell' as SideEnum,
-        Deposit: 'deposit' as SideEnum,
-        Withdrawal: 'withdrawal' as SideEnum
+    export type ExpectedErrorEnum = 'pending' | 'in_progress' | 'completed' | 'failed' | 'cancelled' | 'manual_intervention' | 'reversed';
+    export const ExpectedErrorEnum = {
+        Pending: 'pending' as ExpectedErrorEnum,
+        InProgress: 'in_progress' as ExpectedErrorEnum,
+        Completed: 'completed' as ExpectedErrorEnum,
+        Failed: 'failed' as ExpectedErrorEnum,
+        Cancelled: 'cancelled' as ExpectedErrorEnum,
+        ManualIntervention: 'manual_intervention' as ExpectedErrorEnum,
+        Reversed: 'reversed' as ExpectedErrorEnum
     };
 }
 
