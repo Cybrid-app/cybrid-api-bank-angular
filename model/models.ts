@@ -17,6 +17,8 @@ export * from './identityRecord';
 export * from './identityRecordList';
 export * from './identityVerification';
 export * from './identityVerificationList';
+export * from './identityVerificationWithDetailsAllOf';
+export * from './identityVerificationWithDetails';
 export * from './patchBank';
 export * from './postAccount';
 export * from './postBank';
