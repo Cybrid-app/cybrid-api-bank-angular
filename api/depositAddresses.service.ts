@@ -19,13 +19,13 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
+import { DepositAddressBankModel } from '../model/depositAddress';
+// @ts-ignore
+import { DepositAddressListBankModel } from '../model/depositAddressList';
+// @ts-ignore
 import { ErrorResponseBankModel } from '../model/errorResponse';
 // @ts-ignore
-import { PostTransferBankModel } from '../model/postTransfer';
-// @ts-ignore
-import { TransferBankModel } from '../model/transfer';
-// @ts-ignore
-import { TransferListBankModel } from '../model/transferList';
+import { PostDepositAddressBankModel } from '../model/postDepositAddress';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -36,7 +36,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class TransfersService {
+export class DepositAddressesService {
 
     protected basePath = 'https://bank.demo.cybrid.app';
     public defaultHeaders = new HttpHeaders();
@@ -93,18 +93,18 @@ export class TransfersService {
     }
 
     /**
-     * Create Transfer
-     * Creates a transfer.  Required scope: **transfers:execute**
-     * @param postTransferBankModel 
+     * Create Deposit Address
+     * Create an Deposit Address.  Required scope: **deposit_addresses:execute**
+     * @param postDepositAddressBankModel 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createTransfer(postTransferBankModel: PostTransferBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<TransferBankModel>;
-    public createTransfer(postTransferBankModel: PostTransferBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<TransferBankModel>>;
-    public createTransfer(postTransferBankModel: PostTransferBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<TransferBankModel>>;
-    public createTransfer(postTransferBankModel: PostTransferBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (postTransferBankModel === null || postTransferBankModel === undefined) {
-            throw new Error('Required parameter postTransferBankModel was null or undefined when calling createTransfer.');
+    public createDepositAddress(postDepositAddressBankModel: PostDepositAddressBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DepositAddressBankModel>;
+    public createDepositAddress(postDepositAddressBankModel: PostDepositAddressBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DepositAddressBankModel>>;
+    public createDepositAddress(postDepositAddressBankModel: PostDepositAddressBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DepositAddressBankModel>>;
+    public createDepositAddress(postDepositAddressBankModel: PostDepositAddressBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (postDepositAddressBankModel === null || postDepositAddressBankModel === undefined) {
+            throw new Error('Required parameter postDepositAddressBankModel was null or undefined when calling createDepositAddress.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -160,8 +160,8 @@ export class TransfersService {
             }
         }
 
-        return this.httpClient.post<TransferBankModel>(`${this.configuration.basePath}/api/transfers`,
-            postTransferBankModel,
+        return this.httpClient.post<DepositAddressBankModel>(`${this.configuration.basePath}/api/deposit_addresses`,
+            postDepositAddressBankModel,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -174,18 +174,18 @@ export class TransfersService {
     }
 
     /**
-     * Get Transfer
-     * Retrieves a transfer.  Required scope: **transfers:read**
-     * @param transferGuid Identifier for the transfer.
+     * Get Deposit Address
+     * Retrieves a deposit address.  Required scope: **deposit_addresses:read**
+     * @param depositAddressGuid Identifier for the deposit address.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getTransfer(transferGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<TransferBankModel>;
-    public getTransfer(transferGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<TransferBankModel>>;
-    public getTransfer(transferGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<TransferBankModel>>;
-    public getTransfer(transferGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (transferGuid === null || transferGuid === undefined) {
-            throw new Error('Required parameter transferGuid was null or undefined when calling getTransfer.');
+    public getDepositAddress(depositAddressGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DepositAddressBankModel>;
+    public getDepositAddress(depositAddressGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DepositAddressBankModel>>;
+    public getDepositAddress(depositAddressGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DepositAddressBankModel>>;
+    public getDepositAddress(depositAddressGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (depositAddressGuid === null || depositAddressGuid === undefined) {
+            throw new Error('Required parameter depositAddressGuid was null or undefined when calling getDepositAddress.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -232,7 +232,7 @@ export class TransfersService {
             }
         }
 
-        return this.httpClient.get<TransferBankModel>(`${this.configuration.basePath}/api/transfers/${encodeURIComponent(String(transferGuid))}`,
+        return this.httpClient.get<DepositAddressBankModel>(`${this.configuration.basePath}/api/deposit_addresses/${encodeURIComponent(String(depositAddressGuid))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -245,21 +245,20 @@ export class TransfersService {
     }
 
     /**
-     * Get transfers list
-     * Retrieves a listing of transfers.  Required scope: **transfers:read**
+     * List Deposit Addresses
+     * Retrieves a list of deposit addresses.  Required scope: **deposit_addresses:read**
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
-     * @param guid Comma separated trade_guids to list transfers for.
-     * @param bankGuid Comma separated bank_guids to list transfers for.
-     * @param customerGuid Comma separated customer_guids to list transfers for.
-     * @param accountGuid Comma separated account_guids to list transfers for.
+     * @param guid Comma separated guids to list deposit addresses for.
+     * @param bankGuid Comma separated bank_guids to list deposit addresses for.
+     * @param customerGuid Comma separated customer_guids to list deposit addresses for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listTransfers(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<TransferListBankModel>;
-    public listTransfers(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<TransferListBankModel>>;
-    public listTransfers(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<TransferListBankModel>>;
-    public listTransfers(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public listDepositAddresses(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DepositAddressListBankModel>;
+    public listDepositAddresses(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DepositAddressListBankModel>>;
+    public listDepositAddresses(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DepositAddressListBankModel>>;
+    public listDepositAddresses(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -282,10 +281,6 @@ export class TransfersService {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>customerGuid, 'customer_guid');
         }
-        if (accountGuid !== undefined && accountGuid !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>accountGuid, 'account_guid');
-        }
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -331,7 +326,7 @@ export class TransfersService {
             }
         }
 
-        return this.httpClient.get<TransferListBankModel>(`${this.configuration.basePath}/api/transfers`,
+        return this.httpClient.get<DepositAddressListBankModel>(`${this.configuration.basePath}/api/deposit_addresses`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,

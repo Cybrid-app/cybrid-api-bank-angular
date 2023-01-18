@@ -9,25 +9,61 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TransferBankModel } from './transfer';
 
 
-export interface TransferListBankModel { 
+export interface DepositAddressBankModel { 
     /**
-     * The total number of records available.
+     * Auto-generated unique identifier for the identity verification.
      */
-    total: string;
+    guid: string;
     /**
-     * The page index to retrieve.
+     * The address\' bank identifier.
      */
-    page: string;
+    bank_guid: string;
     /**
-     * The number of entities per page to return.
+     * The address\' customer identifier.
      */
-    per_page: string;
+    customer_guid: string;
     /**
-     * Array of trade entities
+     * The address\' account identifier.
      */
-    objects: Array<TransferBankModel>;
+    account_guid: string;
+    /**
+     * ISO8601 datetime the address was created at.
+     */
+    created_at: string;
+    /**
+     * The asset the transfer is related to, e.g., USD.
+     */
+    asset: string;
+    /**
+     * The state of the address.
+     */
+    state: DepositAddressBankModel.StateEnum;
+    /**
+     * The blockchain address.
+     */
+    address?: string;
+    /**
+     * The blockchain address format.
+     */
+    format?: DepositAddressBankModel.FormatEnum;
+    /**
+     * The blockchain address tag.
+     */
+    tag?: string;
 }
+export namespace DepositAddressBankModel {
+    export type StateEnum = 'storing' | 'created';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        Created: 'created' as StateEnum
+    };
+    export type FormatEnum = 'standard' | 'legacy';
+    export const FormatEnum = {
+        Standard: 'standard' as FormatEnum,
+        Legacy: 'legacy' as FormatEnum
+    };
+}
+
 

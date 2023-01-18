@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TransferBankModel } from './transfer';
+import { DepositAddressBankModel } from './depositAddress';
 
 
-export interface TransferListBankModel { 
+export interface DepositAddressListBankModel { 
     /**
      * The total number of records available.
      */
@@ -25,9 +25,6 @@ export interface TransferListBankModel {
      * The number of entities per page to return.
      */
     per_page: string;
-    /**
-     * Array of trade entities
-     */
-    objects: Array<TransferBankModel>;
+    objects: Array<DepositAddressBankModel>;
 }
 

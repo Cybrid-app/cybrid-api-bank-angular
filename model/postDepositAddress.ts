@@ -9,25 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TransferBankModel } from './transfer';
 
 
-export interface TransferListBankModel { 
+export interface PostDepositAddressBankModel { 
     /**
-     * The total number of records available.
+     * The trading account guid.
      */
-    total: string;
-    /**
-     * The page index to retrieve.
-     */
-    page: string;
-    /**
-     * The number of entities per page to return.
-     */
-    per_page: string;
-    /**
-     * Array of trade entities
-     */
-    objects: Array<TransferBankModel>;
+    account_guid: string;
 }
 
