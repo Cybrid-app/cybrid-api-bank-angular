@@ -9,40 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { FeeBankModel } from './fee';
 
 
-export interface FeeConfigurationBankModel { 
+export interface PostOneTimeAddressBankModel { 
     /**
-     * Auto-generated unique identifier for the exchange.
+     * The blockchain wallet address to transfer crypto to.
      */
-    guid?: string;
+    address: string;
     /**
-     * The bank identifier.
+     * The blockchain tag to use when transferring crypto.
      */
-    bank_guid?: string | null;
-    /**
-     * The type of product being configured.
-     */
-    product_type?: FeeConfigurationBankModel.ProductTypeEnum;
-    /**
-     * The asset code.
-     */
-    asset?: string;
-    /**
-     * ISO8601 datetime the bank was created at.
-     */
-    created_at?: string;
-    /**
-     * The fees associated with the configuration
-     */
-    fees?: Array<FeeBankModel>;
+    tag?: string | null;
 }
-export namespace FeeConfigurationBankModel {
-    export type ProductTypeEnum = 'trading';
-    export const ProductTypeEnum = {
-        Trading: 'trading' as ProductTypeEnum
-    };
-}
-
 

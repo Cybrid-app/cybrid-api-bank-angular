@@ -32,6 +32,7 @@ export * from './postFeeConfiguration';
 export * from './postIdentityRecordAttestationDetails';
 export * from './postIdentityRecord';
 export * from './postIdentityVerification';
+export * from './postOneTimeAddress';
 export * from './postQuote';
 export * from './postReward';
 export * from './postTrade';
