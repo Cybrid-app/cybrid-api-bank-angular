@@ -11,53 +11,17 @@
  */
 
 
-export interface PostExternalBankAccountBankModel { 
+export interface PatchExternalBankAccountBankModel { 
     /**
-     * The name of the account.
+     * The state of the external bank account.
      */
-    name: string;
-    /**
-     * The account type
-     */
-    account_kind: PostExternalBankAccountBankModel.AccountKindEnum;
-    /**
-     * The customer identifier.
-     */
-    customer_guid?: string | null;
-    /**
-     * The asset code. If not set will try and default to the Bank\'s configured fiat asset.
-     */
-    asset: string | null;
-    /**
-     * The public token for the account. Required for \'plaid\' accounts.
-     */
-    plaid_public_token?: string | null;
-    /**
-     * The account identifier in plaid. Required for \'plaid\' accounts.
-     */
-    plaid_account_id?: string | null;
-    /**
-     * The Plaid processor token used to access the account. Required for \'plaid_processor_token\' accounts.
-     */
-    plaid_processor_token?: string | null;
-    /**
-     * Plaid\'s institution ID for the account\'s institution. Required for \'plaid_processor_token\' accounts.
-     */
-    plaid_institution_id?: string | null;
-    /**
-     * The account mask for the account. Required for \'plaid_processor_token\' accounts.
-     */
-    plaid_account_mask?: string | null;
-    /**
-     * The name of the account. Required for \'plaid_processor_token\' accounts.
-     */
-    plaid_account_name?: string | null;
+    state: PatchExternalBankAccountBankModel.StateEnum;
 }
-export namespace PostExternalBankAccountBankModel {
-    export type AccountKindEnum = 'plaid' | 'plaid_processor_token';
-    export const AccountKindEnum = {
-        Plaid: 'plaid' as AccountKindEnum,
-        PlaidProcessorToken: 'plaid_processor_token' as AccountKindEnum
+export namespace PatchExternalBankAccountBankModel {
+    export type StateEnum = 'completed' | 'refresh_required';
+    export const StateEnum = {
+        Completed: 'completed' as StateEnum,
+        RefreshRequired: 'refresh_required' as StateEnum
     };
 }
 
