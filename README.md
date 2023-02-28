@@ -1,4 +1,4 @@
-## @cybrid/cybrid-api-bank-angular@0.62.55
+## @cybrid/cybrid-api-bank-angular@0.62.58
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install @cybrid/cybrid-api-bank-angular@0.62.55 --save
+npm install @cybrid/cybrid-api-bank-angular@0.62.58 --save
 ```
 
 _without publishing (not recommended):_
