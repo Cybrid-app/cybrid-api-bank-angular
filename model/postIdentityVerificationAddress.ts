@@ -11,40 +11,33 @@
  */
 
 
-export interface CustomerBankModel { 
+/**
+ * The customer\'s address; required when method is set to \'attested\'.
+ */
+export interface PostIdentityVerificationAddressBankModel { 
     /**
-     * Auto-generated unique identifier for the customer.
+     * The first line of the address.
      */
-    guid?: string;
+    street: string;
     /**
-     * Auto-generated unique identifier for the customer\'s bank.
+     * The optional second line of the address.
      */
-    bank_guid?: string;
+    street2?: string | null;
     /**
-     * The customer\'s type.
+     * The city of the address.
      */
-    type?: CustomerBankModel.TypeEnum;
+    city: string;
     /**
-     * ISO8601 datetime the customer was created at.
+     * The provide/state/region of the address; not used by all countries.
      */
-    created_at?: string;
+    subdivision?: string | null;
     /**
-     * The customer\'s state.
+     * The postal/post/zip code of the address; not used by all countries.
      */
-    state?: CustomerBankModel.StateEnum;
+    postal_code?: string | null;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the address.
+     */
+    country_code: string;
 }
-export namespace CustomerBankModel {
-    export type TypeEnum = 'individual';
-    export const TypeEnum = {
-        Individual: 'individual' as TypeEnum
-    };
-    export type StateEnum = 'storing' | 'unverified' | 'verified' | 'rejected';
-    export const StateEnum = {
-        Storing: 'storing' as StateEnum,
-        Unverified: 'unverified' as StateEnum,
-        Verified: 'verified' as StateEnum,
-        Rejected: 'rejected' as StateEnum
-    };
-}
-
 

@@ -11,39 +11,27 @@
  */
 
 
-export interface CustomerBankModel { 
+export interface PostIdentificationNumberBankModel { 
     /**
-     * Auto-generated unique identifier for the customer.
+     * The source of the identification number.
      */
-    guid?: string;
+    type: PostIdentificationNumberBankModel.TypeEnum;
     /**
-     * Auto-generated unique identifier for the customer\'s bank.
+     * The ISO 3166 country 2-Alpha country code of the identification number issuer.
      */
-    bank_guid?: string;
+    issuing_country_code: string;
     /**
-     * The customer\'s type.
+     * The identification number.
      */
-    type?: CustomerBankModel.TypeEnum;
-    /**
-     * ISO8601 datetime the customer was created at.
-     */
-    created_at?: string;
-    /**
-     * The customer\'s state.
-     */
-    state?: CustomerBankModel.StateEnum;
+    identification_number: string;
 }
-export namespace CustomerBankModel {
-    export type TypeEnum = 'individual';
+export namespace PostIdentificationNumberBankModel {
+    export type TypeEnum = 'drivers_license' | 'passport' | 'passport_card' | 'residence_card';
     export const TypeEnum = {
-        Individual: 'individual' as TypeEnum
-    };
-    export type StateEnum = 'storing' | 'unverified' | 'verified' | 'rejected';
-    export const StateEnum = {
-        Storing: 'storing' as StateEnum,
-        Unverified: 'unverified' as StateEnum,
-        Verified: 'verified' as StateEnum,
-        Rejected: 'rejected' as StateEnum
+        DriversLicense: 'drivers_license' as TypeEnum,
+        Passport: 'passport' as TypeEnum,
+        PassportCard: 'passport_card' as TypeEnum,
+        ResidenceCard: 'residence_card' as TypeEnum
     };
 }
 
