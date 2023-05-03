@@ -9,25 +9,64 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RewardBankModel } from './reward';
 
 
-export interface RewardListBankModel { 
+export interface ExternalWalletBankModel { 
     /**
-     * The total number of records available.
+     * Auto-generated unique identifier for the account.
      */
-    total: string;
+    guid?: string;
     /**
-     * The page index to retrieve.
+     * The name of the account.
      */
-    page: string;
+    name?: string;
     /**
-     * The number of entities per page to return.
+     * The asset code.
      */
-    per_page: string;
+    asset_code?: string;
     /**
-     * Array of reward entities
+     * The type of account.
      */
-    objects: Array<RewardBankModel>;
+    account_kind?: ExternalWalletBankModel.AccountKindEnum;
+    /**
+     * The environment that the exchange is operating in.
+     */
+    environment?: ExternalWalletBankModel.EnvironmentEnum;
+    /**
+     * The exchange identifier.
+     */
+    exchange_guid?: string;
+    /**
+     * ISO8601 datetime the exchange was created at.
+     */
+    created_at?: string;
+    /**
+     * The state of an external wallet
+     */
+    state?: ExternalWalletBankModel.StateEnum;
+    /**
+     * The failure code of an external wallet (if any)
+     */
+    failure_code?: string | null;
 }
+export namespace ExternalWalletBankModel {
+    export type AccountKindEnum = 'fireblocks_external_wallet' | 'circle_wire_external_wallet';
+    export const AccountKindEnum = {
+        FireblocksExternalWallet: 'fireblocks_external_wallet' as AccountKindEnum,
+        CircleWireExternalWallet: 'circle_wire_external_wallet' as AccountKindEnum
+    };
+    export type EnvironmentEnum = 'sandbox' | 'production';
+    export const EnvironmentEnum = {
+        Sandbox: 'sandbox' as EnvironmentEnum,
+        Production: 'production' as EnvironmentEnum
+    };
+    export type StateEnum = 'storing' | 'pending' | 'failed' | 'completed';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        Pending: 'pending' as StateEnum,
+        Failed: 'failed' as StateEnum,
+        Completed: 'completed' as StateEnum
+    };
+}
+
 

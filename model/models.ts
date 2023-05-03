@@ -12,6 +12,7 @@ export * from './depositAddressList';
 export * from './errorResponse';
 export * from './externalBankAccount';
 export * from './externalBankAccountList';
+export * from './externalWallet';
 export * from './identityRecord';
 export * from './identityRecordList';
 export * from './identityVerification';
