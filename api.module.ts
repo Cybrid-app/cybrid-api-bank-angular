@@ -8,6 +8,7 @@ import { BanksService } from './api/banks.service';
 import { CustomersService } from './api/customers.service';
 import { DepositAddressesService } from './api/depositAddresses.service';
 import { ExternalBankAccountsService } from './api/externalBankAccounts.service';
+import { ExternalWalletsService } from './api/externalWallets.service';
 import { IdentityRecordsService } from './api/identityRecords.service';
 import { IdentityVerificationsService } from './api/identityVerifications.service';
 import { PricesService } from './api/prices.service';

@@ -11,80 +11,26 @@
  */
 
 
-export interface ExternalBankAccountBankModel { 
-    /**
-     * Auto-generated unique identifier for the account.
-     */
-    guid?: string;
+export interface PostExternalWalletBankModel { 
     /**
      * The name of the account.
      */
-    name?: string;
-    /**
-     * The asset code.
-     */
-    asset?: string;
-    /**
-     * The type of account.
-     */
-    account_kind?: ExternalBankAccountBankModel.AccountKindEnum;
-    /**
-     * The environment that the external bank account is operating in.
-     */
-    environment?: ExternalBankAccountBankModel.EnvironmentEnum;
-    /**
-     * The bank identifier.
-     */
-    bank_guid?: string | null;
+    name: string;
     /**
      * The customer identifier.
      */
-    customer_guid?: string | null;
+    customer_guid: string | null;
     /**
-     * ISO8601 datetime the exchange was created at.
+     * The asset code.
      */
-    created_at?: string;
+    asset: string;
     /**
-     * The Plaid institution ID for the account.
+     * The blockchain wallet address for the wallet.
      */
-    plaid_institution_id?: string | null;
+    address: string;
     /**
-     * The account number mask for the account.
+     * The blockchain tag to use when transferring crypto to the wallet.
      */
-    plaid_account_mask?: string | null;
-    /**
-     * The name for the account.
-     */
-    plaid_account_name?: string | null;
-    /**
-     * The state of the external bank account.
-     */
-    state?: ExternalBankAccountBankModel.StateEnum;
-    /**
-     * The failure code for failed transfers.
-     */
-    failure_code?: string | null;
+    tag?: string | null;
 }
-export namespace ExternalBankAccountBankModel {
-    export type AccountKindEnum = 'plaid' | 'plaid_processor_token';
-    export const AccountKindEnum = {
-        Plaid: 'plaid' as AccountKindEnum,
-        PlaidProcessorToken: 'plaid_processor_token' as AccountKindEnum
-    };
-    export type EnvironmentEnum = 'sandbox' | 'production';
-    export const EnvironmentEnum = {
-        Sandbox: 'sandbox' as EnvironmentEnum,
-        Production: 'production' as EnvironmentEnum
-    };
-    export type StateEnum = 'storing' | 'completed' | 'failed' | 'refresh_required' | 'deleting' | 'deleted';
-    export const StateEnum = {
-        Storing: 'storing' as StateEnum,
-        Completed: 'completed' as StateEnum,
-        Failed: 'failed' as StateEnum,
-        RefreshRequired: 'refresh_required' as StateEnum,
-        Deleting: 'deleting' as StateEnum,
-        Deleted: 'deleted' as StateEnum
-    };
-}
-
 

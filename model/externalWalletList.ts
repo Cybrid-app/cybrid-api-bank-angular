@@ -9,82 +9,25 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { ExternalWalletBankModel } from './externalWallet';
 
 
-export interface ExternalBankAccountBankModel { 
+export interface ExternalWalletListBankModel { 
     /**
-     * Auto-generated unique identifier for the account.
+     * The total number of records available.
      */
-    guid?: string;
+    total: string;
     /**
-     * The name of the account.
+     * The page index to retrieve.
      */
-    name?: string;
+    page: string;
     /**
-     * The asset code.
+     * The number of entities per page to return.
      */
-    asset?: string;
+    per_page: string;
     /**
-     * The type of account.
+     * Array of external wallet entities
      */
-    account_kind?: ExternalBankAccountBankModel.AccountKindEnum;
-    /**
-     * The environment that the external bank account is operating in.
-     */
-    environment?: ExternalBankAccountBankModel.EnvironmentEnum;
-    /**
-     * The bank identifier.
-     */
-    bank_guid?: string | null;
-    /**
-     * The customer identifier.
-     */
-    customer_guid?: string | null;
-    /**
-     * ISO8601 datetime the exchange was created at.
-     */
-    created_at?: string;
-    /**
-     * The Plaid institution ID for the account.
-     */
-    plaid_institution_id?: string | null;
-    /**
-     * The account number mask for the account.
-     */
-    plaid_account_mask?: string | null;
-    /**
-     * The name for the account.
-     */
-    plaid_account_name?: string | null;
-    /**
-     * The state of the external bank account.
-     */
-    state?: ExternalBankAccountBankModel.StateEnum;
-    /**
-     * The failure code for failed transfers.
-     */
-    failure_code?: string | null;
+    objects: Array<ExternalWalletBankModel>;
 }
-export namespace ExternalBankAccountBankModel {
-    export type AccountKindEnum = 'plaid' | 'plaid_processor_token';
-    export const AccountKindEnum = {
-        Plaid: 'plaid' as AccountKindEnum,
-        PlaidProcessorToken: 'plaid_processor_token' as AccountKindEnum
-    };
-    export type EnvironmentEnum = 'sandbox' | 'production';
-    export const EnvironmentEnum = {
-        Sandbox: 'sandbox' as EnvironmentEnum,
-        Production: 'production' as EnvironmentEnum
-    };
-    export type StateEnum = 'storing' | 'completed' | 'failed' | 'refresh_required' | 'deleting' | 'deleted';
-    export const StateEnum = {
-        Storing: 'storing' as StateEnum,
-        Completed: 'completed' as StateEnum,
-        Failed: 'failed' as StateEnum,
-        RefreshRequired: 'refresh_required' as StateEnum,
-        Deleting: 'deleting' as StateEnum,
-        Deleted: 'deleted' as StateEnum
-    };
-}
-
 
