@@ -16,7 +16,6 @@ import { RewardsService } from './api/rewards.service';
 import { SymbolsService } from './api/symbols.service';
 import { TradesService } from './api/trades.service';
 import { TransfersService } from './api/transfers.service';
-import { VerificationKeysService } from './api/verificationKeys.service';
 import { WorkflowsService } from './api/workflows.service';
 
 @NgModule({
