@@ -31,7 +31,6 @@ export * from './postIdentificationNumber';
 export * from './postIdentityVerificationAddress';
 export * from './postIdentityVerification';
 export * from './postIdentityVerificationName';
-export * from './postOneTimeAddress';
 export * from './postQuote';
 export * from './postReward';
 export * from './postTrade';
