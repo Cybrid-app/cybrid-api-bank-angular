@@ -17,6 +17,7 @@ export * from './identityVerification';
 export * from './identityVerificationList';
 export * from './identityVerificationWithDetailsAllOf';
 export * from './identityVerificationWithDetails';
+export * from './listRequestOwner';
 export * from './patchBank';
 export * from './patchExternalBankAccount';
 export * from './postAccount';

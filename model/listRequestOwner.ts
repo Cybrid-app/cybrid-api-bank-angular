@@ -11,40 +11,13 @@
  */
 
 
-export interface CustomerBankModel { 
-    /**
-     * Auto-generated unique identifier for the customer.
-     */
-    guid?: string;
-    /**
-     * Auto-generated unique identifier for the customer\'s bank.
-     */
-    bank_guid?: string;
-    /**
-     * The customer\'s type.
-     */
-    type?: CustomerBankModel.TypeEnum;
-    /**
-     * ISO8601 datetime the customer was created at.
-     */
-    created_at?: string;
-    /**
-     * The customer\'s state.
-     */
-    state?: CustomerBankModel.StateEnum;
-}
-export namespace CustomerBankModel {
-    export type TypeEnum = 'individual';
-    export const TypeEnum = {
-        Individual: 'individual' as TypeEnum
-    };
-    export type StateEnum = 'storing' | 'unverified' | 'verified' | 'rejected';
-    export const StateEnum = {
-        Storing: 'storing' as StateEnum,
-        Unverified: 'unverified' as StateEnum,
-        Verified: 'verified' as StateEnum,
-        Rejected: 'rejected' as StateEnum
-    };
-}
+/**
+ * The owner of the entity.
+ */
+export type ListRequestOwnerBankModel = 'bank' | 'customer';
 
+export const ListRequestOwnerBankModel = {
+    Bank: 'bank' as ListRequestOwnerBankModel,
+    Customer: 'customer' as ListRequestOwnerBankModel
+};
 
