@@ -11,22 +11,18 @@
  */
 
 
-export interface PostRewardBankModel { 
+export interface CustomerNameBankModel { 
     /**
-     * The unique identifier for the customer.
+     * The customer\'s first name.
      */
-    customer_guid: string;
+    first?: string | null;
     /**
-     * Symbol the quote is being requested for. Format is \"asset-counter_asset\" in uppercase. See the Symbols API for a complete list of cryptocurrencies supported.
+     * The customer\'s middle name.
      */
-    symbol: string;
+    middle?: string | null;
     /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell.
+     * The customer\'s last name.
      */
-    receive_amount?: string;
-    /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell.
-     */
-    deliver_amount?: string;
+    last?: string | null;
 }
 

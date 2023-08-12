@@ -11,22 +11,30 @@
  */
 
 
-export interface PostRewardBankModel { 
+export interface CustomerAddressBankModel { 
     /**
-     * The unique identifier for the customer.
+     * The first line of the address.
      */
-    customer_guid: string;
+    street?: string | null;
     /**
-     * Symbol the quote is being requested for. Format is \"asset-counter_asset\" in uppercase. See the Symbols API for a complete list of cryptocurrencies supported.
+     * The optional second line of the address.
      */
-    symbol: string;
+    street2?: string | null;
     /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell.
+     * The city of the address.
      */
-    receive_amount?: string;
+    city?: string | null;
     /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell.
+     * The provide/state/region of the address; not used by all countries.
      */
-    deliver_amount?: string;
+    subdivision?: string | null;
+    /**
+     * The postal/post/zip code of the address; not used by all countries.
+     */
+    postal_code?: string | null;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the address.
+     */
+    country_code?: string | null;
 }
 
