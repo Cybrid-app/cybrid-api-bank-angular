@@ -9,119 +9,29 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TransferSourceAccountBankModel } from './transferSourceAccount';
-import { TransferDestinationAccountBankModel } from './transferDestinationAccount';
 
 
-export interface TransferBankModel { 
+/**
+ * The source account in the transfer. Can be omitted for crypto deposits.
+ */
+export interface TransferSourceAccountBankModel { 
     /**
-     * Auto-generated unique identifier for the transfer.
+     * Auto-generated unique identifier for the transfer account.
      */
     guid?: string;
     /**
-     * The type of transfer.
+     * The type of transfer account.
      */
-    transfer_type?: TransferBankModel.TransferTypeEnum;
-    /**
-     * The associated bank\'s identifier.
-     */
-    bank_guid?: string | null;
-    /**
-     * The associated customer\'s identifier.
-     */
-    customer_guid?: string | null;
-    /**
-     * The associated quote\'s identifier.
-     */
-    quote_guid?: string;
-    /**
-     * The associated external bank account\'s identifier.
-     */
-    external_bank_account_guid?: string | null;
-    /**
-     * The asset the transfer is related to, e.g., USD.
-     */
-    asset?: string;
-    /**
-     * The direction of the quote: \'deposit\' or \'withdrawal\'.
-     */
-    side?: TransferBankModel.SideEnum;
-    /**
-     * The transfer\'s state
-     */
-    state?: TransferBankModel.StateEnum;
-    /**
-     * The failure code for failed transfers.
-     */
-    failure_code?: string | null;
-    /**
-     * The actual amount in base units of the asset.
-     */
-    amount?: string | null;
-    /**
-     * The estimated amount in base units of the asset.
-     */
-    estimated_amount?: string;
-    /**
-     * The fee associated with the transfer.
-     */
-    fee?: string;
-    /**
-     * The estimated network fee in base units of network_fee_asset. Only present on `crypto` transfers.
-     */
-    estimated_network_fee?: string | null;
-    /**
-     * The actual network fee in base units of network_fee_asset. Only present on `crypto` transfers that have successfully completed.
-     */
-    network_fee?: string | null;
-    /**
-     * The asset code of the network fee. Only present on `crypto` transfers that have successfully completed.
-     */
-    network_fee_asset?: string | null;
-    /**
-     * The equivalent fiat network fee in base units of network_fee_liability_amount_asset. Only present on `crypto` transfers that have successfully completed.
-     */
-    network_fee_liability_amount?: string | null;
-    /**
-     * The fiat asset the network_fee_liability_amount is denominated in. Only present on `crypto` transfers that have successfully completed.
-     */
-    network_fee_liability_amount_asset?: string | null;
-    /**
-     * The hash of the blockchain transaction
-     */
-    txn_hash?: string | null;
-    source_account?: TransferSourceAccountBankModel | null;
-    destination_account?: TransferDestinationAccountBankModel | null;
-    /**
-     * ISO8601 datetime the bank was created at.
-     */
-    created_at?: string;
-    /**
-     * ISO8601 datetime the trade was last updated at.
-     */
-    updated_at?: string;
+    type?: TransferSourceAccountBankModel.TypeEnum;
 }
-export namespace TransferBankModel {
-    export type TransferTypeEnum = 'savings' | 'funding' | 'book' | 'crypto' | 'internal_bank_rebalance' | 'internal_wallet_rebalance';
-    export const TransferTypeEnum = {
-        Savings: 'savings' as TransferTypeEnum,
-        Funding: 'funding' as TransferTypeEnum,
-        Book: 'book' as TransferTypeEnum,
-        Crypto: 'crypto' as TransferTypeEnum,
-        InternalBankRebalance: 'internal_bank_rebalance' as TransferTypeEnum,
-        InternalWalletRebalance: 'internal_wallet_rebalance' as TransferTypeEnum
-    };
-    export type SideEnum = 'deposit' | 'withdrawal';
-    export const SideEnum = {
-        Deposit: 'deposit' as SideEnum,
-        Withdrawal: 'withdrawal' as SideEnum
-    };
-    export type StateEnum = 'storing' | 'pending' | 'completed' | 'failed';
-    export const StateEnum = {
-        Storing: 'storing' as StateEnum,
-        Pending: 'pending' as StateEnum,
-        Completed: 'completed' as StateEnum,
-        Failed: 'failed' as StateEnum
+export namespace TransferSourceAccountBankModel {
+    export type TypeEnum = 'trading' | 'fiat' | 'external_bank_account' | 'external_wallet' | 'one_time_address';
+    export const TypeEnum = {
+        Trading: 'trading' as TypeEnum,
+        Fiat: 'fiat' as TypeEnum,
+        ExternalBankAccount: 'external_bank_account' as TypeEnum,
+        ExternalWallet: 'external_wallet' as TypeEnum,
+        OneTimeAddress: 'one_time_address' as TypeEnum
     };
 }
 
