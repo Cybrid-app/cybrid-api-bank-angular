@@ -12,7 +12,6 @@ import { ExternalWalletsService } from './api/externalWallets.service';
 import { IdentityVerificationsService } from './api/identityVerifications.service';
 import { PricesService } from './api/prices.service';
 import { QuotesService } from './api/quotes.service';
-import { RewardsService } from './api/rewards.service';
 import { SymbolsService } from './api/symbols.service';
 import { TradesService } from './api/trades.service';
 import { TransfersService } from './api/transfers.service';
