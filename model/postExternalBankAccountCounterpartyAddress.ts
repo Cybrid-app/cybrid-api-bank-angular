@@ -12,27 +12,32 @@
 
 
 /**
- * The destination account in the transfer.
+ * The counterparty\'s address on the account.
  */
-export interface TransferDestinationAccountBankModel { 
+export interface PostExternalBankAccountCounterpartyAddressBankModel { 
     /**
-     * Auto-generated unique identifier for the transfer account.
+     * The first line of the address.
      */
-    guid?: string;
+    street: string;
     /**
-     * The type of transfer account.
+     * The optional second line of the address.
      */
-    type?: TransferDestinationAccountBankModel.TypeEnum;
+    street2?: string | null;
+    /**
+     * The city of the address.
+     */
+    city: string;
+    /**
+     * The provide/state/region of the address; not used by all countries.
+     */
+    subdivision?: string | null;
+    /**
+     * The postal/post/zip code of the address; not used by all countries.
+     */
+    postal_code?: string | null;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the address.
+     */
+    country_code: string;
 }
-export namespace TransferDestinationAccountBankModel {
-    export type TypeEnum = 'trading' | 'fiat' | 'external_bank_account' | 'external_wallet' | 'one_time_address';
-    export const TypeEnum = {
-        Trading: 'trading' as TypeEnum,
-        Fiat: 'fiat' as TypeEnum,
-        ExternalBankAccount: 'external_bank_account' as TypeEnum,
-        ExternalWallet: 'external_wallet' as TypeEnum,
-        OneTimeAddress: 'one_time_address' as TypeEnum
-    };
-}
-
 

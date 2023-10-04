@@ -12,26 +12,27 @@
 
 
 /**
- * The destination account in the transfer.
+ * The counterparty\'s name on the account.
  */
-export interface TransferDestinationAccountBankModel { 
+export interface PostExternalBankAccountCounterpartyBankAccountBankModel { 
     /**
-     * Auto-generated unique identifier for the transfer account.
+     * The type of routing number.
      */
-    guid?: string;
+    routing_number_type: PostExternalBankAccountCounterpartyBankAccountBankModel.RoutingNumberTypeEnum;
     /**
-     * The type of transfer account.
+     * The routing number.
      */
-    type?: TransferDestinationAccountBankModel.TypeEnum;
+    routing_number: string;
+    /**
+     * The account number.
+     */
+    account_number: string;
 }
-export namespace TransferDestinationAccountBankModel {
-    export type TypeEnum = 'trading' | 'fiat' | 'external_bank_account' | 'external_wallet' | 'one_time_address';
-    export const TypeEnum = {
-        Trading: 'trading' as TypeEnum,
-        Fiat: 'fiat' as TypeEnum,
-        ExternalBankAccount: 'external_bank_account' as TypeEnum,
-        ExternalWallet: 'external_wallet' as TypeEnum,
-        OneTimeAddress: 'one_time_address' as TypeEnum
+export namespace PostExternalBankAccountCounterpartyBankAccountBankModel {
+    export type RoutingNumberTypeEnum = 'CPA' | 'ABA';
+    export const RoutingNumberTypeEnum = {
+        Cpa: 'CPA' as RoutingNumberTypeEnum,
+        Aba: 'ABA' as RoutingNumberTypeEnum
     };
 }
 

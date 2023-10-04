@@ -12,27 +12,20 @@
 
 
 /**
- * The destination account in the transfer.
+ * The counterparty\'s name on the account.
  */
-export interface TransferDestinationAccountBankModel { 
+export interface PostExternalBankAccountCounterpartyNameBankModel { 
     /**
-     * Auto-generated unique identifier for the transfer account.
+     * The customer\'s first name.
      */
-    guid?: string;
+    first: string;
     /**
-     * The type of transfer account.
+     * The customer\'s middle name.
      */
-    type?: TransferDestinationAccountBankModel.TypeEnum;
+    middle?: string | null;
+    /**
+     * The customer\'s last name.
+     */
+    last: string;
 }
-export namespace TransferDestinationAccountBankModel {
-    export type TypeEnum = 'trading' | 'fiat' | 'external_bank_account' | 'external_wallet' | 'one_time_address';
-    export const TypeEnum = {
-        Trading: 'trading' as TypeEnum,
-        Fiat: 'fiat' as TypeEnum,
-        ExternalBankAccount: 'external_bank_account' as TypeEnum,
-        ExternalWallet: 'external_wallet' as TypeEnum,
-        OneTimeAddress: 'one_time_address' as TypeEnum
-    };
-}
-
 
