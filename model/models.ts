@@ -38,7 +38,6 @@ export * from './postIdentityVerificationAddress';
 export * from './postIdentityVerification';
 export * from './postIdentityVerificationName';
 export * from './postQuote';
-export * from './postReward';
 export * from './postTrade';
 export * from './postTransfer';
 export * from './postWorkflow';
