@@ -9,25 +9,19 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TradeBankModel } from './trade';
 
 
-export interface TradeListBankModel { 
+export interface PatchCustomerBankModel { 
     /**
-     * The total number of records available.
+     * The customer\'s state.
      */
-    total: string;
-    /**
-     * The page index to retrieve.
-     */
-    page: string;
-    /**
-     * The number of entities per page to return.
-     */
-    per_page: string;
-    /**
-     * Array of trade entities
-     */
-    objects: Array<TradeBankModel>;
+    state?: PatchCustomerBankModel.StateEnum;
 }
+export namespace PatchCustomerBankModel {
+    export type StateEnum = 'unverified';
+    export const StateEnum = {
+        Unverified: 'unverified' as StateEnum
+    };
+}
+
 
