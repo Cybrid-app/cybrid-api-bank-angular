@@ -11,56 +11,30 @@
  */
 
 
-export interface BankBankModel { 
+export interface ExternalBankAccountPiiInnerAddressesInnerBankModel { 
     /**
-     * Auto-generated unique identifier for the bank.
+     * The first line of the address.
      */
-    guid: string;
+    street?: string;
     /**
-     * The organization\'s identifier.
+     * The optional second line of the address.
      */
-    organization_guid: string;
+    street2?: string | null;
     /**
-     * The bank\'s name.
+     * The city of the address.
      */
-    name: string;
+    city?: string;
     /**
-     * The bank\'s type.
+     * The provide/state/region of the address; not used by all countries.
      */
-    type: BankBankModel.TypeEnum;
+    subdivision?: string | null;
     /**
-     * The bank\'s list of supported trading symbols.
+     * The postal/post/zip code of the address; not used by all countries.
      */
-    supported_trading_symbols?: Array<string>;
+    postal_code?: string | null;
     /**
-     * The bank\'s list of supported fiat symbols.
+     * The ISO 3166 country 2-Alpha country code of the address.
      */
-    supported_fiat_account_assets?: Array<string>;
-    /**
-     * The bank\'s list of supported country codes.
-     */
-    supported_country_codes?: Array<string>;
-    /**
-     * The bank\'s enabled features.
-     */
-    features: Array<BankBankModel.FeaturesEnum>;
-    /**
-     * ISO8601 datetime the bank was created at.
-     */
-    created_at: string;
+    country_code?: string;
 }
-export namespace BankBankModel {
-    export type TypeEnum = 'sandbox' | 'production';
-    export const TypeEnum = {
-        Sandbox: 'sandbox' as TypeEnum,
-        Production: 'production' as TypeEnum
-    };
-    export type FeaturesEnum = 'attestation_identity_records' | 'kyc_identity_verifications' | 'raw_routing_details';
-    export const FeaturesEnum = {
-        AttestationIdentityRecords: 'attestation_identity_records' as FeaturesEnum,
-        KycIdentityVerifications: 'kyc_identity_verifications' as FeaturesEnum,
-        RawRoutingDetails: 'raw_routing_details' as FeaturesEnum
-    };
-}
-
 

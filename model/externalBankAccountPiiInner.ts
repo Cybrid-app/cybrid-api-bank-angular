@@ -9,58 +9,25 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { ExternalBankAccountPiiInnerAddressesInnerBankModel } from './externalBankAccountPiiInnerAddressesInner';
 
 
-export interface BankBankModel { 
+export interface ExternalBankAccountPiiInnerBankModel { 
     /**
-     * Auto-generated unique identifier for the bank.
+     * Array of names on the account
      */
-    guid: string;
+    names?: Array<string> | null;
     /**
-     * The organization\'s identifier.
+     * Array of addresses associated to the account
      */
-    organization_guid: string;
+    addresses?: Array<ExternalBankAccountPiiInnerAddressesInnerBankModel> | null;
     /**
-     * The bank\'s name.
+     * Array of email addresses associated to the account
      */
-    name: string;
+    email_addresses?: Array<string> | null;
     /**
-     * The bank\'s type.
+     * Array of phone numbers associated to the account
      */
-    type: BankBankModel.TypeEnum;
-    /**
-     * The bank\'s list of supported trading symbols.
-     */
-    supported_trading_symbols?: Array<string>;
-    /**
-     * The bank\'s list of supported fiat symbols.
-     */
-    supported_fiat_account_assets?: Array<string>;
-    /**
-     * The bank\'s list of supported country codes.
-     */
-    supported_country_codes?: Array<string>;
-    /**
-     * The bank\'s enabled features.
-     */
-    features: Array<BankBankModel.FeaturesEnum>;
-    /**
-     * ISO8601 datetime the bank was created at.
-     */
-    created_at: string;
+    phone_numbers?: Array<string> | null;
 }
-export namespace BankBankModel {
-    export type TypeEnum = 'sandbox' | 'production';
-    export const TypeEnum = {
-        Sandbox: 'sandbox' as TypeEnum,
-        Production: 'production' as TypeEnum
-    };
-    export type FeaturesEnum = 'attestation_identity_records' | 'kyc_identity_verifications' | 'raw_routing_details';
-    export const FeaturesEnum = {
-        AttestationIdentityRecords: 'attestation_identity_records' as FeaturesEnum,
-        KycIdentityVerifications: 'kyc_identity_verifications' as FeaturesEnum,
-        RawRoutingDetails: 'raw_routing_details' as FeaturesEnum
-    };
-}
-
 

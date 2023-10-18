@@ -11,56 +11,17 @@
  */
 
 
-export interface BankBankModel { 
+/**
+ * Balance information for the account.
+ */
+export interface ExternalBankAccountBalancesBankModel { 
     /**
-     * Auto-generated unique identifier for the bank.
+     * The available balance in the account.
      */
-    guid: string;
+    available_balance?: string | null;
     /**
-     * The organization\'s identifier.
+     * The current balance in the account including pending transactions.
      */
-    organization_guid: string;
-    /**
-     * The bank\'s name.
-     */
-    name: string;
-    /**
-     * The bank\'s type.
-     */
-    type: BankBankModel.TypeEnum;
-    /**
-     * The bank\'s list of supported trading symbols.
-     */
-    supported_trading_symbols?: Array<string>;
-    /**
-     * The bank\'s list of supported fiat symbols.
-     */
-    supported_fiat_account_assets?: Array<string>;
-    /**
-     * The bank\'s list of supported country codes.
-     */
-    supported_country_codes?: Array<string>;
-    /**
-     * The bank\'s enabled features.
-     */
-    features: Array<BankBankModel.FeaturesEnum>;
-    /**
-     * ISO8601 datetime the bank was created at.
-     */
-    created_at: string;
+    current_balance?: string | null;
 }
-export namespace BankBankModel {
-    export type TypeEnum = 'sandbox' | 'production';
-    export const TypeEnum = {
-        Sandbox: 'sandbox' as TypeEnum,
-        Production: 'production' as TypeEnum
-    };
-    export type FeaturesEnum = 'attestation_identity_records' | 'kyc_identity_verifications' | 'raw_routing_details';
-    export const FeaturesEnum = {
-        AttestationIdentityRecords: 'attestation_identity_records' as FeaturesEnum,
-        KycIdentityVerifications: 'kyc_identity_verifications' as FeaturesEnum,
-        RawRoutingDetails: 'raw_routing_details' as FeaturesEnum
-    };
-}
-
 
