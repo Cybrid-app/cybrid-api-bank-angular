@@ -9,23 +9,22 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { DepositBankAccountBankModel } from './depositBankAccount';
 
 
-/**
- * The customer\'s name. Only available for GET operations when \'include_pii\' is set.
- */
-export interface CustomerNameBankModel { 
+export interface DepositBankAccountListBankModel { 
     /**
-     * The customer\'s first name.
+     * The total number of records available.
      */
-    first?: string | null;
+    total: string;
     /**
-     * The customer\'s middle name.
+     * The page index to retrieve.
      */
-    middle?: string | null;
+    page: string;
     /**
-     * The customer\'s last name.
+     * The number of entities per page to return.
      */
-    last?: string | null;
+    per_page: string;
+    objects: Array<DepositBankAccountBankModel>;
 }
 

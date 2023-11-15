@@ -11,21 +11,23 @@
  */
 
 
-/**
- * The customer\'s name. Only available for GET operations when \'include_pii\' is set.
- */
-export interface CustomerNameBankModel { 
+export interface DepositBankAccountRoutingDetailsInnerBankModel { 
     /**
-     * The customer\'s first name.
+     * The type of routing number.
      */
-    first?: string | null;
+    routing_number_type: DepositBankAccountRoutingDetailsInnerBankModel.RoutingNumberTypeEnum;
     /**
-     * The customer\'s middle name.
+     * The routing number.
      */
-    middle?: string | null;
-    /**
-     * The customer\'s last name.
-     */
-    last?: string | null;
+    routing_number: string;
 }
+export namespace DepositBankAccountRoutingDetailsInnerBankModel {
+    export type RoutingNumberTypeEnum = 'CPA' | 'ABA' | 'SWIFT';
+    export const RoutingNumberTypeEnum = {
+        Cpa: 'CPA' as RoutingNumberTypeEnum,
+        Aba: 'ABA' as RoutingNumberTypeEnum,
+        Swift: 'SWIFT' as RoutingNumberTypeEnum
+    };
+}
+
 

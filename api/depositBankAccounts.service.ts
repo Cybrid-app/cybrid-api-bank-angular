@@ -19,15 +19,13 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { AccountBankModel } from '../model/account';
+import { DepositBankAccountBankModel } from '../model/depositBankAccount';
 // @ts-ignore
-import { AccountListBankModel } from '../model/accountList';
+import { DepositBankAccountListBankModel } from '../model/depositBankAccountList';
 // @ts-ignore
 import { ErrorResponseBankModel } from '../model/errorResponse';
 // @ts-ignore
-import { ListRequestOwnerBankModel } from '../model/listRequestOwner';
-// @ts-ignore
-import { PostAccountBankModel } from '../model/postAccount';
+import { PostDepositBankAccountBankModel } from '../model/postDepositBankAccount';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -38,7 +36,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class AccountsService {
+export class DepositBankAccountsService {
 
     protected basePath = 'https://bank.sandbox.cybrid.app';
     public defaultHeaders = new HttpHeaders();
@@ -95,18 +93,18 @@ export class AccountsService {
     }
 
     /**
-     * Create Account
-     * Creates an account.  ## Account Type  An Account is tied to a specific cryptocurrency or fiat and is comprised of transactions and a current balance.  An account is required to allow a Bank or Customer to hold cryptocurrency or a Customer to hold fiat on the Cybrid Platform.  At present, account\&#39;s can be created as &#x60;trading&#x60; or &#x60;fiat &#x60; accounts and are required before a Customer can generate quotes or execute a &#x60;trade&#x60; or &#x60;transfer&#x60;.  ## Asset  The asset is the specific cryptocurrency or fiat that the account holds, e.g., \&#39;BTC\&#39; for Bitcoin or &#x60;USD&#x60; for US dollars. See the Symbols API for a complete list of cryptocurrencies and fiat supported.   ## State  | State | Description | |-------|-------------| | storing | The Platform is storing the account details in our private store | | created | The Platform has created the account |    Required scope: **accounts:execute**
-     * @param postAccountBankModel 
+     * Create Deposit Bank Account
+     * Creates a deposit bank account.  ## State  | State | Description | |-------|-------------| | storing | The Platform is storing the deposit bank account details in our private store | | created | The Platform has created the deposit bank account |    Required scope: **deposit_bank_accounts:execute**
+     * @param postDepositBankAccountBankModel 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountBankModel>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountBankModel>>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountBankModel>>;
-    public createAccount(postAccountBankModel: PostAccountBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (postAccountBankModel === null || postAccountBankModel === undefined) {
-            throw new Error('Required parameter postAccountBankModel was null or undefined when calling createAccount.');
+    public createDepositBankAccount(postDepositBankAccountBankModel: PostDepositBankAccountBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DepositBankAccountBankModel>;
+    public createDepositBankAccount(postDepositBankAccountBankModel: PostDepositBankAccountBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DepositBankAccountBankModel>>;
+    public createDepositBankAccount(postDepositBankAccountBankModel: PostDepositBankAccountBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DepositBankAccountBankModel>>;
+    public createDepositBankAccount(postDepositBankAccountBankModel: PostDepositBankAccountBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (postDepositBankAccountBankModel === null || postDepositBankAccountBankModel === undefined) {
+            throw new Error('Required parameter postDepositBankAccountBankModel was null or undefined when calling createDepositBankAccount.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -162,8 +160,8 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.post<AccountBankModel>(`${this.configuration.basePath}/api/accounts`,
-            postAccountBankModel,
+        return this.httpClient.post<DepositBankAccountBankModel>(`${this.configuration.basePath}/api/deposit_bank_accounts`,
+            postDepositBankAccountBankModel,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -176,18 +174,18 @@ export class AccountsService {
     }
 
     /**
-     * Get Account
-     * Retrieves an account.  Required scope: **accounts:read**
-     * @param accountGuid Identifier for the account.
+     * Get Deposit Bank Account
+     * Retrieves a deposit bank account.  Required scope: **deposit_bank_accounts:read**
+     * @param depositBankAccountGuid Identifier for the deposit bank account.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAccount(accountGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountBankModel>;
-    public getAccount(accountGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountBankModel>>;
-    public getAccount(accountGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountBankModel>>;
-    public getAccount(accountGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (accountGuid === null || accountGuid === undefined) {
-            throw new Error('Required parameter accountGuid was null or undefined when calling getAccount.');
+    public getDepositBankAccount(depositBankAccountGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DepositBankAccountBankModel>;
+    public getDepositBankAccount(depositBankAccountGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DepositBankAccountBankModel>>;
+    public getDepositBankAccount(depositBankAccountGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DepositBankAccountBankModel>>;
+    public getDepositBankAccount(depositBankAccountGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (depositBankAccountGuid === null || depositBankAccountGuid === undefined) {
+            throw new Error('Required parameter depositBankAccountGuid was null or undefined when calling getDepositBankAccount.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -234,7 +232,7 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.get<AccountBankModel>(`${this.configuration.basePath}/api/accounts/${encodeURIComponent(String(accountGuid))}`,
+        return this.httpClient.get<DepositBankAccountBankModel>(`${this.configuration.basePath}/api/deposit_bank_accounts/${encodeURIComponent(String(depositBankAccountGuid))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -247,23 +245,21 @@ export class AccountsService {
     }
 
     /**
-     * List Accounts
-     * Retrieves a list of accounts.  Required scope: **accounts:read**
+     * List Deposit Bank Accounts
+     * Retrieves a list of deposit bank accounts.  Required scope: **deposit_bank_accounts:read**
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
-     * @param owner The owner of the entity.
-     * @param guid Comma separated account_guids to list accounts for.
-     * @param type Comma separated account_types to list accounts for.
-     * @param bankGuid Comma separated bank_guids to list accounts for.
-     * @param customerGuid Comma separated customer_guids to list accounts for.
-     * @param label Comma separated labels to list accounts for.
+     * @param guid Comma separated guids to list deposit bank accounts for.
+     * @param bankGuid Comma separated bank_guids to list deposit bank accounts for.
+     * @param customerGuid Comma separated customer_guids to list deposit bank accounts for.
+     * @param label Comma separated labels to list deposit bank accounts for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listAccounts(page?: string, perPage?: string, owner?: ListRequestOwnerBankModel, guid?: string, type?: string, bankGuid?: string, customerGuid?: string, label?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<AccountListBankModel>;
-    public listAccounts(page?: string, perPage?: string, owner?: ListRequestOwnerBankModel, guid?: string, type?: string, bankGuid?: string, customerGuid?: string, label?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<AccountListBankModel>>;
-    public listAccounts(page?: string, perPage?: string, owner?: ListRequestOwnerBankModel, guid?: string, type?: string, bankGuid?: string, customerGuid?: string, label?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<AccountListBankModel>>;
-    public listAccounts(page?: string, perPage?: string, owner?: ListRequestOwnerBankModel, guid?: string, type?: string, bankGuid?: string, customerGuid?: string, label?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public listDepositBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, label?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DepositBankAccountListBankModel>;
+    public listDepositBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, label?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DepositBankAccountListBankModel>>;
+    public listDepositBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, label?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DepositBankAccountListBankModel>>;
+    public listDepositBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, label?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -274,17 +270,9 @@ export class AccountsService {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>perPage, 'per_page');
         }
-        if (owner !== undefined && owner !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>owner, 'owner');
-        }
         if (guid !== undefined && guid !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>guid, 'guid');
-        }
-        if (type !== undefined && type !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>type, 'type');
         }
         if (bankGuid !== undefined && bankGuid !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
@@ -343,7 +331,7 @@ export class AccountsService {
             }
         }
 
-        return this.httpClient.get<AccountListBankModel>(`${this.configuration.basePath}/api/accounts`,
+        return this.httpClient.get<DepositBankAccountListBankModel>(`${this.configuration.basePath}/api/deposit_bank_accounts`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,

@@ -7,6 +7,7 @@ import { AssetsService } from './api/assets.service';
 import { BanksService } from './api/banks.service';
 import { CustomersService } from './api/customers.service';
 import { DepositAddressesService } from './api/depositAddresses.service';
+import { DepositBankAccountsService } from './api/depositBankAccounts.service';
 import { ExternalBankAccountsService } from './api/externalBankAccounts.service';
 import { ExternalWalletsService } from './api/externalWallets.service';
 import { IdentityVerificationsService } from './api/identityVerifications.service';

@@ -11,21 +11,10 @@
  */
 
 
-/**
- * The customer\'s name. Only available for GET operations when \'include_pii\' is set.
- */
-export interface CustomerNameBankModel { 
+export interface DepositBankAccountAccountDetailsInnerBankModel { 
     /**
-     * The customer\'s first name.
+     * The account number.
      */
-    first?: string | null;
-    /**
-     * The customer\'s middle name.
-     */
-    middle?: string | null;
-    /**
-     * The customer\'s last name.
-     */
-    last?: string | null;
+    account_number: string;
 }
 

@@ -11,21 +11,18 @@
  */
 
 
-/**
- * The customer\'s name. Only available for GET operations when \'include_pii\' is set.
- */
-export interface CustomerNameBankModel { 
+export interface PostDepositBankAccountBankModel { 
     /**
-     * The customer\'s first name.
+     * The trading account guid.
      */
-    first?: string | null;
+    account_guid: string;
     /**
-     * The customer\'s middle name.
+     * The unique identifier for the customer.
      */
-    middle?: string | null;
+    customer_guid?: string | null;
     /**
-     * The customer\'s last name.
+     * The labels associated with the address.
      */
-    last?: string | null;
+    labels?: Array<string> | null;
 }
 

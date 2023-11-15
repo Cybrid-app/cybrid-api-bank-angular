@@ -9,23 +9,68 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { DepositBankAccountAccountDetailsInnerBankModel } from './depositBankAccountAccountDetailsInner';
+import { DepositBankAccountCounterpartyAddressBankModel } from './depositBankAccountCounterpartyAddress';
+import { DepositBankAccountRoutingDetailsInnerBankModel } from './depositBankAccountRoutingDetailsInner';
 
 
-/**
- * The customer\'s name. Only available for GET operations when \'include_pii\' is set.
- */
-export interface CustomerNameBankModel { 
+export interface DepositBankAccountBankModel { 
     /**
-     * The customer\'s first name.
+     * Auto-generated unique identifier for the identity verification.
      */
-    first?: string | null;
+    guid?: string;
     /**
-     * The customer\'s middle name.
+     * The address\' bank identifier.
      */
-    middle?: string | null;
+    bank_guid?: string;
     /**
-     * The customer\'s last name.
+     * The address\' customer identifier.
      */
-    last?: string | null;
+    customer_guid?: string | null;
+    /**
+     * The address\' account identifier.
+     */
+    account_guid?: string;
+    /**
+     * ISO8601 datetime the address was created at.
+     */
+    created_at?: string;
+    /**
+     * The asset the transfer is related to, e.g., USD.
+     */
+    asset?: string;
+    /**
+     * The state of the address.
+     */
+    state?: DepositBankAccountBankModel.StateEnum;
+    /**
+     * The unique memo identifier for the address. This is used to identify the recipient when sending funds to the account. This value MUST be included in all wire transfers to this account.
+     */
+    unique_memo_id?: string;
+    /**
+     * The name of the account holder.
+     */
+    counterparty_name?: string | null;
+    counterparty_address?: DepositBankAccountCounterpartyAddressBankModel | null;
+    /**
+     * The account details for the bank account.
+     */
+    account_details?: Array<DepositBankAccountAccountDetailsInnerBankModel> | null;
+    /**
+     * The account details for the bank account.
+     */
+    routing_details?: Array<DepositBankAccountRoutingDetailsInnerBankModel> | null;
+    /**
+     * The labels associated with the address.
+     */
+    labels?: Array<string> | null;
 }
+export namespace DepositBankAccountBankModel {
+    export type StateEnum = 'storing' | 'created';
+    export const StateEnum = {
+        Storing: 'storing' as StateEnum,
+        Created: 'created' as StateEnum
+    };
+}
+
 

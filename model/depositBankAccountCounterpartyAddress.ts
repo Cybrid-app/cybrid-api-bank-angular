@@ -12,20 +12,32 @@
 
 
 /**
- * The customer\'s name. Only available for GET operations when \'include_pii\' is set.
+ * The counterparty\'s address on the account.
  */
-export interface CustomerNameBankModel { 
+export interface DepositBankAccountCounterpartyAddressBankModel { 
     /**
-     * The customer\'s first name.
+     * The first line of the address.
      */
-    first?: string | null;
+    street: string;
     /**
-     * The customer\'s middle name.
+     * The optional second line of the address.
      */
-    middle?: string | null;
+    street2?: string | null;
     /**
-     * The customer\'s last name.
+     * The city of the address.
      */
-    last?: string | null;
+    city: string;
+    /**
+     * The provide/state/region of the address; not used by all countries.
+     */
+    subdivision?: string | null;
+    /**
+     * The postal/post/zip code of the address; not used by all countries.
+     */
+    postal_code?: string | null;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the address.
+     */
+    country_code: string;
 }
 
