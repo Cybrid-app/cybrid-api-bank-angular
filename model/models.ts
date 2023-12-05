@@ -60,6 +60,7 @@ export * from './transfer';
 export * from './transferDestinationAccount';
 export * from './transferList';
 export * from './transferSourceAccount';
+export * from './verificationCheck';
 export * from './workflow';
 export * from './workflowWithDetailsAllOf';
 export * from './workflowWithDetails';

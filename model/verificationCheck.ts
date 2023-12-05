@@ -11,33 +11,40 @@
  */
 
 
-export interface PostAccountBankModel { 
+export interface VerificationCheckBankModel { 
     /**
-     * The account type.
+     * The type of verification check.
      */
-    type: PostAccountBankModel.TypeEnum;
+    type: VerificationCheckBankModel.TypeEnum;
     /**
-     * The customer identifier associated with the account.
+     * The state of the verification check.
      */
-    customer_guid?: string | null;
+    state: VerificationCheckBankModel.StateEnum;
     /**
-     * The asset code.
+     * The reason codes explaining the outcome.
      */
-    asset: string;
-    /**
-     * The name of the account.
-     */
-    name: string;
-    /**
-     * The labels associated with the account.
-     */
-    labels?: Array<string> | null;
+    failure_codes?: Array<string> | null;
 }
-export namespace PostAccountBankModel {
-    export type TypeEnum = 'trading' | 'fiat';
+export namespace VerificationCheckBankModel {
+    export type TypeEnum = 'business_watchlists' | 'business_verification' | 'business_tax_id_verification' | 'person_attested' | 'person_tax_id_attested' | 'person_watchlists' | 'person_verification' | 'person_authentication' | 'person_gov_id_verification' | 'person_tax_id_verification';
     export const TypeEnum = {
-        Trading: 'trading' as TypeEnum,
-        Fiat: 'fiat' as TypeEnum
+        BusinessWatchlists: 'business_watchlists' as TypeEnum,
+        BusinessVerification: 'business_verification' as TypeEnum,
+        BusinessTaxIdVerification: 'business_tax_id_verification' as TypeEnum,
+        PersonAttested: 'person_attested' as TypeEnum,
+        PersonTaxIdAttested: 'person_tax_id_attested' as TypeEnum,
+        PersonWatchlists: 'person_watchlists' as TypeEnum,
+        PersonVerification: 'person_verification' as TypeEnum,
+        PersonAuthentication: 'person_authentication' as TypeEnum,
+        PersonGovIdVerification: 'person_gov_id_verification' as TypeEnum,
+        PersonTaxIdVerification: 'person_tax_id_verification' as TypeEnum
+    };
+    export type StateEnum = 'passed' | 'failed' | 'expired' | 'invalidated';
+    export const StateEnum = {
+        Passed: 'passed' as StateEnum,
+        Failed: 'failed' as StateEnum,
+        Expired: 'expired' as StateEnum,
+        Invalidated: 'invalidated' as StateEnum
     };
 }
 
