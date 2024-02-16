@@ -11,14 +11,26 @@
  */
 
 
-export interface DepositBankAccountRoutingDetailsInnerBankModel { 
+export interface PostInvoiceBankModel { 
     /**
-     * The type of routing number; one of CPA, ABA, or SWIFT.
+     * The asset code the customer will receive the funds in.
      */
-    routing_number_type: string;
+    asset: string;
     /**
-     * The routing number.
+     * The unique identifier for the customer.
      */
-    routing_number: string;
+    customer_guid?: string | null;
+    /**
+     * The amount to be received in base units of the asset, i.e., the amount the customer will receive after fees. ONLY one of receive_amount or deliver_amount is required.
+     */
+    receive_amount?: string | null;
+    /**
+     * The amount to be delivered in base units of the asset, i.e., the amount the customer will receive before fees. ONLY one of receive_amount or deliver_amount is required.
+     */
+    deliver_amount?: string | null;
+    /**
+     * The labels associated with the customer.
+     */
+    labels?: Array<string> | null;
 }
 

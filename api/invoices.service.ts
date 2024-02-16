@@ -21,13 +21,11 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { ErrorResponseBankModel } from '../model/errorResponse';
 // @ts-ignore
-import { ExternalBankAccountBankModel } from '../model/externalBankAccount';
+import { InvoiceBankModel } from '../model/invoice';
 // @ts-ignore
-import { ExternalBankAccountListBankModel } from '../model/externalBankAccountList';
+import { InvoiceListBankModel } from '../model/invoiceList';
 // @ts-ignore
-import { PatchExternalBankAccountBankModel } from '../model/patchExternalBankAccount';
-// @ts-ignore
-import { PostExternalBankAccountBankModel } from '../model/postExternalBankAccount';
+import { PostInvoiceBankModel } from '../model/postInvoice';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -38,7 +36,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class ExternalBankAccountsService {
+export class InvoicesService {
 
     protected basePath = 'https://bank.sandbox.cybrid.app';
     public defaultHeaders = new HttpHeaders();
@@ -95,18 +93,18 @@ export class ExternalBankAccountsService {
     }
 
     /**
-     * Create ExternalBankAccount
-     * Create an ExternalBankAccount.  ## Account creation  Accounts can be created for a Bank or a Customer.  To create accounts for your Bank, omit the &#x60;customer_guid&#x60; parameter in the request body. To create accounts for your Customers, include the &#x60;customer_guid&#x60; parameter in the request body.  ## State  | State | Description | |-------|-------------| | storing | The Platform is storing the external bank account details in our private store | | completed | The Platform has created the external bank account | | unverified | The external bank account is created, but it has not yet been verified | | failed | The Platform was not able to successfully create the external bank account | | refresh_required | The Platform has created the external bank account, but needs to be refreshed | | deleting | The Platform is deleting the external bank account | | deleted | The Platform has deleted the external bank account |  ## Failure codes  | Code | Description | |------|-------------| | invalid_routing_number | The provided routing number is invalid |    Required scope: **external_bank_accounts:execute**
-     * @param postExternalBankAccountBankModel 
+     * Create Invoice
+     * Creates a invoice.  ## State  | State | Description | |-------|-------------| | storing    | The Platform is storing the invoice details in our private store | | unpaid     | The invoice is unpaid. Payment instructions can be generated for an invoice in this state | | cancelling | The invocie is in the process of being cancelled | | cancelled  | The invoice has been cancelled |  | settling   | The invoice has been paid and the funds associated with this invoice are in the process of being settled | | paid       | The invoice has been paid and the funds associated with this invoice have been settled |     Required scope: **invoices:execute**
+     * @param postInvoiceBankModel 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountBankModel>;
-    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountBankModel>>;
-    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountBankModel>>;
-    public createExternalBankAccount(postExternalBankAccountBankModel: PostExternalBankAccountBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (postExternalBankAccountBankModel === null || postExternalBankAccountBankModel === undefined) {
-            throw new Error('Required parameter postExternalBankAccountBankModel was null or undefined when calling createExternalBankAccount.');
+    public createInvoice(postInvoiceBankModel: PostInvoiceBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<InvoiceBankModel>;
+    public createInvoice(postInvoiceBankModel: PostInvoiceBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<InvoiceBankModel>>;
+    public createInvoice(postInvoiceBankModel: PostInvoiceBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<InvoiceBankModel>>;
+    public createInvoice(postInvoiceBankModel: PostInvoiceBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (postInvoiceBankModel === null || postInvoiceBankModel === undefined) {
+            throw new Error('Required parameter postInvoiceBankModel was null or undefined when calling createInvoice.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -162,8 +160,8 @@ export class ExternalBankAccountsService {
             }
         }
 
-        return this.httpClient.post<ExternalBankAccountBankModel>(`${this.configuration.basePath}/api/external_bank_accounts`,
-            postExternalBankAccountBankModel,
+        return this.httpClient.post<InvoiceBankModel>(`${this.configuration.basePath}/api/invoices`,
+            postInvoiceBankModel,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -176,18 +174,18 @@ export class ExternalBankAccountsService {
     }
 
     /**
-     * Delete External Bank Account
-     * Deletes an external bank account.  Required scope: **external_bank_accounts:execute**
-     * @param externalBankAccountGuid Identifier for the external bank account.
+     * Get Invoice
+     * Retrieves a invoice.  Required scope: **invoices:read**
+     * @param invoiceGuid Identifier for the payment instruction.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteExternalBankAccount(externalBankAccountGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountBankModel>;
-    public deleteExternalBankAccount(externalBankAccountGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountBankModel>>;
-    public deleteExternalBankAccount(externalBankAccountGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountBankModel>>;
-    public deleteExternalBankAccount(externalBankAccountGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (externalBankAccountGuid === null || externalBankAccountGuid === undefined) {
-            throw new Error('Required parameter externalBankAccountGuid was null or undefined when calling deleteExternalBankAccount.');
+    public getInvoice(invoiceGuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<InvoiceBankModel>;
+    public getInvoice(invoiceGuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<InvoiceBankModel>>;
+    public getInvoice(invoiceGuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<InvoiceBankModel>>;
+    public getInvoice(invoiceGuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (invoiceGuid === null || invoiceGuid === undefined) {
+            throw new Error('Required parameter invoiceGuid was null or undefined when calling getInvoice.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -234,7 +232,7 @@ export class ExternalBankAccountsService {
             }
         }
 
-        return this.httpClient.delete<ExternalBankAccountBankModel>(`${this.configuration.basePath}/api/external_bank_accounts/${encodeURIComponent(String(externalBankAccountGuid))}`,
+        return this.httpClient.get<InvoiceBankModel>(`${this.configuration.basePath}/api/invoices/${encodeURIComponent(String(invoiceGuid))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -247,111 +245,22 @@ export class ExternalBankAccountsService {
     }
 
     /**
-     * Get External Bank Account
-     * Retrieves an external bank account.  Required scope: **external_bank_accounts:read**
-     * @param externalBankAccountGuid Identifier for the external bank account.
-     * @param forceBalanceRefresh Force the balance on the account to be retrieved.
-     * @param includeBalances Include balance information in the response. If &#x60;force_balance_refresh&#x60; is &#x60;true&#x60;, the most up to date balance will be returned. If &#x60;force_balance_refresh&#x60; is &#x60;false&#x60;, the cached balance will be returned. &#x60;balance_updated_at&#x60; in the response will provide the timestamp the balance was last updated.
-     * @param includePii Include the account holder\&#39;s PII in the response.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public getExternalBankAccount(externalBankAccountGuid: string, forceBalanceRefresh?: boolean, includeBalances?: boolean, includePii?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountBankModel>;
-    public getExternalBankAccount(externalBankAccountGuid: string, forceBalanceRefresh?: boolean, includeBalances?: boolean, includePii?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountBankModel>>;
-    public getExternalBankAccount(externalBankAccountGuid: string, forceBalanceRefresh?: boolean, includeBalances?: boolean, includePii?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountBankModel>>;
-    public getExternalBankAccount(externalBankAccountGuid: string, forceBalanceRefresh?: boolean, includeBalances?: boolean, includePii?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (externalBankAccountGuid === null || externalBankAccountGuid === undefined) {
-            throw new Error('Required parameter externalBankAccountGuid was null or undefined when calling getExternalBankAccount.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (forceBalanceRefresh !== undefined && forceBalanceRefresh !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>forceBalanceRefresh, 'force_balance_refresh');
-        }
-        if (includeBalances !== undefined && includeBalances !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>includeBalances, 'include_balances');
-        }
-        if (includePii !== undefined && includePii !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>includePii, 'include_pii');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarCredential: string | undefined;
-        // authentication (BearerAuth) required
-        localVarCredential = this.configuration.lookupCredential('BearerAuth');
-        if (localVarCredential) {
-            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
-        }
-
-        // authentication (oauth2) required
-        localVarCredential = this.configuration.lookupCredential('oauth2');
-        if (localVarCredential) {
-            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
-        }
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        return this.httpClient.get<ExternalBankAccountBankModel>(`${this.configuration.basePath}/api/external_bank_accounts/${encodeURIComponent(String(externalBankAccountGuid))}`,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * Get external bank accounts list
-     * Retrieves a listing of external bank accounts.  Required scope: **external_bank_accounts:read**
+     * List Invoices
+     * Retrieves a list of invoices.  Required scope: **invoices:read**
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
-     * @param guid Comma separated external_bank_account_guids to list external_bank_accounts for.
-     * @param bankGuid Comma separated bank_guids to list external_bank_accounts for.
-     * @param customerGuid Comma separated customer_guids to list external_bank_accounts for.
-     * @param asset Comma separated assets to list external_bank_accounts for.
-     * @param state Comma separated states to list external_bank_accounts for.
+     * @param guid Comma separated guids to list invoices for.
+     * @param bankGuid Comma separated bank_guids to list invoices for.
+     * @param customerGuid Comma separated customer_guids to list invoices for.
+     * @param accountGuid Comma separated account_guids to list invoices for.
+     * @param label Comma separated labels to list invoices for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, asset?: string, state?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountListBankModel>;
-    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, asset?: string, state?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountListBankModel>>;
-    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, asset?: string, state?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountListBankModel>>;
-    public listExternalBankAccounts(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, asset?: string, state?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public listInvoices(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, label?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<InvoiceListBankModel>;
+    public listInvoices(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, label?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<InvoiceListBankModel>>;
+    public listInvoices(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, label?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<InvoiceListBankModel>>;
+    public listInvoices(page?: string, perPage?: string, guid?: string, bankGuid?: string, customerGuid?: string, accountGuid?: string, label?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -374,13 +283,13 @@ export class ExternalBankAccountsService {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>customerGuid, 'customer_guid');
         }
-        if (asset !== undefined && asset !== null) {
+        if (accountGuid !== undefined && accountGuid !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>asset, 'asset');
+            <any>accountGuid, 'account_guid');
         }
-        if (state !== undefined && state !== null) {
+        if (label !== undefined && label !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>state, 'state');
+            <any>label, 'label');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -427,95 +336,10 @@ export class ExternalBankAccountsService {
             }
         }
 
-        return this.httpClient.get<ExternalBankAccountListBankModel>(`${this.configuration.basePath}/api/external_bank_accounts`,
+        return this.httpClient.get<InvoiceListBankModel>(`${this.configuration.basePath}/api/invoices`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * Patch ExternalBankAccount
-     * Patch an external bank account.  Required scope: **external_bank_accounts:write**
-     * @param externalBankAccountGuid Identifier for the external bank account.
-     * @param patchExternalBankAccountBankModel 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public patchExternalBankAccount(externalBankAccountGuid: string, patchExternalBankAccountBankModel: PatchExternalBankAccountBankModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExternalBankAccountBankModel>;
-    public patchExternalBankAccount(externalBankAccountGuid: string, patchExternalBankAccountBankModel: PatchExternalBankAccountBankModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExternalBankAccountBankModel>>;
-    public patchExternalBankAccount(externalBankAccountGuid: string, patchExternalBankAccountBankModel: PatchExternalBankAccountBankModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExternalBankAccountBankModel>>;
-    public patchExternalBankAccount(externalBankAccountGuid: string, patchExternalBankAccountBankModel: PatchExternalBankAccountBankModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (externalBankAccountGuid === null || externalBankAccountGuid === undefined) {
-            throw new Error('Required parameter externalBankAccountGuid was null or undefined when calling patchExternalBankAccount.');
-        }
-        if (patchExternalBankAccountBankModel === null || patchExternalBankAccountBankModel === undefined) {
-            throw new Error('Required parameter patchExternalBankAccountBankModel was null or undefined when calling patchExternalBankAccount.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarCredential: string | undefined;
-        // authentication (BearerAuth) required
-        localVarCredential = this.configuration.lookupCredential('BearerAuth');
-        if (localVarCredential) {
-            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
-        }
-
-        // authentication (oauth2) required
-        localVarCredential = this.configuration.lookupCredential('oauth2');
-        if (localVarCredential) {
-            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
-        }
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        return this.httpClient.patch<ExternalBankAccountBankModel>(`${this.configuration.basePath}/api/external_bank_accounts/${encodeURIComponent(String(externalBankAccountGuid))}`,
-            patchExternalBankAccountBankModel,
-            {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

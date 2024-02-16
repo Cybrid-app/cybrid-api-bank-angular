@@ -11,14 +11,14 @@
  */
 
 
-export interface DepositBankAccountRoutingDetailsInnerBankModel { 
+export interface PostPaymentInstructionBankModel { 
     /**
-     * The type of routing number; one of CPA, ABA, or SWIFT.
+     * The invoice guid.
      */
-    routing_number_type: string;
+    invoice_guid: string;
     /**
-     * The routing number.
+     * The unique identifier for the customer.
      */
-    routing_number: string;
+    customer_guid?: string | null;
 }
 

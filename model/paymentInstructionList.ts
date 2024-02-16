@@ -9,16 +9,22 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { PaymentInstructionBankModel } from './paymentInstruction';
 
 
-export interface DepositBankAccountRoutingDetailsInnerBankModel { 
+export interface PaymentInstructionListBankModel { 
     /**
-     * The type of routing number; one of CPA, ABA, or SWIFT.
+     * The total number of records available.
      */
-    routing_number_type: string;
+    total: string;
     /**
-     * The routing number.
+     * The page index to retrieve.
      */
-    routing_number: string;
+    page: string;
+    /**
+     * The number of entities per page to return.
+     */
+    per_page: string;
+    objects: Array<PaymentInstructionBankModel>;
 }
 

@@ -11,14 +11,46 @@
  */
 
 
-export interface DepositBankAccountRoutingDetailsInnerBankModel { 
+export interface PaymentInstructionBankModel { 
     /**
-     * The type of routing number; one of CPA, ABA, or SWIFT.
+     * Auto-generated unique identifier for the payment instruction.
      */
-    routing_number_type: string;
+    guid?: string;
     /**
-     * The routing number.
+     * The customer identifier.
      */
-    routing_number: string;
+    customer_guid?: string | null;
+    /**
+     * The invoice identifier.
+     */
+    invoice_guid?: string;
+    /**
+     * ISO8601 datetime the record was created at.
+     */
+    created_at?: string;
+    /**
+     * ISO8601 datetime the record was last updated at.
+     */
+    updated_at?: string;
+    /**
+     * ISO8601 datetime the instructions expired at.
+     */
+    expired_at?: string | null;
+    /**
+     * The network address to pay the invoice to.
+     */
+    network_address?: string | null;
+    /**
+     * The asset the payor must pay the invoice in, e.g., BTC.
+     */
+    expected_payment_asset?: string | null;
+    /**
+     * The amount to be paid in base units of expected_payment_asset.
+     */
+    expected_payment_amount?: string | null;
+    /**
+     * The state of the payment instruction; one of storing, created, or expired.
+     */
+    state?: string;
 }
 

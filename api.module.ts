@@ -11,6 +11,8 @@ import { DepositBankAccountsService } from './api/depositBankAccounts.service';
 import { ExternalBankAccountsService } from './api/externalBankAccounts.service';
 import { ExternalWalletsService } from './api/externalWallets.service';
 import { IdentityVerificationsService } from './api/identityVerifications.service';
+import { InvoicesService } from './api/invoices.service';
+import { PaymentInstructionsService } from './api/paymentInstructions.service';
 import { PricesService } from './api/prices.service';
 import { QuotesService } from './api/quotes.service';
 import { SymbolsService } from './api/symbols.service';
