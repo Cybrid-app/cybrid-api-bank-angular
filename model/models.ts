@@ -10,6 +10,7 @@ export * from './bankFeature';
 export * from './bankList';
 export * from './bankType';
 export * from './customerAddress';
+export * from './customerAliasesInner';
 export * from './customer';
 export * from './customerList';
 export * from './customerName';

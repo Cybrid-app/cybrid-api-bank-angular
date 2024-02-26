@@ -9,22 +9,24 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { DepositAddressBankModel } from './depositAddress';
 
 
-export interface DepositAddressListBankModel { 
+export interface CustomerAliasesInnerBankModel { 
     /**
-     * The total number of records available.
+     * The customer\'s first name.
      */
-    total: string;
+    first?: string | null;
     /**
-     * The page index to retrieve.
+     * The customer\'s middle name.
      */
-    page: string;
+    middle?: string | null;
     /**
-     * The number of entities per page to return.
+     * The customer\'s last name.
      */
-    per_page: string;
-    objects: Array<DepositAddressBankModel>;
+    last?: string | null;
+    /**
+     * The customer\'s full name.
+     */
+    full?: string | null;
 }
 
