@@ -67,6 +67,7 @@ export * from './postExternalBankAccountCounterpartyAddress';
 export * from './postExternalBankAccountCounterpartyBankAccount';
 export * from './postExternalBankAccountCounterpartyName';
 export * from './postExternalWallet';
+export * from './postFee';
 export * from './postIdentificationNumber';
 export * from './postIdentityVerificationAddress';
 export * from './postIdentityVerification';
