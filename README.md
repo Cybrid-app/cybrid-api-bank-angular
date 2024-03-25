@@ -147,7 +147,7 @@ An `Organization` can have multiple `banks`, in either `Sandbox` or `Production`
 `Customers` must also have an `Account` to be able to transact, in the desired asset class. See the Accounts APIs for more details on setting up accounts for the customer.
 
 
-## @cybrid/cybrid-api-bank-angular@0.115.35
+## @cybrid/cybrid-api-bank-angular@0.115.36
 
 ### Building
 
@@ -168,7 +168,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install @cybrid/cybrid-api-bank-angular@0.115.35 --save
+npm install @cybrid/cybrid-api-bank-angular@0.115.36 --save
 ```
 
 _without publishing (not recommended):_
