@@ -11,54 +11,33 @@
  */
 
 
-export interface AccountBankModel { 
+/**
+ * The attested address.
+ */
+export interface IdentityVerificationWithDetailsPiiAddressBankModel { 
     /**
-     * The account type; one of trading, fee, fiat, gas, or reserve.
+     * The first line of the address.
      */
-    type?: string;
+    street: string;
     /**
-     * Auto-generated unique identifier for the account.
+     * The optional second line of the address.
      */
-    guid?: string;
+    street2?: string | null;
     /**
-     * ISO8601 datetime the record was created at.
+     * The city of the address.
      */
-    created_at?: string;
+    city: string;
     /**
-     * ISO8601 datetime the record was last updated at.
+     * The provide/state/region of the address; not used by all countries.
      */
-    updated_at?: string;
+    subdivision?: string | null;
     /**
-     * The asset code.
+     * The postal/post/zip code of the address; not used by all countries.
      */
-    asset?: string;
+    postal_code?: string | null;
     /**
-     * The name of the account.
+     * The ISO 3166 country 2-Alpha country code of the address.
      */
-    name?: string;
-    /**
-     * The bank identifier associated with the account.
-     */
-    bank_guid?: string;
-    /**
-     * The customer identifier associated with the account.
-     */
-    customer_guid?: string;
-    /**
-     * The amount of funds that are in the account, in base units of the asset.
-     */
-    platform_balance?: string;
-    /**
-     * The amount of funds that are in the account, in base units of the asset, that are available for use on the platform.
-     */
-    platform_available?: string;
-    /**
-     * The state of the account; one of storing or created.
-     */
-    state?: string;
-    /**
-     * The labels associated with the account.
-     */
-    labels?: Array<string> | null;
+    country_code: string;
 }
 

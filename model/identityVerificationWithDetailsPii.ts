@@ -9,56 +9,27 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { IdentityVerificationWithDetailsPiiAddressBankModel } from './identityVerificationWithDetailsPiiAddress';
+import { IdentityVerificationWithDetailsPiiNameBankModel } from './identityVerificationWithDetailsPiiName';
 
 
-export interface AccountBankModel { 
+/**
+ * The personally identifiable information associated with the identity verification.
+ */
+export interface IdentityVerificationWithDetailsPiiBankModel { 
+    name?: IdentityVerificationWithDetailsPiiNameBankModel | null;
+    address?: IdentityVerificationWithDetailsPiiAddressBankModel | null;
     /**
-     * The account type; one of trading, fee, fiat, gas, or reserve.
+     * The attested date of birth.
      */
-    type?: string;
+    date_of_birth?: string | null;
     /**
-     * Auto-generated unique identifier for the account.
+     * The attested phone number.
      */
-    guid?: string;
+    phone_number?: string | null;
     /**
-     * ISO8601 datetime the record was created at.
+     * The attested email address.
      */
-    created_at?: string;
-    /**
-     * ISO8601 datetime the record was last updated at.
-     */
-    updated_at?: string;
-    /**
-     * The asset code.
-     */
-    asset?: string;
-    /**
-     * The name of the account.
-     */
-    name?: string;
-    /**
-     * The bank identifier associated with the account.
-     */
-    bank_guid?: string;
-    /**
-     * The customer identifier associated with the account.
-     */
-    customer_guid?: string;
-    /**
-     * The amount of funds that are in the account, in base units of the asset.
-     */
-    platform_balance?: string;
-    /**
-     * The amount of funds that are in the account, in base units of the asset, that are available for use on the platform.
-     */
-    platform_available?: string;
-    /**
-     * The state of the account; one of storing or created.
-     */
-    state?: string;
-    /**
-     * The labels associated with the account.
-     */
-    labels?: Array<string> | null;
+    email_address?: string | null;
 }
 
