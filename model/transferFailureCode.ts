@@ -11,10 +11,18 @@
  */
 
 
-export type ExternalWalletEnvironmentBankModel = 'sandbox' | 'production';
+export type TransferFailureCodeBankModel = 'non_sufficient_funds' | 'refresh_required' | 'party_name_invalid' | 'payment_rail_invalid' | 'compliance_rejection' | 'cancelled' | 'reversed' | 'limit_exceeded' | 'network_fee_too_low' | 'amount_too_low';
 
-export const ExternalWalletEnvironmentBankModel = {
-    Sandbox: 'sandbox' as ExternalWalletEnvironmentBankModel,
-    Production: 'production' as ExternalWalletEnvironmentBankModel
+export const TransferFailureCodeBankModel = {
+    NonSufficientFunds: 'non_sufficient_funds' as TransferFailureCodeBankModel,
+    RefreshRequired: 'refresh_required' as TransferFailureCodeBankModel,
+    PartyNameInvalid: 'party_name_invalid' as TransferFailureCodeBankModel,
+    PaymentRailInvalid: 'payment_rail_invalid' as TransferFailureCodeBankModel,
+    ComplianceRejection: 'compliance_rejection' as TransferFailureCodeBankModel,
+    Cancelled: 'cancelled' as TransferFailureCodeBankModel,
+    Reversed: 'reversed' as TransferFailureCodeBankModel,
+    LimitExceeded: 'limit_exceeded' as TransferFailureCodeBankModel,
+    NetworkFeeTooLow: 'network_fee_too_low' as TransferFailureCodeBankModel,
+    AmountTooLow: 'amount_too_low' as TransferFailureCodeBankModel
 };
 

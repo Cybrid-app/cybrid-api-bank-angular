@@ -11,10 +11,13 @@
  */
 
 
-export type ExternalWalletEnvironmentBankModel = 'sandbox' | 'production';
+export type TradeFailureCodeBankModel = 'non_sufficient_funds' | 'unsupported' | 'limit_exceeded' | 'expired_quote' | 'market_volatility';
 
-export const ExternalWalletEnvironmentBankModel = {
-    Sandbox: 'sandbox' as ExternalWalletEnvironmentBankModel,
-    Production: 'production' as ExternalWalletEnvironmentBankModel
+export const TradeFailureCodeBankModel = {
+    NonSufficientFunds: 'non_sufficient_funds' as TradeFailureCodeBankModel,
+    Unsupported: 'unsupported' as TradeFailureCodeBankModel,
+    LimitExceeded: 'limit_exceeded' as TradeFailureCodeBankModel,
+    ExpiredQuote: 'expired_quote' as TradeFailureCodeBankModel,
+    MarketVolatility: 'market_volatility' as TradeFailureCodeBankModel
 };
 
