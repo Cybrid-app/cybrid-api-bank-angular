@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { AccountsService } from './api/accounts.service';
 import { AssetsService } from './api/assets.service';
 import { BanksService } from './api/banks.service';
+import { CounterpartiesService } from './api/counterparties.service';
 import { CustomersService } from './api/customers.service';
 import { DepositAddressesService } from './api/depositAddresses.service';
 import { DepositBankAccountsService } from './api/depositBankAccounts.service';
