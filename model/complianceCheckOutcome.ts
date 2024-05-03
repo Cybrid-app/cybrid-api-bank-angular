@@ -11,10 +11,11 @@
  */
 
 
-export type IdentityVerificationTypeBankModel = 'kyc' | 'bank_account';
+export type ComplianceCheckOutcomeBankModel = 'passed' | 'failed' | 'inconclusive';
 
-export const IdentityVerificationTypeBankModel = {
-    Kyc: 'kyc' as IdentityVerificationTypeBankModel,
-    BankAccount: 'bank_account' as IdentityVerificationTypeBankModel
+export const ComplianceCheckOutcomeBankModel = {
+    Passed: 'passed' as ComplianceCheckOutcomeBankModel,
+    Failed: 'failed' as ComplianceCheckOutcomeBankModel,
+    Inconclusive: 'inconclusive' as ComplianceCheckOutcomeBankModel
 };
 

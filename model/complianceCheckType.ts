@@ -11,10 +11,20 @@
  */
 
 
-export type IdentityVerificationTypeBankModel = 'kyc' | 'bank_account';
+export type ComplianceCheckTypeBankModel = 'business_watchlists' | 'business_verification' | 'business_tax_id_verification' | 'person_attested' | 'person_tax_id_attested' | 'person_watchlists' | 'person_verification' | 'person_authentication' | 'person_gov_id_verification' | 'person_tax_id_verification' | 'external_bank_account_verification' | 'external_bank_account_attested';
 
-export const IdentityVerificationTypeBankModel = {
-    Kyc: 'kyc' as IdentityVerificationTypeBankModel,
-    BankAccount: 'bank_account' as IdentityVerificationTypeBankModel
+export const ComplianceCheckTypeBankModel = {
+    BusinessWatchlists: 'business_watchlists' as ComplianceCheckTypeBankModel,
+    BusinessVerification: 'business_verification' as ComplianceCheckTypeBankModel,
+    BusinessTaxIdVerification: 'business_tax_id_verification' as ComplianceCheckTypeBankModel,
+    PersonAttested: 'person_attested' as ComplianceCheckTypeBankModel,
+    PersonTaxIdAttested: 'person_tax_id_attested' as ComplianceCheckTypeBankModel,
+    PersonWatchlists: 'person_watchlists' as ComplianceCheckTypeBankModel,
+    PersonVerification: 'person_verification' as ComplianceCheckTypeBankModel,
+    PersonAuthentication: 'person_authentication' as ComplianceCheckTypeBankModel,
+    PersonGovIdVerification: 'person_gov_id_verification' as ComplianceCheckTypeBankModel,
+    PersonTaxIdVerification: 'person_tax_id_verification' as ComplianceCheckTypeBankModel,
+    ExternalBankAccountVerification: 'external_bank_account_verification' as ComplianceCheckTypeBankModel,
+    ExternalBankAccountAttested: 'external_bank_account_attested' as ComplianceCheckTypeBankModel
 };
 

@@ -11,10 +11,18 @@
  */
 
 
-export type IdentityVerificationTypeBankModel = 'kyc' | 'bank_account';
-
-export const IdentityVerificationTypeBankModel = {
-    Kyc: 'kyc' as IdentityVerificationTypeBankModel,
-    BankAccount: 'bank_account' as IdentityVerificationTypeBankModel
-};
+export interface ComplianceDecisionBankModel { 
+    /**
+     * The type of verification check; one of business_watchlists, business_verification, business_tax_id_verification, person_attested, person_tax_id_attested, person_watchlists, person_verification, person_authentication, person_gov_id_verification, person_tax_id_verification, external_bank_account_verification, or external_bank_account_attested.
+     */
+    type: string;
+    /**
+     * The state of the verification check; one of passed, failed, expired, or invalidated.
+     */
+    state: string;
+    /**
+     * The reason codes explaining the outcome.
+     */
+    failure_codes?: Array<string> | null;
+}
 
