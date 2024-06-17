@@ -9,45 +9,17 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PostCustomerAddressBankModel } from './postCustomerAddress';
-import { PostCustomerNameBankModel } from './postCustomerName';
-import { PostIdentificationNumberBankModel } from './postIdentificationNumber';
 
 
-export interface PostCustomerBankModel { 
-    /**
-     * The customer\'s type.
-     */
-    type: PostCustomerBankModel.TypeEnum;
-    name?: PostCustomerNameBankModel | null;
-    address?: PostCustomerAddressBankModel | null;
-    /**
-     * The customer\'s date of birth.
-     */
-    date_of_birth?: string | null;
-    /**
-     * The customer\'s phone number.
-     */
-    phone_number?: string | null;
-    /**
-     * The customer\'s email address.
-     */
-    email_address?: string | null;
-    /**
-     * The customer\'s identification numbers.
-     */
-    identification_numbers?: Array<PostIdentificationNumberBankModel> | null;
-    /**
-     * The labels associated with the customer.
-     */
-    labels?: Array<string> | null;
-}
-export namespace PostCustomerBankModel {
-    export type TypeEnum = 'business' | 'individual';
-    export const TypeEnum = {
-        Business: 'business' as TypeEnum,
-        Individual: 'individual' as TypeEnum
-    };
-}
+/**
+ * The activity type 
+ */
+export type ActivityTypeBankModel = 'trading' | 'funding' | 'book_transfer' | 'crypto_transfer';
 
+export const ActivityTypeBankModel = {
+    Trading: 'trading' as ActivityTypeBankModel,
+    Funding: 'funding' as ActivityTypeBankModel,
+    BookTransfer: 'book_transfer' as ActivityTypeBankModel,
+    CryptoTransfer: 'crypto_transfer' as ActivityTypeBankModel
+};
 

@@ -9,45 +9,28 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PostCustomerAddressBankModel } from './postCustomerAddress';
-import { PostCustomerNameBankModel } from './postCustomerName';
-import { PostIdentificationNumberBankModel } from './postIdentificationNumber';
 
 
-export interface PostCustomerBankModel { 
+export interface ActivityLimitBankModel { 
     /**
-     * The customer\'s type.
+     * The name of the limit.
      */
-    type: PostCustomerBankModel.TypeEnum;
-    name?: PostCustomerNameBankModel | null;
-    address?: PostCustomerAddressBankModel | null;
+    name?: string;
     /**
-     * The customer\'s date of birth.
+     * The asset code for the limit.
      */
-    date_of_birth?: string | null;
+    asset?: string;
     /**
-     * The customer\'s phone number.
+     * The limit amount for the asset.
      */
-    phone_number?: string | null;
+    amount?: string;
     /**
-     * The customer\'s email address.
+     * The limit interval in seconds for the asset.
      */
-    email_address?: string | null;
+    interval?: string;
     /**
-     * The customer\'s identification numbers.
+     * The activities associated with the limit.
      */
-    identification_numbers?: Array<PostIdentificationNumberBankModel> | null;
-    /**
-     * The labels associated with the customer.
-     */
-    labels?: Array<string> | null;
+    activities?: Array<string>;
 }
-export namespace PostCustomerBankModel {
-    export type TypeEnum = 'business' | 'individual';
-    export const TypeEnum = {
-        Business: 'business' as TypeEnum,
-        Individual: 'individual' as TypeEnum
-    };
-}
-
 
