@@ -54,6 +54,7 @@ export * from './externalWallet';
 export * from './externalWalletEnvironment';
 export * from './externalWalletList';
 export * from './externalWalletState';
+export * from './identificationNumber';
 export * from './identityVerification';
 export * from './identityVerificationList';
 export * from './identityVerificationMethod';

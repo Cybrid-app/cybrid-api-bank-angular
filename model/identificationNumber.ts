@@ -11,58 +11,18 @@
  */
 
 
-export interface PostWorkflowBankModel { 
+export interface IdentificationNumberBankModel { 
     /**
-     * The workflow type.
+     * The source of the identification number; one of drivers_license, passport, passport_card, residence_card, social_security_number, tax_identification_number, or identification_card.
      */
-    type: PostWorkflowBankModel.TypeEnum;
+    type: string;
     /**
-     * The Plaid workflow kind.
+     * The ISO 3166 country 2-Alpha country code of the identification number issuer.
      */
-    kind?: PostWorkflowBankModel.KindEnum;
+    issuing_country_code: string;
     /**
-     * The customer identifier associated with the workflow.
+     * The identification number.
      */
-    customer_guid?: string;
-    /**
-     * The external bank account identifier associated with the workflow.
-     */
-    external_bank_account_guid?: string;
-    /**
-     * The language to initialize Plaid link.
-     */
-    language?: PostWorkflowBankModel.LanguageEnum;
-    /**
-     * The customization name for Plaid link. Currently only supports the value \"default\".
-     */
-    link_customization_name?: string;
-    /**
-     * The redirect URI for Plaid link.
-     */
-    redirect_uri?: string | null;
-    /**
-     * The Android package name for Plaid link.
-     */
-    android_package_name?: string | null;
+    identification_number: string;
 }
-export namespace PostWorkflowBankModel {
-    export type TypeEnum = 'plaid';
-    export const TypeEnum = {
-        Plaid: 'plaid' as TypeEnum
-    };
-    export type KindEnum = 'link_token_create' | 'link_token_update';
-    export const KindEnum = {
-        Create: 'link_token_create' as KindEnum,
-        Update: 'link_token_update' as KindEnum
-    };
-    export type LanguageEnum = 'en' | 'fr' | 'es' | 'nl' | 'de';
-    export const LanguageEnum = {
-        En: 'en' as LanguageEnum,
-        Fr: 'fr' as LanguageEnum,
-        Es: 'es' as LanguageEnum,
-        Nl: 'nl' as LanguageEnum,
-        De: 'de' as LanguageEnum
-    };
-}
-
 
