@@ -114,6 +114,7 @@ export * from './transfer';
 export * from './transferDestinationAccount';
 export * from './transferFailureCode';
 export * from './transferList';
+export * from './transferParticipant';
 export * from './transferSide';
 export * from './transferSourceAccount';
 export * from './transferState';

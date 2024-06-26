@@ -11,18 +11,18 @@
  */
 
 
-export interface ErrorResponseBankModel { 
+export interface TransferParticipantBankModel { 
     /**
-     * Status code for Http Request
+     * The type of participant; one of unknown, bank, customer, or counterparty.
      */
-    status: string;
+    type: string;
     /**
-     * Error message
+     * The amount in base units of the asset.
      */
-    error_message: string;
+    amount: string;
     /**
-     * Message code for Error
+     * The participant\'s identifier.
      */
-    message_code: string;
+    guid?: string;
 }
 
