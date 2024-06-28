@@ -97,6 +97,7 @@ export * from './postPaymentInstruction';
 export * from './postQuote';
 export * from './postTrade';
 export * from './postTransfer';
+export * from './postTransferParticipant';
 export * from './postWorkflow';
 export * from './quote';
 export * from './quoteList';
