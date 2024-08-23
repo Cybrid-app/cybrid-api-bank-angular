@@ -11,66 +11,14 @@
  */
 
 
-export interface TradeBankModel { 
+export interface ExternalBankAccountPiiInnerRoutingDetailsInnerBankModel { 
     /**
-     * Auto-generated unique identifier for the trade.
+     * The type of routing number; one of CPA or ABA.
      */
-    guid?: string;
+    routing_number_type: string;
     /**
-     * The type of trade; one of platform, liquidation, or exit.
+     * The routing number.
      */
-    trade_type?: string;
-    /**
-     * The associated customer\'s identifier.
-     */
-    customer_guid?: string | null;
-    /**
-     * The associated quote\'s identifier.
-     */
-    quote_guid?: string;
-    /**
-     * The trade symbol the pricing is related to. Format is asset-counter_asset, e.g., BTC-USD.
-     */
-    symbol?: string;
-    /**
-     * The direction of the trade; one of buy or sell.
-     */
-    side?: string;
-    /**
-     * The state of the trade; one of storing, pending, cancelled, completed, settling, or failed.
-     */
-    state?: string;
-    /**
-     * The failure code for failed trades; one of non_sufficient_funds, unsupported, limit_exceeded, expired_quote, or market_volatility.
-     */
-    failure_code?: string | null;
-    /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell.
-     */
-    receive_amount?: string;
-    /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell.
-     */
-    deliver_amount?: string;
-    /**
-     * The fee associated with the trade. Denominated in \"counter_asset\" base units
-     */
-    fee?: string;
-    /**
-     * The guid of the related trade. Only present on `exit` trades.
-     */
-    reference_trade_guid?: string | null;
-    /**
-     * ISO8601 datetime the record was created at.
-     */
-    created_at?: string;
-    /**
-     * ISO8601 datetime the record was last updated at.
-     */
-    updated_at?: string;
-    /**
-     * The labels associated with the trade.
-     */
-    labels?: Array<string> | null;
+    routing_number: string;
 }
 
