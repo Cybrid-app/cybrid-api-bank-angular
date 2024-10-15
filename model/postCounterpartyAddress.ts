@@ -11,15 +11,30 @@
  */
 
 
-export type ExternalBankAccountStateBankModel = 'storing' | 'completed' | 'failed' | 'refresh_required' | 'unverified' | 'deleting' | 'deleted';
-
-export const ExternalBankAccountStateBankModel = {
-    Storing: 'storing' as ExternalBankAccountStateBankModel,
-    Completed: 'completed' as ExternalBankAccountStateBankModel,
-    Failed: 'failed' as ExternalBankAccountStateBankModel,
-    RefreshRequired: 'refresh_required' as ExternalBankAccountStateBankModel,
-    Unverified: 'unverified' as ExternalBankAccountStateBankModel,
-    Deleting: 'deleting' as ExternalBankAccountStateBankModel,
-    Deleted: 'deleted' as ExternalBankAccountStateBankModel
-};
+export interface PostCounterpartyAddressBankModel { 
+    /**
+     * The first line of the address.
+     */
+    street: string;
+    /**
+     * The optional second line of the address.
+     */
+    street2?: string | null;
+    /**
+     * The city of the address.
+     */
+    city: string;
+    /**
+     * The ISO 3166-2 subdivision code of the address; not used by all countries.
+     */
+    subdivision?: string | null;
+    /**
+     * The postal/post/zip code of the address; not used by all countries.
+     */
+    postal_code?: string | null;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the address.
+     */
+    country_code: string;
+}
 

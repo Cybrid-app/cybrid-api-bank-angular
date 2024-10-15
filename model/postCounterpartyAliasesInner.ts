@@ -11,15 +11,10 @@
  */
 
 
-export type ExternalBankAccountStateBankModel = 'storing' | 'completed' | 'failed' | 'refresh_required' | 'unverified' | 'deleting' | 'deleted';
-
-export const ExternalBankAccountStateBankModel = {
-    Storing: 'storing' as ExternalBankAccountStateBankModel,
-    Completed: 'completed' as ExternalBankAccountStateBankModel,
-    Failed: 'failed' as ExternalBankAccountStateBankModel,
-    RefreshRequired: 'refresh_required' as ExternalBankAccountStateBankModel,
-    Unverified: 'unverified' as ExternalBankAccountStateBankModel,
-    Deleting: 'deleting' as ExternalBankAccountStateBankModel,
-    Deleted: 'deleted' as ExternalBankAccountStateBankModel
-};
+export interface PostCounterpartyAliasesInnerBankModel { 
+    /**
+     * The counterparty\'s full name; optional for business counterparties..
+     */
+    full?: string | null;
+}
 

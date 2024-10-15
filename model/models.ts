@@ -76,6 +76,8 @@ export * from './paymentInstruction';
 export * from './paymentInstructionList';
 export * from './postAccount';
 export * from './postBank';
+export * from './postCounterpartyAddress';
+export * from './postCounterpartyAliasesInner';
 export * from './postCounterparty';
 export * from './postCounterpartyName';
 export * from './postCustomerAddress';
