@@ -9,12 +9,24 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { QuoteEntrySourceAccountBankModel } from './quoteEntrySourceAccount';
+import { QuoteEntryDestinationAccountBankModel } from './quoteEntryDestinationAccount';
 
 
-export type AssetTypesBankModel = 'fiat' | 'crypto';
-
-export const AssetTypesBankModel = {
-    Fiat: 'fiat' as AssetTypesBankModel,
-    Crypto: 'crypto' as AssetTypesBankModel
-};
+export interface QuoteEntryBankModel { 
+    source_account?: QuoteEntrySourceAccountBankModel | null;
+    destination_account?: QuoteEntryDestinationAccountBankModel;
+    /**
+     * The amount to be received in base units of the currency
+     */
+    receive_amount?: string;
+    /**
+     * The amount to be delivered in base units of the currency
+     */
+    deliver_amount?: string;
+    /**
+     * The fee associated with the account entry.
+     */
+    fee?: string;
+}
 

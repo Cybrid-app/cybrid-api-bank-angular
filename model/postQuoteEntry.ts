@@ -11,10 +11,32 @@
  */
 
 
-export type AssetTypesBankModel = 'fiat' | 'crypto';
+/**
+ * Request body for quote account creation.
+ */
+export interface PostQuoteEntryBankModel { 
+    /**
+     * The type of account
+     */
+    type: PostQuoteEntryBankModel.TypeEnum;
+    /**
+     * The guid of the account
+     */
+    guid: string;
+    /**
+     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell for trade quotes.
+     */
+    receive_amount?: string | null;
+    /**
+     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell for trade quotes.
+     */
+    deliver_amount?: string | null;
+}
+export namespace PostQuoteEntryBankModel {
+    export type TypeEnum = 'external_wallet';
+    export const TypeEnum = {
+        ExternalWallet: 'external_wallet' as TypeEnum
+    };
+}
 
-export const AssetTypesBankModel = {
-    Fiat: 'fiat' as AssetTypesBankModel,
-    Crypto: 'crypto' as AssetTypesBankModel
-};
 

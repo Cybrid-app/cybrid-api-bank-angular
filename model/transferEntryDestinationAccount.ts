@@ -11,10 +11,25 @@
  */
 
 
-export type AssetTypesBankModel = 'fiat' | 'crypto';
-
-export const AssetTypesBankModel = {
-    Fiat: 'fiat' as AssetTypesBankModel,
-    Crypto: 'crypto' as AssetTypesBankModel
-};
+/**
+ * The destination account entry in the batch transfer.
+ */
+export interface TransferEntryDestinationAccountBankModel { 
+    /**
+     * Auto-generated unique identifier for the transfer account.
+     */
+    guid?: string;
+    /**
+     * The type of transfer account; one of trading, fiat, external_bank_account, external_wallet, one_time_address, reserve, invoice_operations, fee, or gas.
+     */
+    type?: string;
+    /**
+     * The account\'s identifier.
+     */
+    bank_guid?: string | null;
+    /**
+     * The account\'s identifier.
+     */
+    customer_guid?: string | null;
+}
 
