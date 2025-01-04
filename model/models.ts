@@ -10,6 +10,7 @@ export * from './assetTypes';
 export * from './bank';
 export * from './bankFeature';
 export * from './bankList';
+export * from './bankSupportedPayoutSymbolsInner';
 export * from './bankType';
 export * from './complianceCheck';
 export * from './complianceCheckOutcome';

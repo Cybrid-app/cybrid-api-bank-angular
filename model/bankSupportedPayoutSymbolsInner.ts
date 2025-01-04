@@ -11,14 +11,22 @@
  */
 
 
-export type IdentityVerificationStateBankModel = 'storing' | 'waiting' | 'pending' | 'reviewing' | 'expired' | 'completed';
-
-export const IdentityVerificationStateBankModel = {
-    Storing: 'storing' as IdentityVerificationStateBankModel,
-    Waiting: 'waiting' as IdentityVerificationStateBankModel,
-    Pending: 'pending' as IdentityVerificationStateBankModel,
-    Reviewing: 'reviewing' as IdentityVerificationStateBankModel,
-    Expired: 'expired' as IdentityVerificationStateBankModel,
-    Completed: 'completed' as IdentityVerificationStateBankModel
-};
+export interface BankSupportedPayoutSymbolsInnerBankModel { 
+    /**
+     * The payout symbol code.
+     */
+    symbol?: string;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the payout symbol.
+     */
+    country_code?: string;
+    /**
+     * The participants type; one of C2C, C2B, B2C, or B2B.
+     */
+    participants_type?: string;
+    /**
+     * The payout symbol route; one of bank_account or mobile_wallet.
+     */
+    route?: string;
+}
 
