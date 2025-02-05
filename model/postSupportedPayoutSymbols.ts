@@ -11,42 +11,44 @@
  */
 
 
-export interface SymbolPriceBankModel { 
+/**
+ * Supported payout symbols details.
+ */
+export interface PostSupportedPayoutSymbolsBankModel { 
     /**
-     * The trade symbol the pricing is related to. Format is asset-counter_asset, e.g., BTC-USD.
+     * The primary asset of the payout symbol, e.g., MXN.
      */
-    symbol?: string;
+    primary_asset: string;
     /**
-     * The type of price; one of trading or payout.
+     * The counter asset of the payout symbol, e.g., USD.
      */
-    type?: string | null;
+    counter_asset: string;
     /**
-     * The purchase price (in base units) for the asset denominated in the counter asset currency.
+     * The ISO 3166 country 2-Alpha country code is permitted in, e.g., MX.
      */
-    buy_price?: string | null;
+    country_code: string;
     /**
-     * The sale price (in base units) for the asset denominated in the counter asset currency.
+     * The participants the symbol is permitted for.
      */
-    sell_price?: string | null;
+    participants_type: PostSupportedPayoutSymbolsBankModel.ParticipantsTypeEnum;
     /**
-     * ISO8601 datetime the purchase price was generated at.
+     * The route the symbol is permitted for.
      */
-    buy_price_last_updated_at?: string | null;
-    /**
-     * ISO8601 datetime the sale price was generated at.
-     */
-    sell_price_last_updated_at?: string | null;
-    /**
-     * The ISO 3166 country 2-Alpha country code of the price.
-     */
-    country_code?: string | null;
-    /**
-     * The type of participants the price is for; one of C2C, C2B, B2C, or B2B.
-     */
-    participants_type?: string | null;
-    /**
-     * The route the price is for; one of bank_account or mobile_wallet.
-     */
-    route?: string | null;
+    route: PostSupportedPayoutSymbolsBankModel.RouteEnum;
 }
+export namespace PostSupportedPayoutSymbolsBankModel {
+    export type ParticipantsTypeEnum = 'C2C' | 'C2B' | 'B2C' | 'B2B';
+    export const ParticipantsTypeEnum = {
+        C2C: 'C2C' as ParticipantsTypeEnum,
+        C2B: 'C2B' as ParticipantsTypeEnum,
+        B2C: 'B2C' as ParticipantsTypeEnum,
+        B2B: 'B2B' as ParticipantsTypeEnum
+    };
+    export type RouteEnum = 'bank_account' | 'mobile_wallet';
+    export const RouteEnum = {
+        BankAccount: 'bank_account' as RouteEnum,
+        MobileWallet: 'mobile_wallet' as RouteEnum
+    };
+}
+
 

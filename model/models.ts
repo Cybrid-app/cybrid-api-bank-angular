@@ -105,6 +105,7 @@ export * from './postInvoice';
 export * from './postPaymentInstruction';
 export * from './postQuote';
 export * from './postQuoteEntry';
+export * from './postSupportedPayoutSymbols';
 export * from './postTrade';
 export * from './postTransfer';
 export * from './postTransferParticipant';
