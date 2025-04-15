@@ -9,72 +9,32 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { DepositBankAccountAccountDetailsInnerBankModel } from './depositBankAccountAccountDetailsInner';
-import { DepositBankAccountCounterpartyAddressBankModel } from './depositBankAccountCounterpartyAddress';
-import { DepositBankAccountRoutingDetailsInnerBankModel } from './depositBankAccountRoutingDetailsInner';
 
 
-export interface DepositBankAccountBankModel { 
+/**
+ * Request body for a transfer participant.
+ */
+export interface PatchTransferParticipantBankModel { 
     /**
-     * Auto-generated unique identifier for the identity verification.
+     * The type of participant.
      */
-    guid?: string;
+    type: PatchTransferParticipantBankModel.TypeEnum;
     /**
-     * The account type; one of main or sub_account.
+     * The amount in base units of the asset.
      */
-    type?: string;
+    amount: string;
     /**
-     * The address\' bank identifier.
+     * The participant\'s identifier.
      */
-    bank_guid?: string;
-    /**
-     * The address\' customer identifier.
-     */
-    customer_guid?: string | null;
-    /**
-     * The address\' account identifier.
-     */
-    account_guid?: string;
-    /**
-     * ISO8601 datetime the record was created at.
-     */
-    created_at?: string;
-    /**
-     * ISO8601 datetime the record was last updated at.
-     */
-    updated_at?: string;
-    /**
-     * The asset the transfer is related to, e.g., USD.
-     */
-    asset?: string;
-    /**
-     * The state of the address; one of storing or created.
-     */
-    state?: string;
-    /**
-     * The unique memo identifier for the address. This is used to identify the recipient when sending funds to the account. This value MUST be included in all wire transfers to this account.
-     */
-    unique_memo_id?: string;
-    /**
-     * The name of the account holder.
-     */
-    counterparty_name?: string | null;
-    counterparty_address?: DepositBankAccountCounterpartyAddressBankModel | null;
-    /**
-     * The account details for the bank account.
-     */
-    account_details?: Array<DepositBankAccountAccountDetailsInnerBankModel> | null;
-    /**
-     * The account details for the bank account.
-     */
-    routing_details?: Array<DepositBankAccountRoutingDetailsInnerBankModel> | null;
-    /**
-     * The unique identifier for the bank-level deposit bank account. This is only set for sub-accounts.
-     */
-    parent_deposit_bank_account_guid?: string | null;
-    /**
-     * The labels associated with the address.
-     */
-    labels?: Array<string> | null;
+    guid: string;
 }
+export namespace PatchTransferParticipantBankModel {
+    export type TypeEnum = 'bank' | 'customer' | 'counterparty';
+    export const TypeEnum = {
+        Bank: 'bank' as TypeEnum,
+        Customer: 'customer' as TypeEnum,
+        Counterparty: 'counterparty' as TypeEnum
+    };
+}
+
 

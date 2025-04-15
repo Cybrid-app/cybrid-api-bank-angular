@@ -73,6 +73,8 @@ export * from './invoiceList';
 export * from './patchBank';
 export * from './patchCustomer';
 export * from './patchExternalBankAccount';
+export * from './patchTransfer';
+export * from './patchTransferParticipant';
 export * from './paymentInstruction';
 export * from './paymentInstructionList';
 export * from './platformFile';
