@@ -9,13 +9,29 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { PlatformFileBankModel } from './platformFile';
 
 
-export type ExternalBankAccountKindBankModel = 'plaid' | 'plaid_processor_token' | 'raw_routing_details';
-
-export const ExternalBankAccountKindBankModel = {
-    Plaid: 'plaid' as ExternalBankAccountKindBankModel,
-    PlaidProcessorToken: 'plaid_processor_token' as ExternalBankAccountKindBankModel,
-    RawRoutingDetails: 'raw_routing_details' as ExternalBankAccountKindBankModel
-};
+export interface IdentityVerificationDocumentBankModel { 
+    /**
+     * Auto-generated unique identifier for the document.
+     */
+    guid?: string;
+    /**
+     * The document type; one of drivers_license, passport, passport_card, residence_card, visa, social_security_number, tax_identification_number, selfie, proof_of_address, formation_document, or employer_identification_number.
+     */
+    type?: string;
+    /**
+     * Whether the document has been validated.
+     */
+    validated?: boolean;
+    /**
+     * The document expiration date.
+     */
+    expiration_date?: string | null;
+    /**
+     * The files associated with the document.
+     */
+    files?: Array<PlatformFileBankModel>;
+}
 
