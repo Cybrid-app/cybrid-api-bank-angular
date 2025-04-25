@@ -3,6 +3,7 @@ export * from './accountList';
 export * from './accountState';
 export * from './accountType';
 export * from './activityLimit';
+export * from './activitySide';
 export * from './activityType';
 export * from './asset';
 export * from './assetList';

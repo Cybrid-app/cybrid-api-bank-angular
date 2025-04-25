@@ -11,11 +11,13 @@
  */
 
 
-export type WorkflowStateBankModel = 'storing' | 'completed' | 'failed';
+/**
+ * The activity side
+ */
+export type ActivitySideBankModel = 'deposit' | 'withdrawal';
 
-export const WorkflowStateBankModel = {
-    Storing: 'storing' as WorkflowStateBankModel,
-    Completed: 'completed' as WorkflowStateBankModel,
-    Failed: 'failed' as WorkflowStateBankModel
+export const ActivitySideBankModel = {
+    Deposit: 'deposit' as ActivitySideBankModel,
+    Withdrawal: 'withdrawal' as ActivitySideBankModel
 };
 
