@@ -11,38 +11,22 @@
  */
 
 
-export interface WorkflowBankModel { 
+export interface IdentityVerificationDocumentFileBankModel { 
     /**
-     * Auto-generated unique identifier for the workflow.
+     * The unique identifier for the file.
      */
     guid?: string;
     /**
-     * The associated banks\'s identifier.
-     */
-    bank_guid?: string | null;
-    /**
-     * The associated customer\'s identifier.
-     */
-    customer_guid?: string | null;
-    /**
-     * The type of workflow; one of plaid.
+     * The file type; one of drivers_license_front, drivers_license_back, passport, identification_card, residence_card, selfie, selfie_video, selfie_left, selfie_right, proof_of_address, or incorporation_certificate.
      */
     type?: string;
     /**
-     * The state of the workflow; one of storing, completed, or failed.
+     * The media type; one of image/jpeg, image/png, application/pdf, application/json, or video/mp4.
      */
-    state?: string;
+    content_type?: string;
     /**
-     * The failure code for failed workflows.
+     * The name of the file.
      */
-    failure_code?: string | null;
-    /**
-     * ISO8601 datetime the record was created at.
-     */
-    created_at?: string;
-    /**
-     * ISO8601 datetime the record was last updated at.
-     */
-    updated_at?: string;
+    filename?: string;
 }
 
