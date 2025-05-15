@@ -11,22 +11,22 @@
  */
 
 
-export interface CustomerAliasesInnerBankModel { 
+export interface IdentityVerificationBusinessAssociateBankModel { 
     /**
-     * The customer\'s first name.
+     * The Persona identifier of the business associate backing inquiry.
      */
-    first?: string | null;
+    persona_inquiry_id?: string;
     /**
-     * The customer\'s middle name.
+     * The Persona state of the backing inquiry; one of waiting, pending, reviewing, processing, expired, completed, or unknown.
      */
-    middle?: string | null;
+    persona_state?: string | null;
     /**
-     * The customer\'s last name.
+     * The business associate role; one of director or owner.
      */
-    last?: string | null;
+    role?: string;
     /**
-     * The customer\'s full name.
+     * The business associate email address.
      */
-    full?: string | null;
+    email_address?: string;
 }
 

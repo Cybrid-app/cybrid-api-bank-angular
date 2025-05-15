@@ -59,6 +59,7 @@ export * from './externalWalletList';
 export * from './externalWalletState';
 export * from './identificationNumber';
 export * from './identityVerification';
+export * from './identityVerificationBusinessAssociate';
 export * from './identityVerificationDocument';
 export * from './identityVerificationDocumentFile';
 export * from './identityVerificationList';
