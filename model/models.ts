@@ -70,6 +70,7 @@ export * from './identityVerificationState';
 export * from './identityVerificationType';
 export * from './identityVerificationWithDetails';
 export * from './identityVerificationWithDetailsPiiAddress';
+export * from './identityVerificationWithDetailsPiiAliasesInner';
 export * from './identityVerificationWithDetailsPii';
 export * from './identityVerificationWithDetailsPiiName';
 export * from './invoice';

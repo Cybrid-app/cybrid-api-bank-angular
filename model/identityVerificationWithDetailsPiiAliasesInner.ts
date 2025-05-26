@@ -11,26 +11,10 @@
  */
 
 
-export interface IdentityVerificationBusinessAssociateBankModel { 
+export interface IdentityVerificationWithDetailsPiiAliasesInnerBankModel { 
     /**
-     * The Persona identifier of the business associate backing inquiry. Available only for attested_business_registration verification method
+     * The full name.
      */
-    persona_inquiry_id?: string | null;
-    /**
-     * The Persona state of the backing inquiry; one of waiting, pending, reviewing, processing, expired, completed, or unknown. Available only for attested_business_registration verification method
-     */
-    persona_state?: string | null;
-    /**
-     * The business associate\'s customer identifier. Available only for attested_business_registration verification method
-     */
-    customer_guid?: string | null;
-    /**
-     * The business associate role; one of director or owner.
-     */
-    role?: string;
-    /**
-     * The business associate email address. Available only for business_registration verification method
-     */
-    email_address?: string;
+    full?: string | null;
 }
 
