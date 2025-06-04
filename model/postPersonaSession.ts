@@ -11,13 +11,18 @@
  */
 
 
-export type TransferStateBankModel = 'storing' | 'pending' | 'reviewing' | 'completed' | 'failed';
-
-export const TransferStateBankModel = {
-    Storing: 'storing' as TransferStateBankModel,
-    Pending: 'pending' as TransferStateBankModel,
-    Reviewing: 'reviewing' as TransferStateBankModel,
-    Completed: 'completed' as TransferStateBankModel,
-    Failed: 'failed' as TransferStateBankModel
-};
+export interface PostPersonaSessionBankModel { 
+    /**
+     * The unique identifier for the Persona inquiry.
+     */
+    persona_inquiry_id: string;
+    /**
+     * The unique identifier for the customer.
+     */
+    customer_guid: string;
+    /**
+     * The unique identifier for the identity verification.
+     */
+    identity_verification_guid: string;
+}
 

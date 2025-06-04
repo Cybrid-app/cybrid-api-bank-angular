@@ -15,6 +15,7 @@ import { FilesService } from './api/files.service';
 import { IdentityVerificationsService } from './api/identityVerifications.service';
 import { InvoicesService } from './api/invoices.service';
 import { PaymentInstructionsService } from './api/paymentInstructions.service';
+import { PersonaSessionsService } from './api/personaSessions.service';
 import { PricesService } from './api/prices.service';
 import { QuotesService } from './api/quotes.service';
 import { SymbolsService } from './api/symbols.service';
