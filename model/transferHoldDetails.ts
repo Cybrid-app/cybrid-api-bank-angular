@@ -9,24 +9,23 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { QuoteEntrySourceAccountBankModel } from './quoteEntrySourceAccount';
-import { QuoteEntryDestinationAccountBankModel } from './quoteEntryDestinationAccount';
 
 
-export interface QuoteEntryBankModel { 
-    source_account?: QuoteEntrySourceAccountBankModel | null;
-    destination_account?: QuoteEntryDestinationAccountBankModel;
+/**
+ * The hold details if a transfer is or will be placed on a hold.
+ */
+export interface TransferHoldDetailsBankModel { 
     /**
-     * The amount to be received in base units of the currency
+     * The list of hold types that are applicable for the transfer; one of administrative or non_administrative.
      */
-    receive_amount?: string;
+    applicable_types?: Array<string> | null;
     /**
-     * The amount to be delivered in base units of the currency
+     * The approximate time (in seconds) that the transfer will be held for.
      */
-    deliver_amount?: string;
+    duration?: string | null;
     /**
-     * The fee associated with the account entry.
+     * ISO8601 datetime the transfer hold was started at.
      */
-    fee?: string;
+    started_at?: string | null;
 }
 
