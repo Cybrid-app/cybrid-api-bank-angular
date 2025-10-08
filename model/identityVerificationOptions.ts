@@ -12,38 +12,12 @@
 
 
 /**
- * Request body for account creation.
+ * Options for the identity verification.
  */
-export interface PostAccountBankModel { 
+export interface IdentityVerificationOptionsBankModel { 
     /**
-     * The account type.
+     * Whether the tax ID was enforced during identity verification.
      */
-    type: PostAccountBankModel.TypeEnum;
-    /**
-     * TThe customer identifier associated with the account.
-     */
-    customer_guid?: string | null;
-    /**
-     * The asset code.
-     */
-    asset: string;
-    /**
-     * The name of the account.
-     */
-    name: string;
-    /**
-     * The labels associated with the account.
-     */
-    labels?: Array<string> | null;
+    require_tax_id?: boolean | null;
 }
-export namespace PostAccountBankModel {
-    export type TypeEnum = 'trading' | 'fiat' | 'invoice_operations' | 'storage';
-    export const TypeEnum = {
-        Trading: 'trading' as TypeEnum,
-        Fiat: 'fiat' as TypeEnum,
-        InvoiceOperations: 'invoice_operations' as TypeEnum,
-        Storage: 'storage' as TypeEnum
-    };
-}
-
 
