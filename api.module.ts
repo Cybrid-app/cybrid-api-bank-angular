@@ -9,6 +9,7 @@ import { CounterpartiesService } from './api/counterparties.service';
 import { CustomersService } from './api/customers.service';
 import { DepositAddressesService } from './api/depositAddresses.service';
 import { DepositBankAccountsService } from './api/depositBankAccounts.service';
+import { ExecutionsService } from './api/executions.service';
 import { ExternalBankAccountsService } from './api/externalBankAccounts.service';
 import { ExternalWalletsService } from './api/externalWallets.service';
 import { FilesService } from './api/files.service';
@@ -16,6 +17,7 @@ import { IdentityVerificationsService } from './api/identityVerifications.servic
 import { InvoicesService } from './api/invoices.service';
 import { PaymentInstructionsService } from './api/paymentInstructions.service';
 import { PersonaSessionsService } from './api/personaSessions.service';
+import { PlansService } from './api/plans.service';
 import { PricesService } from './api/prices.service';
 import { QuotesService } from './api/quotes.service';
 import { SymbolsService } from './api/symbols.service';
