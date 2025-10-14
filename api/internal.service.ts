@@ -6631,15 +6631,16 @@ export class InternalService {
      * @param page 
      * @param perPage 
      * @param guid Comma separated assets to list customers for.
+     * @param type Comma separated types to list customers for.
      * @param bankGuid Comma separated bank_guids to list customers for.
      * @param organizationGuid Comma separated organization_guids to list customers for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public internalListCustomers(page?: string, perPage?: string, guid?: string, bankGuid?: string, organizationGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<CustomerListBankModel>;
-    public internalListCustomers(page?: string, perPage?: string, guid?: string, bankGuid?: string, organizationGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<CustomerListBankModel>>;
-    public internalListCustomers(page?: string, perPage?: string, guid?: string, bankGuid?: string, organizationGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<CustomerListBankModel>>;
-    public internalListCustomers(page?: string, perPage?: string, guid?: string, bankGuid?: string, organizationGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public internalListCustomers(page?: string, perPage?: string, guid?: string, type?: string, bankGuid?: string, organizationGuid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<CustomerListBankModel>;
+    public internalListCustomers(page?: string, perPage?: string, guid?: string, type?: string, bankGuid?: string, organizationGuid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<CustomerListBankModel>>;
+    public internalListCustomers(page?: string, perPage?: string, guid?: string, type?: string, bankGuid?: string, organizationGuid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<CustomerListBankModel>>;
+    public internalListCustomers(page?: string, perPage?: string, guid?: string, type?: string, bankGuid?: string, organizationGuid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -6653,6 +6654,10 @@ export class InternalService {
         if (guid !== undefined && guid !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>guid, 'guid');
+        }
+        if (type !== undefined && type !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>type, 'type');
         }
         if (bankGuid !== undefined && bankGuid !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
