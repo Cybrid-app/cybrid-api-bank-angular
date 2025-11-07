@@ -11,12 +11,23 @@
  */
 
 
-export type ComplianceCheckOutcomeBankModel = 'passed' | 'failed' | 'insufficient' | 'inconclusive';
+export interface TransferIdentifiersInnerBankModel { 
+    /**
+     * Type of identifier (txn_hash, imad, omad)
+     */
+    type?: TransferIdentifiersInnerBankModel.TypeEnum;
+    /**
+     * The identifier value
+     */
+    value?: string;
+}
+export namespace TransferIdentifiersInnerBankModel {
+    export type TypeEnum = 'txn_hash' | 'imad' | 'omad';
+    export const TypeEnum = {
+        TxnHash: 'txn_hash' as TypeEnum,
+        Imad: 'imad' as TypeEnum,
+        Omad: 'omad' as TypeEnum
+    };
+}
 
-export const ComplianceCheckOutcomeBankModel = {
-    Passed: 'passed' as ComplianceCheckOutcomeBankModel,
-    Failed: 'failed' as ComplianceCheckOutcomeBankModel,
-    Insufficient: 'insufficient' as ComplianceCheckOutcomeBankModel,
-    Inconclusive: 'inconclusive' as ComplianceCheckOutcomeBankModel
-};
 

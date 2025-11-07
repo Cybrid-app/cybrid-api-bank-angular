@@ -154,6 +154,7 @@ export * from './transferEntry';
 export * from './transferEntryDestinationAccount';
 export * from './transferFailureCode';
 export * from './transferHoldDetails';
+export * from './transferIdentifiersInner';
 export * from './transferList';
 export * from './transferParticipant';
 export * from './transferSide';
