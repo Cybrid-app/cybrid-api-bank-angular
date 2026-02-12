@@ -114,6 +114,7 @@ export * from './postExternalBankAccountCounterpartyName';
 export * from './postExternalWallet';
 export * from './postFee';
 export * from './postFile';
+export * from './postFileMetadata';
 export * from './postIdentificationNumber';
 export * from './postIdentityVerificationAddress';
 export * from './postIdentityVerificationAliasesInner';
