@@ -12,30 +12,19 @@
 
 
 /**
- * Request body for quote account creation.
+ * File metadata (e.g., {\"part\": \"front\"})
  */
-export interface PostQuoteEntryBankModel { 
+export interface IdentityVerificationDocumentFileMetadataBankModel { 
     /**
-     * The type of account
+     * The part of the file (e.g., \"front\", \"back\")
      */
-    type: PostQuoteEntryBankModel.TypeEnum;
-    /**
-     * The guid of the account
-     */
-    guid: string;
-    /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell for trade quotes.
-     */
-    receive_amount?: string | null;
-    /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell for trade quotes.
-     */
-    deliver_amount?: string | null;
+    part?: IdentityVerificationDocumentFileMetadataBankModel.PartEnum | null;
 }
-export namespace PostQuoteEntryBankModel {
-    export type TypeEnum = 'external_wallet';
-    export const TypeEnum = {
-        ExternalWallet: 'external_wallet' as TypeEnum
+export namespace IdentityVerificationDocumentFileMetadataBankModel {
+    export type PartEnum = 'front' | 'back';
+    export const PartEnum = {
+        Front: 'front' as PartEnum,
+        Back: 'back' as PartEnum
     };
 }
 

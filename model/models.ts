@@ -67,6 +67,7 @@ export * from './identityVerification';
 export * from './identityVerificationBusinessAssociate';
 export * from './identityVerificationDocument';
 export * from './identityVerificationDocumentFile';
+export * from './identityVerificationDocumentFileMetadata';
 export * from './identityVerificationList';
 export * from './identityVerificationMethod';
 export * from './identityVerificationOptions';
