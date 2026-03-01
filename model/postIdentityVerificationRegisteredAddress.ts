@@ -9,25 +9,35 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { AccountBankModel } from './account';
 
 
-export interface AccountListBankModel { 
+/**
+ * The customer\'s registered address. Required for attested business registration V3. Optional when type is kyc and method is attested_business_registration.
+ */
+export interface PostIdentityVerificationRegisteredAddressBankModel { 
     /**
-     * The total number of records available.
+     * The first line of the address. Required when type is kyc and method is attested_business_registration.
      */
-    total: string;
+    street?: string | null;
     /**
-     * The page index to retrieve.
+     * The optional second line of the address. Optional when type is kyc and method is attested_business_registration.
      */
-    page: string;
+    street2?: string | null;
     /**
-     * The number of entities per page to return.
+     * The city of the address. Required when type is kyc and method is attested_business_registration.
      */
-    per_page: string;
+    city?: string | null;
     /**
-     * Array of account entities
+     * The ISO 3166-2 subdivision code of the address. Applicable only for countries that use subnational states, provinces, lands, oblasts or regions. Optional when type is kyc and method is attested_business_registration.
      */
-    objects: Array<AccountBankModel>;
+    subdivision?: string | null;
+    /**
+     * The postal, zip or post code of the address. Applicable only for countries that use postal, zip or post codes. Optional when type is kyc and method is attested_business_registration.
+     */
+    postal_code?: string | null;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the address. Required when type is kyc and method is attested_business_registration.
+     */
+    country_code?: string | null;
 }
 
