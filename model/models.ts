@@ -80,6 +80,7 @@ export * from './identityVerificationWithDetailsPiiAddress';
 export * from './identityVerificationWithDetailsPiiAliasesInner';
 export * from './identityVerificationWithDetailsPii';
 export * from './identityVerificationWithDetailsPiiName';
+export * from './identityVerificationWithDetailsPiiRegisteredAddress';
 export * from './invoice';
 export * from './invoiceList';
 export * from './patchBank';

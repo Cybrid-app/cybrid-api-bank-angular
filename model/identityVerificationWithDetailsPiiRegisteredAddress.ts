@@ -12,13 +12,13 @@
 
 
 /**
- * The customer\'s address.
+ * The attested registered address.
  */
-export interface PostCustomerAddressBankModel { 
+export interface IdentityVerificationWithDetailsPiiRegisteredAddressBankModel { 
     /**
      * The first line of the address.
      */
-    street: string;
+    street: string | null;
     /**
      * The optional second line of the address.
      */
@@ -26,18 +26,18 @@ export interface PostCustomerAddressBankModel {
     /**
      * The city of the address.
      */
-    city: string;
+    city: string | null;
     /**
-     * The ISO 3166-2 subdivision code of the address. Applicable only for countries that use subnational states, provinces, lands, oblasts or regions.
+     * The ISO 3166-2 subdivision code of the address; not used by all countries.
      */
     subdivision?: string | null;
     /**
-     * The postal, zip or post code of the address. Applicable only for countries that use postal, zip or post codes.
+     * The postal/post/zip code of the address; not used by all countries.
      */
     postal_code?: string | null;
     /**
      * The ISO 3166 country 2-Alpha country code of the address.
      */
-    country_code: string;
+    country_code: string | null;
 }
 
