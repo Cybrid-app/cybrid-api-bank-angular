@@ -11,43 +11,26 @@
  */
 
 
-/**
- * Supported payout symbols details.
- */
-export interface PostSupportedPayoutSymbolsBankModel { 
+export interface FeeDetailBankModel { 
     /**
-     * The primary asset of the payout symbol, e.g., MXN.
+     * The type of fee; one of bank, platform, or network.
      */
-    primary_asset: string;
+    type: FeeDetailBankModel.TypeEnum;
     /**
-     * The counter asset of the payout symbol, e.g., USD.
+     * The asset the fee is denominated in, e.g., USD.
      */
-    counter_asset: string;
+    asset: string;
     /**
-     * The ISO 3166 country 2-Alpha country code is permitted in, e.g., MX.
+     * The fee amount in base units of the asset.
      */
-    country_code: string;
-    /**
-     * The participants the symbol is permitted for.
-     */
-    participants_type: PostSupportedPayoutSymbolsBankModel.ParticipantsTypeEnum;
-    /**
-     * The route the symbol is permitted for.
-     */
-    route: PostSupportedPayoutSymbolsBankModel.RouteEnum;
+    amount: string;
 }
-export namespace PostSupportedPayoutSymbolsBankModel {
-    export type ParticipantsTypeEnum = 'C2C' | 'C2B' | 'B2C' | 'B2B';
-    export const ParticipantsTypeEnum = {
-        C2C: 'C2C' as ParticipantsTypeEnum,
-        C2B: 'C2B' as ParticipantsTypeEnum,
-        B2C: 'B2C' as ParticipantsTypeEnum,
-        B2B: 'B2B' as ParticipantsTypeEnum
-    };
-    export type RouteEnum = 'bank_account' | 'mobile_wallet';
-    export const RouteEnum = {
-        BankAccount: 'bank_account' as RouteEnum,
-        MobileWallet: 'mobile_wallet' as RouteEnum
+export namespace FeeDetailBankModel {
+    export type TypeEnum = 'bank' | 'platform' | 'network';
+    export const TypeEnum = {
+        Bank: 'bank' as TypeEnum,
+        Platform: 'platform' as TypeEnum,
+        Network: 'network' as TypeEnum
     };
 }
 
