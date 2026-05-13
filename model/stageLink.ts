@@ -11,10 +11,14 @@
  */
 
 
-export type ExternalWalletEnvironmentBankModel = 'sandbox' | 'production';
-
-export const ExternalWalletEnvironmentBankModel = {
-    Sandbox: 'sandbox' as ExternalWalletEnvironmentBankModel,
-    Production: 'production' as ExternalWalletEnvironmentBankModel
-};
+export interface StageLinkBankModel { 
+    /**
+     * The kind of link.
+     */
+    type: string;
+    /**
+     * The URL.
+     */
+    value: string;
+}
 

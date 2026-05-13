@@ -11,10 +11,14 @@
  */
 
 
-export type ExternalWalletEnvironmentBankModel = 'sandbox' | 'production';
-
-export const ExternalWalletEnvironmentBankModel = {
-    Sandbox: 'sandbox' as ExternalWalletEnvironmentBankModel,
-    Production: 'production' as ExternalWalletEnvironmentBankModel
-};
+export interface StageIdentifierBankModel { 
+    /**
+     * The kind of identifier.
+     */
+    type: string;
+    /**
+     * The identifier value as issued by the rail.
+     */
+    value: string;
+}
 
