@@ -147,6 +147,8 @@ export * from './quoteList';
 export * from './quoteSide';
 export * from './quoteType';
 export * from './stage';
+export * from './stageIdentifier';
+export * from './stageLink';
 export * from './symbolPrice';
 export * from './trade';
 export * from './tradeFailureCode';
