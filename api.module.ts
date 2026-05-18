@@ -20,6 +20,7 @@ import { PersonaSessionsService } from './api/personaSessions.service';
 import { PlansService } from './api/plans.service';
 import { PricesService } from './api/prices.service';
 import { QuotesService } from './api/quotes.service';
+import { SardineSessionsService } from './api/sardineSessions.service';
 import { SymbolsService } from './api/symbols.service';
 import { TradesService } from './api/trades.service';
 import { TransfersService } from './api/transfers.service';

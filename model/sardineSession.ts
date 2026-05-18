@@ -11,17 +11,18 @@
  */
 
 
-/**
- * Request body for deposit address creation.
- */
-export interface PostDepositAddressBankModel { 
+export interface SardineSessionBankModel { 
     /**
-     * The trading account guid.
+     * Auto-generated unique identifier for the sardine session key.
      */
-    account_guid: string;
+    guid: string;
     /**
-     * The labels associated with the address.
+     * The session key to initialize the Sardine SDK with.
      */
-    labels?: Array<string> | null;
+    sardine_session_key: string;
+    /**
+     * The unique identifier for the customer.
+     */
+    customer_guid: string;
 }
 

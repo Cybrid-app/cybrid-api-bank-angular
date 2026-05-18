@@ -12,16 +12,12 @@
 
 
 /**
- * Request body for deposit address creation.
+ * Request body for sardine session creation.
  */
-export interface PostDepositAddressBankModel { 
+export interface PostSardineSessionBankModel { 
     /**
-     * The trading account guid.
+     * The GUID of the customer the session is for. Required for organization and bank subject tokens. For customer subject tokens, this is inferred from the token.
      */
-    account_guid: string;
-    /**
-     * The labels associated with the address.
-     */
-    labels?: Array<string> | null;
+    customer_guid?: string | null;
 }
 
