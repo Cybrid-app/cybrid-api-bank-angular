@@ -11,20 +11,18 @@
  */
 
 
-/**
- * Request body for customer modification.
- */
-export interface PatchCustomerBankModel { 
+export interface SupportingDocumentFileBankModel { 
     /**
-     * The customer\'s state.
+     * Auto-generated unique identifier for the file.
      */
-    state?: PatchCustomerBankModel.StateEnum | null;
+    guid: string;
+    /**
+     * The original filename.
+     */
+    filename: string;
+    /**
+     * The MIME content type.
+     */
+    content_type: string;
 }
-export namespace PatchCustomerBankModel {
-    export type StateEnum = 'unverified';
-    export const StateEnum = {
-        Unverified: 'unverified' as StateEnum
-    };
-}
-
 

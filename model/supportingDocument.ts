@@ -9,21 +9,27 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { SupportingDocumentFileBankModel } from './supportingDocumentFile';
 
 
-/**
- * Request body for customer modification.
- */
-export interface PatchCustomerBankModel { 
+export interface SupportingDocumentBankModel { 
     /**
-     * The customer\'s state.
+     * Auto-generated unique identifier for the document.
      */
-    state?: PatchCustomerBankModel.StateEnum | null;
+    guid: string;
+    /**
+     * The kind of supporting document; one of invoice.
+     */
+    type: SupportingDocumentBankModel.TypeEnum;
+    /**
+     * The files backing this document.
+     */
+    files: Array<SupportingDocumentFileBankModel>;
 }
-export namespace PatchCustomerBankModel {
-    export type StateEnum = 'unverified';
-    export const StateEnum = {
-        Unverified: 'unverified' as StateEnum
+export namespace SupportingDocumentBankModel {
+    export type TypeEnum = 'invoice';
+    export const TypeEnum = {
+        Invoice: 'invoice' as TypeEnum
     };
 }
 

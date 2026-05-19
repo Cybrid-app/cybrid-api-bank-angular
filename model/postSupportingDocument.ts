@@ -12,18 +12,22 @@
 
 
 /**
- * Request body for customer modification.
+ * Supporting document attached to a plan.
  */
-export interface PatchCustomerBankModel { 
+export interface PostSupportingDocumentBankModel { 
     /**
-     * The customer\'s state.
+     * The kind of supporting document.
      */
-    state?: PatchCustomerBankModel.StateEnum | null;
+    type: PostSupportingDocumentBankModel.TypeEnum;
+    /**
+     * File guids backing this document.
+     */
+    file_guids: Array<string>;
 }
-export namespace PatchCustomerBankModel {
-    export type StateEnum = 'unverified';
-    export const StateEnum = {
-        Unverified: 'unverified' as StateEnum
+export namespace PostSupportingDocumentBankModel {
+    export type TypeEnum = 'invoice';
+    export const TypeEnum = {
+        Invoice: 'invoice' as TypeEnum
     };
 }
 
