@@ -63,6 +63,7 @@ export * from './externalWalletList';
 export * from './externalWalletState';
 export * from './feeAssociation';
 export * from './feeDetail';
+export * from './holdDetail';
 export * from './identificationNumber';
 export * from './identityVerification';
 export * from './identityVerificationBusinessAssociate';
