@@ -9,26 +9,35 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { IdentityVerificationDocumentFileMetadataBankModel } from './identityVerificationDocumentFileMetadata';
 
 
-export interface IdentityVerificationDocumentFileBankModel { 
+/**
+ * A physical address.
+ */
+export interface PhysicalAddressBankModel { 
     /**
-     * The unique identifier for the file.
+     * The first line of the address.
      */
-    guid?: string;
+    street?: string | null;
     /**
-     * The file type; one of drivers_license_front, drivers_license_back, drivers_license, passport, passport_card, identification_card, residence_card, work_permit, indigenous_id_document, selfie, selfie_video, selfie_left, selfie_right, proof_of_address, or incorporation_certificate.
+     * The optional second line of the address.
      */
-    type?: string;
+    street2?: string | null;
     /**
-     * The media type; one of image/jpeg, image/png, application/pdf, application/json, or video/mp4.
+     * The city of the address.
      */
-    content_type?: string;
+    city?: string | null;
     /**
-     * The name of the file.
+     * The ISO 3166-2 subdivision code of the address; not used by all countries.
      */
-    filename?: string;
-    metadata?: IdentityVerificationDocumentFileMetadataBankModel | null;
+    subdivision?: string | null;
+    /**
+     * The postal/post/zip code of the address; not used by all countries.
+     */
+    postal_code?: string | null;
+    /**
+     * The ISO 3166 country 2-Alpha country code of the address.
+     */
+    country_code?: string | null;
 }
 
