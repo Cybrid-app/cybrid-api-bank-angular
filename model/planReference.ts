@@ -11,12 +11,22 @@
  */
 
 
-export type QuoteSideBankModel = 'buy' | 'sell' | 'deposit' | 'withdrawal';
+export interface PlanReferenceBankModel { 
+    /**
+     * The type of object being referenced; one of returned_execution or returned_stage.
+     */
+    type: PlanReferenceBankModel.TypeEnum;
+    /**
+     * The guid of the referenced object.
+     */
+    guid: string;
+}
+export namespace PlanReferenceBankModel {
+    export type TypeEnum = 'returned_execution' | 'returned_stage';
+    export const TypeEnum = {
+        Execution: 'returned_execution' as TypeEnum,
+        Stage: 'returned_stage' as TypeEnum
+    };
+}
 
-export const QuoteSideBankModel = {
-    Buy: 'buy' as QuoteSideBankModel,
-    Sell: 'sell' as QuoteSideBankModel,
-    Deposit: 'deposit' as QuoteSideBankModel,
-    Withdrawal: 'withdrawal' as QuoteSideBankModel
-};
 

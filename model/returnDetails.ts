@@ -11,12 +11,14 @@
  */
 
 
-export type QuoteSideBankModel = 'buy' | 'sell' | 'deposit' | 'withdrawal';
-
-export const QuoteSideBankModel = {
-    Buy: 'buy' as QuoteSideBankModel,
-    Sell: 'sell' as QuoteSideBankModel,
-    Deposit: 'deposit' as QuoteSideBankModel,
-    Withdrawal: 'withdrawal' as QuoteSideBankModel
-};
+export interface ReturnDetailsBankModel { 
+    /**
+     * The timestamp when the return was initiated by the provider.
+     */
+    returned_at: string;
+    /**
+     * The ACH/EFT return code (e.g. R01, R10) received from the provider. Absent when the provider did not report a return code.
+     */
+    return_code?: string | null;
+}
 
