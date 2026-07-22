@@ -11,14 +11,13 @@
  */
 
 
-export interface ReturnDetailsBankModel { 
+/**
+ * Request body for external wallet modification.
+ */
+export interface PatchExternalWalletBankModel { 
     /**
-     * The timestamp when the return was initiated by the provider.
+     * The name of the external wallet.
      */
-    returned_at: string;
-    /**
-     * The ACH/EFT return code (e.g. R01, R10) received from the provider. Absent when the provider did not report a return code.
-     */
-    return_code?: string | null;
+    name?: string | null;
 }
 
