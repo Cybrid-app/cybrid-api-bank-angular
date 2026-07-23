@@ -11,10 +11,13 @@
  */
 
 
-export type BankTypeBankModel = 'sandbox' | 'production';
-
-export const BankTypeBankModel = {
-    Sandbox: 'sandbox' as BankTypeBankModel,
-    Production: 'production' as BankTypeBankModel
-};
+/**
+ * Request body for account modification.
+ */
+export interface PatchAccountBankModel { 
+    /**
+     * The name of the account.
+     */
+    name?: string | null;
+}
 
