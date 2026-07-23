@@ -86,6 +86,7 @@ export * from './identityVerificationWithDetailsPiiRegisteredAddress';
 export * from './invoice';
 export * from './invoiceList';
 export * from './legalEntityName';
+export * from './patchAccount';
 export * from './patchBank';
 export * from './patchCustomer';
 export * from './patchExternalBankAccount';
