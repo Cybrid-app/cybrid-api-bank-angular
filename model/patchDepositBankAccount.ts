@@ -12,31 +12,12 @@
 
 
 /**
- * Source account
+ * Request body for deposit bank account modification.
  */
-export interface PostPlanSourceAccountBankModel { 
+export interface PatchDepositBankAccountBankModel { 
     /**
-     * The source account\'s identifier.
+     * The name of the deposit bank account.
      */
-    guid: string;
-    /**
-     * The amount to be delivered in base units of the source account currency
-     */
-    amount?: string | null;
-    /**
-     * The desired payment rail to use to initiate a fiat transfer from the source account.
-     */
-    payment_rail?: PostPlanSourceAccountBankModel.PaymentRailEnum | null;
+    name?: string | null;
 }
-export namespace PostPlanSourceAccountBankModel {
-    export type PaymentRailEnum = 'ach' | 'eft' | 'wire' | 'rtp' | 'etransfer';
-    export const PaymentRailEnum = {
-        Ach: 'ach' as PaymentRailEnum,
-        Eft: 'eft' as PaymentRailEnum,
-        Wire: 'wire' as PaymentRailEnum,
-        Rtp: 'rtp' as PaymentRailEnum,
-        Etransfer: 'etransfer' as PaymentRailEnum
-    };
-}
-
 

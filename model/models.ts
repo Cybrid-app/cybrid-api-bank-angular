@@ -89,6 +89,8 @@ export * from './legalEntityName';
 export * from './patchAccount';
 export * from './patchBank';
 export * from './patchCustomer';
+export * from './patchDepositAddress';
+export * from './patchDepositBankAccount';
 export * from './patchExternalBankAccount';
 export * from './patchExternalWallet';
 export * from './patchTransfer';
