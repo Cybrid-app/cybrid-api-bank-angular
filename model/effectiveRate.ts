@@ -12,31 +12,24 @@
 
 
 /**
- * Request body for quote account creation.
+ * The effective rate, in destination units per source unit.
  */
-export interface PostQuoteEntryBankModel { 
+export interface EffectiveRateBankModel { 
     /**
-     * The type of account
+     * The asset converted from, e.g., USD.
      */
-    type: PostQuoteEntryBankModel.TypeEnum;
+    source_asset: string;
     /**
-     * The guid of the account
+     * The asset converted to, e.g., MXN.
      */
-    guid: string;
+    destination_asset: string;
     /**
-     * The amount to be received in base units of the currency: currency is \"asset\" for buy and \"counter_asset\" for sell for trade quotes.
+     * The quoted effective rate as a decimal string. Null until quoted amounts are known.
      */
-    receive_amount?: string;
+    quoted?: string | null;
     /**
-     * The amount to be delivered in base units of the currency: currency is \"counter_asset\" for buy and \"asset\" for sell for trade quotes.
+     * The executed effective rate as a decimal string. Null until execution completes.
      */
-    deliver_amount?: string;
+    executed?: string | null;
 }
-export namespace PostQuoteEntryBankModel {
-    export type TypeEnum = 'external_wallet';
-    export const TypeEnum = {
-        ExternalWallet: 'external_wallet' as TypeEnum
-    };
-}
-
 
