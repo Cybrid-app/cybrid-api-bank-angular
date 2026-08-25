@@ -11,10 +11,10 @@
  */
 
 
-export type CustomerTypeBankModel = 'business' | 'individual';
-
-export const CustomerTypeBankModel = {
-    Business: 'business' as CustomerTypeBankModel,
-    Individual: 'individual' as CustomerTypeBankModel
-};
+export interface PayoutReturnDetailsBankModel { 
+    /**
+     * The timestamp when the return was initiated by the provider.
+     */
+    returned_at: string;
+}
 

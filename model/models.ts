@@ -98,6 +98,7 @@ export * from './patchTransfer';
 export * from './patchTransferParticipant';
 export * from './paymentInstruction';
 export * from './paymentInstructionList';
+export * from './payoutReturnDetails';
 export * from './personaSession';
 export * from './physicalAddress';
 export * from './plan';
