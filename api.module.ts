@@ -23,6 +23,7 @@ import { QuotesService } from './api/quotes.service';
 import { SardineSessionsService } from './api/sardineSessions.service';
 import { SymbolsService } from './api/symbols.service';
 import { TradesService } from './api/trades.service';
+import { TransactionsService } from './api/transactions.service';
 import { TransfersService } from './api/transfers.service';
 import { WorkflowsService } from './api/workflows.service';
 
