@@ -9,88 +9,36 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { IdentityVerificationWithDetailsPiiBankModel } from './identityVerificationWithDetailsPii';
-import { ComplianceDecisionBankModel } from './complianceDecision';
-import { IdentityVerificationOptionsBankModel } from './identityVerificationOptions';
-import { ComplianceCheckBankModel } from './complianceCheck';
-import { IdentityVerificationDocumentBankModel } from './identityVerificationDocument';
-import { IdentityVerificationBusinessAssociateBankModel } from './identityVerificationBusinessAssociate';
 
 
-export interface IdentityVerificationWithDetailsBankModel { 
+export interface IntermediateAccountBankModel { 
     /**
-     * Auto-generated unique identifier for the identity verification.
+     * Auto-generated unique identifier for the transfer account.
      */
-    guid?: string;
+    guid: string;
     /**
-     * The identity verification type; one of kyc, bank_account, or counterparty.
+     * The type of transfer account; one of trading, fiat, external_bank_account, or external_wallet.
      */
-    type?: string;
+    type: string;
     /**
-     * The identity verification method; one of attested, document_submission, enhanced_due_diligence, id_and_selfie, tax_id_and_selfie, business_registration, attested_id_and_selfie, attested_business_registration, attested_business_associate, attested_id_and_database, attested_database, watchlists, attested_ownership, or account_ownership.
+     * The account\'s organization identifier.
      */
-    method?: string;
+    organization_guid?: string | null;
     /**
-     * ISO8601 datetime the record was created at.
+     * The account\'s bank identifier.
      */
-    created_at?: string;
+    bank_guid?: string | null;
     /**
-     * ISO8601 datetime the record was last updated at.
-     */
-    updated_at?: string;
-    /**
-     * The identity verification\'s identifier.
+     * The account\'s customer identifier.
      */
     customer_guid?: string | null;
     /**
-     * The identity verification\'s identifier.
+     * The account\'s counterparty identifier.
      */
     counterparty_guid?: string | null;
     /**
-     * The identity verification\'s identifier.
+     * The account asset, e.g., USD.
      */
-    external_bank_account_guid?: string | null;
-    /**
-     * The identity verification state; one of storing, waiting, pending, reviewing, expired, or completed.
-     */
-    state?: string;
-    /**
-     * The identity verification outcome; one of passed or failed.
-     */
-    outcome?: string | null;
-    /**
-     * The reason codes explaining the outcome.
-     */
-    failure_codes?: Array<string> | null;
-    /**
-     * The compliance checks associated with the identity verification.
-     */
-    compliance_checks?: Array<ComplianceCheckBankModel>;
-    /**
-     * The compliance decisions associated with the identity verification.
-     */
-    compliance_decisions?: Array<ComplianceDecisionBankModel>;
-    /**
-     * The Persona identifier of the backing inquiry.
-     */
-    persona_inquiry_id?: string | null;
-    /**
-     * The Persona state of the backing inquiry; one of waiting, pending, reviewing, processing, expired, completed, or unknown.
-     */
-    persona_state?: string | null;
-    /**
-     * List of associates declared for the business customer.
-     */
-    business_associates?: Array<IdentityVerificationBusinessAssociateBankModel> | null;
-    pii?: IdentityVerificationWithDetailsPiiBankModel | null;
-    /**
-     * The documents associated with the identity verification.
-     */
-    documents?: Array<IdentityVerificationDocumentBankModel> | null;
-    /**
-     * The supporting documents associated with the attested identity verification.
-     */
-    supporting_files?: Array<IdentityVerificationDocumentBankModel> | null;
-    options?: IdentityVerificationOptionsBankModel | null;
+    asset: string;
 }
 
