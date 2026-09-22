@@ -11,25 +11,15 @@
  */
 
 
-/**
- * The customer\'s name. Required when type is kyc and method is attested, type is kyc and method is attested_business_registration, type is kyc and method is attested_id_and_selfie, type is kyc and method is attested_business_associate, type is kyc and method is attested_id_and_database, type is kyc and method is attested_database, or type is bank_account and method is attested_ownership. Optional when type is kyc and method is watchlists.
- */
-export interface PostIdentityVerificationNameBankModel { 
-    /**
-     * The customer\'s first name. Required when type is kyc and method is attested, type is kyc and method is attested_id_and_selfie, type is kyc and method is attested_business_associate, type is kyc and method is attested_id_and_database, or type is kyc and method is attested_database. Optional when type is kyc and method is watchlists or type is bank_account and method is attested_ownership.
-     */
-    first?: string | null;
-    /**
-     * The customer\'s middle name. Optional when type is kyc and method is attested, type is kyc and method is attested_id_and_selfie, type is kyc and method is attested_business_associate, type is kyc and method is attested_id_and_database, type is kyc and method is attested_database, type is kyc and method is watchlists, or type is bank_account and method is attested_ownership.
-     */
-    middle?: string | null;
-    /**
-     * The customer\'s last name. Required when type is kyc and method is attested, type is kyc and method is attested_id_and_selfie, type is kyc and method is attested_business_associate, type is kyc and method is attested_id_and_database, or type is kyc and method is attested_database. Optional when type is kyc and method is watchlists or type is bank_account and method is attested_ownership.
-     */
-    last?: string | null;
-    /**
-     * The customer\'s full name. Required when type is kyc and method is attested_business_registration or type is bank_account and method is attested_ownership. Optional when type is kyc and method is attested, type is kyc and method is attested_id_and_selfie, type is kyc and method is attested_business_associate, type is kyc and method is attested_id_and_database, type is kyc and method is attested_database, or type is kyc and method is watchlists.
-     */
-    full?: string | null;
-}
+export type PlanTypeBankModel = 'remittance' | 'bill_pay' | 'disbursement' | 'invoice_pay' | 'deposit' | 'withdrawal' | 'conversion';
+
+export const PlanTypeBankModel = {
+    Remittance: 'remittance' as PlanTypeBankModel,
+    BillPay: 'bill_pay' as PlanTypeBankModel,
+    Disbursement: 'disbursement' as PlanTypeBankModel,
+    InvoicePay: 'invoice_pay' as PlanTypeBankModel,
+    Deposit: 'deposit' as PlanTypeBankModel,
+    Withdrawal: 'withdrawal' as PlanTypeBankModel,
+    Conversion: 'conversion' as PlanTypeBankModel
+};
 

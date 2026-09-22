@@ -107,6 +107,7 @@ export * from './plan';
 export * from './planList';
 export * from './planReference';
 export * from './planTravelRuleInfo';
+export * from './planType';
 export * from './platformFile';
 export * from './platformFileList';
 export * from './postAccount';
