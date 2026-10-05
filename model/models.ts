@@ -137,8 +137,6 @@ export * from './postIdentityVerificationAliasesInner';
 export * from './postIdentityVerification';
 export * from './postIdentityVerificationName';
 export * from './postIdentityVerificationRegisteredAddress';
-export * from './postInvoice';
-export * from './postPaymentInstruction';
 export * from './postPersonaSession';
 export * from './postPlan';
 export * from './postPlanDestinationAccount';
